@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChatHistory">
+    <accountData>
+      <list>
+        <AccountData>
+          <accountId value="VXNlcjoxODkyNDM=" />
+          <chats>
+            <list>
+              <chat>
+                <internalId value="4299f839-a731-4fdd-a3c9-86f6077bacb5" />
+              </chat>
+              <chat>
+                <internalId value="eb9741a8-b9a0-4cf6-b053-cd891bb34843" />
+              </chat>
+              <chat>
+                <internalId value="636a9796-9279-4ca9-8bc2-dc2681218add" />
+              </chat>
+              <chat>
+                <internalId value="3bc45859-0f17-4518-9cec-ea6bbfb486eb" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="can i setup a ssh config to only take effect from a certain directory or git user.email?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Unfortunately, SSH configurations are typically applied system-wide and not on a per-directory or per-user basis. The SSH configuration file (`~/.ssh/config`) is used to specify various options for SSH connections, including host aliases, connection options, and more.&#10;&#10;However, you can achieve a similar effect by using conditional blocks in your SSH config file. These blocks allow you to specify conditions under which certain configuration options should be applied. One way to do this is by checking the current working directory or the user's email address.&#10;&#10;Here's an example of how you can set up an SSH config that applies different settings based on the current working directory:&#10;&#10;```&#10;Host example.com&#10;    HostName example.com&#10;    User myusername&#10;&#10;# Apply the following settings only when the current working directory&#10;# matches the specified pattern&#10;Host example.com work/*&#10;    IdentityFile ~/.ssh/work_key&#10;    SendEnv WORK_ENV=1&#10;&#10;# Apply the following settings only when the current working directory&#10;# does not match the &quot;work/*&quot; pattern&#10;Host example.com !work/*&#10;    IdentityFile ~/.ssh/personal_key&#10;    SendEnv PERSONAL_ENV=1&#10;```&#10;&#10;In this example, when you're in a directory that matches the `work/*` pattern, SSH will use the `work_key` identity file and set the `WORK_ENV` environment variable. For all other directories, it will use the `personal_key` identity file and set the `PERSONAL_ENV` environment variable.&#10;&#10;While there's no direct way to check the user's email address in the SSH config file, you could potentially use a script or an alias that checks the email address and then loads the appropriate SSH config file based on that.&#10;&#10;Keep in mind that these conditional blocks can make your SSH config more complex and harder to maintain, so it's generally recommended to keep the config as simple as possible and use separate config files or aliases for different use cases if needed." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="so for /Users/laura/lewis dir, what would it be?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Based on the codebase context provided, there doesn't seem to be any information related to setting up an SSH configuration based on the current working directory or user's email address.&#10;&#10;However, if you want to set up an SSH configuration that applies specific settings when you're in the `/Users/laura/lewis` directory, you can use the following conditional block in your `~/.ssh/config` file:&#10;&#10;```&#10;Host example.com&#10;    HostName example.com&#10;    User myusername&#10;&#10;# Apply the following settings only when the current working directory&#10;# is /Users/laura/lewis&#10;Host example.com CurrentDir=/Users/laura/lewis&#10;    IdentityFile ~/.ssh/lewis_key&#10;    SendEnv LEWIS_ENV=1&#10;&#10;# Apply the following settings for all other directories&#10;Host example.com !CurrentDir=/Users/laura/lewis&#10;    IdentityFile ~/.ssh/default_key&#10;    SendEnv DEFAULT_ENV=1&#10;```&#10;&#10;In this example, when you're in the `/Users/laura/lewis` directory, SSH will use the `lewis_key` identity file and set the `LEWIS_ENV` environment variable. For all other directories, it will use the `default_key` identity file and set the `DEFAULT_ENV` environment variable.&#10;&#10;Note that the `CurrentDir` condition is not a standard SSH configuration option, but it's a pattern that can be used to match the current working directory. The `!CurrentDir=/Users/laura/lewis` condition is used to match all other directories that don't match the specified path.&#10;&#10;Keep in mind that this approach relies on the current working directory, so if you switch to a different directory within the same terminal session, the SSH configuration will change accordingly." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-07-21T09:14:06.187711" />
+              </chat>
+            </list>
+          </chats>
+        </AccountData>
+      </list>
+    </accountData>
+  </component>
+</project>
