@@ -1,5 +1,26 @@
 # README
 
+## Local Development
+
+### Setting up the db
+
+Setup a folder for the postgres db 
+```bash
+mkdir -p ~/postgres-data
+dbinit -D ~/postgres-data
+```
+
+Start a postgres instance
+
+```bash
+pg_ctl -D ~/postgres-data -l ~/postgres-data/server.log start
+```
+
+Run the migrations
+```bash
+bin/rails db:migrate
+```
+
 ## Deployment
 
 ### fly.io
