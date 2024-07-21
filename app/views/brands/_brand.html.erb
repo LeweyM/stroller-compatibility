@@ -9,4 +9,17 @@
     <a href="<%= brand.website %>">link</a>
   </p>
 
+  <p>
+    <strong>Strollers:</strong>
+    <% if brand.strollers.any? %>
+    <ul>
+      <% brand.strollers.each do |stroller| %>
+        <li>
+          <%= link_to stroller.name, stroller %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  </p>
+
 </div>

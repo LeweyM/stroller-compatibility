@@ -1,0 +1,27 @@
+<%= form_with(model: stroller) do |form| %>
+  <% if stroller.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(stroller.errors.count, "error") %> prohibited this stroller from being saved:</h2>
+
+      <ul>
+        <% stroller.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :brand_name, style: "display: block" %>
+    <%= form.text_field :brand_name %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

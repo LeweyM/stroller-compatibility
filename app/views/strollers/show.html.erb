@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @stroller %>
+
+<div>
+  <%= link_to "Edit this stroller", edit_stroller_path(@stroller) %> |
+  <%= link_to "Back to strollers", strollers_path %>
+
+  <%= button_to "Destroy this stroller", @stroller, method: :delete %>
+</div>

@@ -10,27 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_21_063831) do
-  create_schema "auth"
-  create_schema "extensions"
-  create_schema "graphql"
-  create_schema "graphql_public"
-  create_schema "pgbouncer"
-  create_schema "pgsodium"
-  create_schema "pgsodium_masks"
-  create_schema "realtime"
-  create_schema "storage"
-  create_schema "vault"
-
+ActiveRecord::Schema[7.1].define(version: 2024_07_21_091305) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_graphql"
-  enable_extension "pg_stat_statements"
-  enable_extension "pgcrypto"
-  enable_extension "pgjwt"
-  enable_extension "pgsodium"
   enable_extension "plpgsql"
-  enable_extension "supabase_vault"
-  enable_extension "uuid-ossp"
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
@@ -39,4 +21,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_21_063831) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "strollers", force: :cascade do |t|
+    t.bigint "brand_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_strollers_on_brand_id"
+  end
+
+  add_foreign_key "strollers", "brands"
 end

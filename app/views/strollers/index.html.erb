@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Strollers</h1>
+
+<div id="strollers">
+  <% @strollers.each do |stroller| %>
+    <%= render stroller %>
+    <p>
+      <%= link_to "Show this stroller", stroller %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New stroller", new_stroller_path %>
