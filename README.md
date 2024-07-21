@@ -45,7 +45,7 @@ fly secrets set DATABASE_URL=xxxx
 ## Todos:
 
 - [x] deployment to fly.io and supabase
-- [ ] view strollers for a brand
+- [x] view strollers for a brand
 - [ ] view seats for a brand
 - [ ] view compatibility of a seat and a stroller
 - [ ] active filtering dropdown for products
