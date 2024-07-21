@@ -4,6 +4,10 @@ class StrollersController < ApplicationController
   # GET /strollers or /strollers.json
   def index
     @strollers = Stroller.all
+
+    # group by brand
+    @strollers_by_brand = @strollers.group_by(&:brand)
+    puts @strollers_by_brand
   end
 
   # GET /strollers/1 or /strollers/1.json

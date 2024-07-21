@@ -3,12 +3,16 @@
 <h1>Strollers</h1>
 
 <div id="strollers">
-  <% @strollers.each do |stroller| %>
-    <%= render stroller %>
-    <p>
-      <%= link_to "Show this stroller", stroller %>
-    </p>
+  <% @strollers_by_brand.each do |brand, strollers| %>
+    <h2><%= brand.name %></h2>
+    <% strollers.each do |stroller| %>
+      <p>
+        <%= link_to stroller.name, stroller %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 
-<%= link_to "New stroller", new_stroller_path %>
+<button>
+  <%= link_to "New stroller", new_stroller_path %>
+</button>
