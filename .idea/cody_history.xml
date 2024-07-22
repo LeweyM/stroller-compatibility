@@ -107,9 +107,46 @@
               </chat>
               <chat>
                 <internalId value="065e6a6c-3834-4398-abb7-0f626aa9e1c9" />
+                <llm>
+                  <llm>
+                    <model value="openai/gpt-3.5-turbo" />
+                    <provider value="OpenAI" />
+                    <title value="GPT-3.5 Turbo" />
+                  </llm>
+                </llm>
               </chat>
               <chat>
                 <internalId value="51b3382b-5066-4d04-a161-cd854b65c027" />
+                <llm>
+                  <llm>
+                    <model value="openai/gpt-3.5-turbo" />
+                    <provider value="OpenAI" />
+                    <title value="GPT-3.5 Turbo" />
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <internalId value="505bcac9-efe6-411a-9d18-a801883d3a4d" />
+                <llm>
+                  <llm>
+                    <model value="openai/gpt-3.5-turbo" />
+                    <provider value="OpenAI" />
+                    <title value="GPT-3.5 Turbo" />
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="how can i flush the db in rails?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To flush the database in Rails, you can run the following command:&#10;&#10;```bash&#10;rails db:drop db:create db:migrate&#10;```&#10;&#10;This command will drop the existing database, create a new one, and then run all the migrations to set up the schema. It effectively resets the database to its initial state." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-07-22T07:40:52.900286" />
               </chat>
             </list>
           </chats>

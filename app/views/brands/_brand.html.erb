@@ -9,7 +9,7 @@
     <a href="<%= brand.website %>">link</a>
   </p>
 
-  <p>
+  <div>
     <strong>Strollers:</strong>
     <% if brand.strollers.any? %>
     <ul>
@@ -20,6 +20,17 @@
       <% end %>
     </ul>
   <% end %>
-  </p>
+  </div>
 
-</div>
+  <div>
+    <strong>Seats:</strong>
+    <% if brand.seats.any? %>
+    <ul>
+      <% brand.seats.each do |seat| %>
+        <li>
+          <%= link_to seat.name, seat %>
+        </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
