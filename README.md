@@ -7,7 +7,7 @@
 Setup a folder for the postgres db 
 ```bash
 mkdir -p ~/postgres-data
-dbinit -D ~/postgres-data
+initdb -D ~/postgres-data
 ```
 
 Start a postgres instance
@@ -16,9 +16,15 @@ Start a postgres instance
 pg_ctl -D ~/postgres-data -l ~/postgres-data/server.log start
 ```
 
-Run the migrations
+Stop the postgres instance
+```bash
+pg_ctl -D ~/postgres-data stop
+```
+
+Run the migrations and seed the db
 ```bash
 bin/rails db:migrate
+bin/rails db:seed:replant
 ```
 
 ## Deployment
@@ -46,7 +52,7 @@ fly secrets set DATABASE_URL=xxxx
 
 - [x] deployment to fly.io and supabase
 - [x] view strollers for a brand
-- [ ] view seats for a brand
+- [x] view seats for a brand
 - [ ] view compatibility of a seat and a stroller
 - [ ] active filtering dropdown for products
 - [ ] hosting on a domain
