@@ -1,8 +1,13 @@
 <h1>Does it Fit?</h1>
 <h2>
-  <%= @product.brand.name.capitalize %> -
-  <%= @product.name %>
+  <span><%= @product.brand.name.capitalize %> - <%= @product.name %></span>
 </h2>
+<p>
+  type: <%= @product.productable_type.titleize %>
+</p>
+<p>
+  <a href='<%= @product.link %>'>link</a>
+</p>
 
 <h2>Choose another item to see if it fits</h2>
 <p>
@@ -10,7 +15,7 @@
     <%= select_tag 'other_product_id',
                    options_for_select(
                      @other_products.map { |product|
-                       ["#{product.brand.name} - #{product.name}", "#{product.class}-#{product.id}"]
+                       ["#{product.productable_type}: #{product.brand.name} - #{product.name}", "#{product.class}-#{product.id}"]
                      }, false),
                    onchange: "navigateToFitProduct(this.value)"
     %>
