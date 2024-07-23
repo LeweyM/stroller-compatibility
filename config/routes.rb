@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :seats
-  resources :strollers
+  resources :seats, :strollers do
+    member do
+      # GET /seats/:id/fits
+      get :fits
+      get 'fits/:type/:id', to: 'products#compatible'
+    end
+  end
   resources :brands
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

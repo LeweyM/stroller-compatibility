@@ -1,4 +1,4 @@
-class SeatsController < ApplicationController
+class SeatsController < ProductsController
   before_action :set_seat, only: %i[ show edit update destroy ]
 
   # GET /seats or /seats.json
@@ -58,13 +58,18 @@ class SeatsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_seat
-      @seat = Seat.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def seat_params
-      params.require(:seat).permit(:brand_id, :name, :link)
-    end
+  def get_product(id)
+    @seat = Seat.find(id)
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_seat
+    @seat = Seat.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def seat_params
+    params.require(:seat).permit(:brand_id, :name, :link)
+  end
 end

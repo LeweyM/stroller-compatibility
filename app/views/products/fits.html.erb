@@ -1,0 +1,26 @@
+<h1>Does it Fit?</h1>
+<h2>
+  <%= @product.brand.name.capitalize %> -
+  <%= @product.name %>
+</h2>
+
+<h2>Choose another item to see if it fits</h2>
+<p>
+  <label for="other_product_id">
+    <%= select_tag 'other_product_id',
+                   options_for_select(
+                     @other_products.map { |product|
+                       ["#{product.brand.name} - #{product.name}", "#{product.class}-#{product.id}"]
+                     }, false),
+                   onchange: "navigateToFitProduct(this.value)"
+    %>
+  </label>
+</p>
+
+<script>
+    function navigateToFitProduct(value) {
+        const [product_type, product_id] = value.split('-');
+        const type = product_type.toLowerCase() + 's';
+        window.location.href = `${window.location.href}/${type}/${product_id}`;
+    }
+</script>

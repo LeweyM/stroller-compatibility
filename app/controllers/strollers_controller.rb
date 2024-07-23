@@ -1,4 +1,4 @@
-class StrollersController < ApplicationController
+class StrollersController < ProductsController
   before_action :set_stroller, only: %i[ show edit update destroy ]
 
   # GET /strollers or /strollers.json
@@ -70,6 +70,11 @@ class StrollersController < ApplicationController
   end
 
   private
+
+  def get_product(id)
+    @stroller = Stroller.find(id)
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_stroller
       @stroller = Stroller.find(params[:id])
