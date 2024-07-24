@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   get 'products/index'
   get 'products/show'
-  resources :products do
+  resources :products, param: :slug, path: '' do
     member do
-      # GET /seats/:id/fits
       get :fits
-      get 'fits/products/:b_id', to: 'products#compatible'
+      get 'fits/:b_id', to: 'products#compatible', param: :slug
     end
   end
   resources :brands

@@ -15,7 +15,7 @@
     <ul>
       <% brand.strollers.each do |stroller| %>
         <li>
-          <%= link_to stroller.name, controller: 'products', action: 'fits', id: stroller.product.id %>
+          <%= link_to stroller.name, controller: 'products', action: 'fits', slug: stroller.product.slug %>
         </li>
       <% end %>
     </ul>
@@ -28,7 +28,7 @@
     <ul>
       <% brand.seats.each do |seat| %>
         <li>
-          <%= link_to seat.name, controller: 'products', action: 'fits', id: seat.product.id %>
+          <%= link_to seat.name, controller: 'products', action: 'fits', slug: seat.product.slug %>
         </li>
       <% end %>
     </ul>

@@ -15,7 +15,7 @@
     <%= select_tag 'other_product_id',
                    options_for_select(
                      @other_products.map { |product|
-                       ["#{product.productable_type}: #{product.brand.name} - #{product.name}", "#{product.class}-#{product.id}"]
+                       ["#{product.productable_type}: #{product.brand.name} - #{product.name}", "#{product.slug}"]
                      }, false),
                    onchange: "navigateToFitProduct(this.value)"
     %>
@@ -23,9 +23,7 @@
 </p>
 
 <script>
-    function navigateToFitProduct(value) {
-        const [product_type, product_id] = value.split('-');
-        const type = product_type.toLowerCase() + 's';
-        window.location.href = `${window.location.href}/${type}/${product_id}`;
+    function navigateToFitProduct(slug) {
+        window.location.href = `${window.location.href}/${slug}`;
     }
 </script>

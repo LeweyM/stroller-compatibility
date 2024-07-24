@@ -8,6 +8,9 @@ gem 'dotenv', groups: [:development, :test]
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
+# for slug urls
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

@@ -7,7 +7,7 @@
   <br>
   <% strollers.each do |stroller| %>
     <p>
-      <%= link_to stroller.name, url_for(controller: 'products', action: 'fits', id: stroller.id) %>
+      <%= link_to stroller.name, url_for(controller: 'products', action: 'fits', slug: stroller.slug) %>
       <br>
     </p>
   <% end %>
