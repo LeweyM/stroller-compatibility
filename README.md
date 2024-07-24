@@ -53,9 +53,9 @@ fly secrets set DATABASE_URL=xxxx
 - [x] deployment to fly.io and supabase
 - [x] view strollers for a brand
 - [x] view seats for a brand
-- [ ] view compatibility of a seat and a stroller
-- [ ] active filtering dropdown for products
+- [x] view compatibility of a seat and a stroller
 - [ ] urls for products should be name not id
+- [ ] active filtering dropdown for products
 - [ ] hosting on a domain
 - [ ] admin user for updating brands
 - [ ] populate initial product database from https://www.babylist.com/hello-baby/car-seat-stroller-compatibility

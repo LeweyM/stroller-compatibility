@@ -71,17 +71,13 @@ class StrollersController < ProductsController
 
   private
 
-  def get_product(id)
-    @stroller = Stroller.find(id)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_stroller
+    @stroller = Product.where(productable_id: params[:id], productable_type: 'Stroller').first.productable
   end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_stroller
-      @stroller = Stroller.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def stroller_params
-      params.require(:stroller).permit(:brand_id, :name)
-    end
+  # Only allow a list of trusted parameters through.
+  def stroller_params
+    params.require(:stroller).permit(:brand_id, :name)
+  end
 end

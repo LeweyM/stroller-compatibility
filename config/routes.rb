@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :seats, :strollers do
+  get 'products/index'
+  get 'products/show'
+  resources :products do
     member do
       # GET /seats/:id/fits
       get :fits
-      get 'fits/:type/:id', to: 'products#compatible'
+      get 'fits/products/:b_id', to: 'products#compatible'
     end
   end
   resources :brands

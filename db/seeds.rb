@@ -40,3 +40,22 @@ end
   s = Seat.find_or_create_by!(brand_id: Brand.find_by(name: "lovecare").id, name: model_name, link: "https://www.lovecare.com/#{model_name}")
   Product.create!(productable: s, name: model_name, link: "https://www.lovecare.com/#{model_name}", brand: b)
 end
+
+# create some adapters
+a = Adapter.create!();
+Product.create!(productable: a, name: "global adapter", link: "https://www.maxicosi.com/global_adapter", brand: Brand.find_by(name: "maxicosi"))
+
+# generate some compatible links between seats and stollers
+[
+  [Seat.find_by(name: "cushion"), Stroller.find_by(name: "maxicosi 120")],
+  [Seat.find_by(name: "cushion with pebble"), Stroller.find_by(name: "maxicosi 120"), a],
+  [Seat.find_by(name: "cushion with pebble and wheel"), Stroller.find_by(name: "maxicosi 140")],
+  [Seat.find_by(name: "wheel"), Stroller.find_by(name: "maxicosi 200")],
+#   lovecare
+  [Seat.find_by(name: "cushion with pebble"), Stroller.find_by(name: "lovecare grande")],
+  [Seat.find_by(name: "cushion with pebble and wheel"), Stroller.find_by(name: "lovecare grande")],
+  [Seat.find_by(name: "wheel"), Stroller.find_by(name: "lovecare 120"), a],
+].each do |seat, stroller, adapter|
+  CompatibleLink.find_or_create_by!(product_a: seat.product, product_b: stroller.product, adapter: adapter.product) if adapter
+  CompatibleLink.find_or_create_by!(product_a: seat.product, product_b: stroller.product) if adapter.nil?
+end

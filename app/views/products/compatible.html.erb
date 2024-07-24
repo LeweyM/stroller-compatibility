@@ -1,1 +1,21 @@
 <h1>Is it compatible?</h1>
+
+<% if @link %>
+  <strong>Yes, these products are compatible!</strong>
+  <div>
+    <%= @link.product_a.name %>
+  </div>
+  <div>
+    <%= @link.product_b.name %>
+  </div>
+  <% if @link.adapter %>
+    <h2>These products need an adapter</h2>
+    <div>
+      <%= @link.adapter.name %>
+    </div>
+  <% end %>
+<% else %>
+  <div>
+    Sorry, it's not compatible.
+  </div>
+<% end %>
