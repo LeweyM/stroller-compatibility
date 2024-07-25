@@ -76,3 +76,5 @@ group :test do
 end
 
 gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "jsbundling-rails", "~> 1.3"

@@ -39,6 +39,7 @@
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.7.2, rbenv: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.14.0, rbenv: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.12.0, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jsbundling-rails (v1.3.0, rbenv: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v3.9.0, rbenv: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="logger (v1.6.0, rbenv: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.22.0, rbenv: 3.3.4) [gem]" level="application" />
@@ -268,6 +269,21 @@
           <RakeTaskImpl id="importmap">
             <subtasks>
               <RakeTaskImpl description="Setup Importmap for the app" fullCommand="importmap:install" id="install" />
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl id="javascript">
+            <subtasks>
+              <RakeTaskImpl description="Build your JavaScript bundle" fullCommand="javascript:build" id="build" />
+              <RakeTaskImpl description="Remove JavaScript builds" fullCommand="javascript:clobber" id="clobber" />
+              <RakeTaskImpl description="Install JavaScript dependencies" fullCommand="javascript:install" id="install" />
+              <RakeTaskImpl id="install">
+                <subtasks>
+                  <RakeTaskImpl description="Install Bun" fullCommand="javascript:install:bun" id="bun" />
+                  <RakeTaskImpl description="Install esbuild" fullCommand="javascript:install:esbuild" id="esbuild" />
+                  <RakeTaskImpl description="Install rollup.js" fullCommand="javascript:install:rollup" id="rollup" />
+                  <RakeTaskImpl description="Install Webpack" fullCommand="javascript:install:webpack" id="webpack" />
+                </subtasks>
+              </RakeTaskImpl>
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl id="log">
