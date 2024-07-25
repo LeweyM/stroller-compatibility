@@ -1,6 +1,53 @@
 # README
 
+## Development
+
+### React
+
+react has been setup using esbuild.
+
+Followed the excellent guide here: https://ryanbigg.com/2023/06/rails-7-react-typescript-setup
+
+Yarn is used to rebuild the app assets, so use `yarn build --watch` to rebuild any changed files in dev.
+
+Add a new component using the ReactComponent class
+```erb
+<%= render ReactComponent.new("App") %>
+```
+
+`App` is defined in `app/javascript/react/src/components` and uses the mount helper.
+
+We can package this in a ruby class as follows
+```ruby
+module Products
+  class ShowComponent < ReactComponent
+    def initialize(raw_props)
+      super("Product", raw_props: raw_props)
+    end
+
+    def props
+      raw_props.merge(
+        price: helpers.number_to_currency(raw_props[:price])
+      )
+    end
+  end
+end
+```
+
+and then use it in the view like so
+
+```erb
+<%= render Products::ShowComponent.new(name: "Shoes", price: 100) %>
+```
+
 ## Local Development
+
+### TLDR;
+```bash
+yarb build --watch # rebuilds assets on change
+pg_ctl -D ~/postgres-data -l ~/postgres-data/server.log start
+bin/rails s # starts rails server
+```
 
 ### Setting up the db
 

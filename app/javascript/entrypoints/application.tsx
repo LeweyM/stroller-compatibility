@@ -1,9 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 import mount from "../mount";
-
-const App = () => <h1>Hello from React!</h1>;
+import {Search} from "../react/src/components/Search";
 
 mount({
-    App
+    Search
 })

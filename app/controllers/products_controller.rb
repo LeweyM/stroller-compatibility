@@ -7,6 +7,15 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def search
+    query_result = Product.where("name LIKE ?", "%#{params[:search_term]}%")
+                          .limit(15)
+                          .pluck(:slug, :name)
+    result = query_result.map { |slug, name| { slug: slug, name: name } }
+    pp result
+    render json: result
+  end
+
   def fits
     @product = Product.friendly.find(params[:slug])
     @other_products = Product.where.not(productable_type: @product.productable_type)
