@@ -12,7 +12,17 @@ class ProductsController < ApplicationController
                           .limit(15)
                           .pluck(:slug, :name)
     result = query_result.map { |slug, name| { slug: slug, name: name } }
-    pp result
+    render json: result
+  end
+
+  def search_comparison
+    pp params
+    query_result = Product
+                          .where(productable_type: params[:type])
+                          .where("name LIKE ?", "%#{params[:search_term]}%")
+                          .limit(15)
+                          .pluck(:slug, :name)
+    result = query_result.map { |slug, name| { slug: slug, name: name } }
     render json: result
   end
 

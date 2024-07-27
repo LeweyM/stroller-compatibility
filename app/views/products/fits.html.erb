@@ -9,6 +9,8 @@
   <a href='<%= @product.link %>'>link</a>
 </p>
 
+<%= render SearchComparisonProduct::ShowComponent.new(searchUrl: url_for(controller: 'products', action: 'search_comparison'), product: @product) %>
+
 <h2>Choose another item to see if it fits</h2>
 <p>
   <label for="other_product_id">

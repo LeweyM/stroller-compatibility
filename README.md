@@ -102,8 +102,9 @@ fly secrets set DATABASE_URL=xxxx
 - [x] view seats for a brand
 - [x] view compatibility of a seat and a stroller
 - [x] urls for products should be name not id
-- [ ] active filtering dropdown for products
-- [ ] hosting on a domain
+- [x] active filtering dropdown for products
+- [ ] basic UI designs
 - [ ] admin user for updating brands
 - [ ] populate initial product database from https://www.babylist.com/hello-baby/car-seat-stroller-compatibility
+- [ ] hosting on a domain
 - [ ] pipeline to process amazon reviews for compatibility information
