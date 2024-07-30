@@ -1,21 +1,46 @@
-<h1>Is it compatible?</h1>
+<%= render layout: 'shared/container' do %>
+  <div class="min-w-64">
+    <h1 class="text-center text-gray-700">Are they compatible?</h1>
 
-<% if @link %>
-  <strong>Yes, these products are compatible!</strong>
-  <div>
-    <%= @link.product_a.name %>
-  </div>
-  <div>
-    <%= @link.product_b.name %>
-  </div>
-  <% if @link.adapter %>
-    <h2>These products need an adapter</h2>
-    <div>
-      <%= @link.adapter.name %>
+    <% if @link %>
+      <%= render partial: 'shared/hero', locals: { title: 'Yes, these products are compatible!' } %>
+    <% else %>
+      <%= render partial: 'shared/hero', locals: { title: 'Sorry, they\'re not compatible.' } %>
+    <% end %>
+
+    <div class="mt-8 flex">
+      <div class="p-8 w-full">
+        <%= render partial: 'products/main', locals: { product: @product_a } %>
+      </div>
+      <div class="py-8 mt-20 w-full flex flex-col items-center">
+        <% if @link %>
+          <div class="w-1/2">
+            <img src="<%= asset_path('check.png') %>" alt="Check mark"/>
+          </div>
+        <% else %>
+          <div class="w-1/2">
+            <img src="<%= asset_path('cross.png') %>" alt="Cross mark"/>
+          </div>
+          <div class="mt-8">
+            <%= render partial: 'shared/subtitle', locals: { text: 'Search for other compatible products', center: true } %>
+            <div class="flex justify-center mt-4">
+              <%= render partial: 'shared/button', locals: { link: fits_product_url(@product_a.id), text: 'Back', secondary: true } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="p-8 w-full">
+        <%= render partial: 'products/main', locals: { product: @product_b } %>
+      </div>
     </div>
-  <% end %>
-<% else %>
-  <div>
-    Sorry, it's not compatible.
+
+    <% if @link&.adapter %>
+      <%= render partial: 'shared/subtitle', locals: { text: 'These products need an adapter' } %>
+      <div class="mt-4">
+        <%= @link.adapter.name %>
+      </div>
+    <% end %>
+
+    <%= render partial: 'products/compatible_product_carousel', locals: { product: @product_a } %>
   </div>
 <% end %>

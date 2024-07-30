@@ -1,0 +1,11 @@
+<div class="flex flex-wrap w-full h-96 overflow-y-auto">
+  <% products.each_slice(3) do |row| %>
+    <div class="flex w-full justify-evenly">
+      <% row.each do |product| %>
+        <div class="px-2 mb-4 w-52">
+          <%= render partial: 'card', locals: { product: product } %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,16 +1,9 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
-
-<%= render SearchProduct::ShowComponent.new(searchUrl: url_for(controller: 'products', action: 'search')) %>
-
-<% @strollers.each do |brand, strollers| %>
-  <strong>Brand:</strong>
-  <%= link_to brand.name, brand %>
-  <br>
-  <% strollers.each do |stroller| %>
-    <p>
-      <%= link_to stroller.name, url_for(controller: 'products', action: 'fits', slug: stroller.slug) %>
-      <br>
-    </p>
-  <% end %>
+<%= render layout: 'shared/container' do %>
+  <div>
+    <%= render partial: 'shared/hero', locals: { title: 'Is your stroller compatible?' } %>
+    <div class="mt-8">
+      <%= render partial: 'shared/subtitle', locals: { text: 'Search for your stroller' } %>
+      <%= render SearchProduct::ShowComponent.new(searchUrl: url_for(controller: 'products', action: 'search')) %>
+    </div>
+  </div>
 <% end %>

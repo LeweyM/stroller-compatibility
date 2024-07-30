@@ -32,13 +32,15 @@ class ProductsController < ApplicationController
   end
 
   def compatible
-    product_a = Product.friendly.find(params[:slug])
-    product_b = Product.friendly.find(params[:b_id])
-    @link = (CompatibleLink.where(product_a_id: product_a.id)
-                           .and(CompatibleLink.where(product_b_id: product_b.id)))
-              .or(CompatibleLink.where(product_a_id: product_b.id)
-                                .and(CompatibleLink.where(product_b_id: product_a.id)))
+    @product_a = Product.friendly.find(params[:slug])
+    @product_b = Product.friendly.find(params[:b_id])
+    @link = (CompatibleLink.where(product_a_id: @product_a.id)
+                           .and(CompatibleLink.where(product_b_id: @product_b.id)))
+              .or(CompatibleLink.where(product_a_id: @product_b.id)
+                                .and(CompatibleLink.where(product_b_id: @product_a.id)))
               .first
+
+    @suggested_products = @product_a.compatible_products
   end
 
   private

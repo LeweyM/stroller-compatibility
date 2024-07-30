@@ -44,9 +44,13 @@ and then use it in the view like so
 
 ### TLDR;
 ```bash
-yarb build --watch # rebuilds assets on change
+yarn build --watch # rebuilds assets on change
+```
+```bash
 pg_ctl -D ~/postgres-data -l ~/postgres-data/server.log start
-bin/rails s # starts rails server
+```
+```bash
+bin/dev
 ```
 
 ### Setting up the db
@@ -103,8 +107,19 @@ fly secrets set DATABASE_URL=xxxx
 - [x] view compatibility of a seat and a stroller
 - [x] urls for products should be name not id
 - [x] active filtering dropdown for products
-- [ ] basic UI designs
-- [ ] admin user for updating brands
+- [x] basic UI designs
+- [x] product images
+- [x] default product images
+- [ ] responsive flow for mobile
+- [ ] logo header
+- [ ] button to 'select another product' for product_a on fits page
+- [ ] set brand on the product model, not submodels
+- [ ] admin user for updating products and brands
+- [ ] import product data via csv (script?)
 - [ ] populate initial product database from https://www.babylist.com/hello-baby/car-seat-stroller-compatibility
+- [ ] populate initial product database maxicosi compatibility pdf
 - [ ] hosting on a domain
+- [ ] CI pipeline for deployment on push
 - [ ] pipeline to process amazon reviews for compatibility information
+- [ ] image CDN
+- [ ] legally using images
