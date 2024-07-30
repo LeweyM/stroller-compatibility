@@ -110,12 +110,12 @@ fly secrets set DATABASE_URL=xxxx
 - [x] basic UI designs
 - [x] product images
 - [x] default product images
-- [ ] responsive flow for mobile
-- [ ] logo header
-- [ ] button to 'select another product' for product_a on fits page
+- [x] button to 'select another product' for product_a on fits page
 - [ ] set brand on the product model, not submodels
 - [ ] admin user for updating products and brands
 - [ ] import product data via csv (script?)
+- [ ] responsive flow for mobile
+- [ ] logo header
 - [ ] populate initial product database from https://www.babylist.com/hello-baby/car-seat-stroller-compatibility
 - [ ] populate initial product database maxicosi compatibility pdf
 - [ ] hosting on a domain
