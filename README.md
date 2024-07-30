@@ -101,25 +101,33 @@ fly secrets set DATABASE_URL=xxxx
 
 ## Todos:
 
-- [x] deployment to fly.io and supabase
-- [x] view strollers for a brand
-- [x] view seats for a brand
-- [x] view compatibility of a seat and a stroller
-- [x] urls for products should be name not id
-- [x] active filtering dropdown for products
-- [x] basic UI designs
-- [x] product images
-- [x] default product images
-- [x] button to 'select another product' for product_a on fits page
-- [ ] set brand on the product model, not submodels
-- [ ] admin user for updating products and brands
-- [ ] import product data via csv (script?)
-- [ ] responsive flow for mobile
-- [ ] logo header
-- [ ] populate initial product database from https://www.babylist.com/hello-baby/car-seat-stroller-compatibility
-- [ ] populate initial product database maxicosi compatibility pdf
-- [ ] hosting on a domain
-- [ ] CI pipeline for deployment on push
-- [ ] pipeline to process amazon reviews for compatibility information
-- [ ] image CDN
-- [ ] legally using images
+- [ ] Build The App
+    - [x] view strollers for a brand
+    - [x] view seats for a brand
+    - [x] view compatibility of a seat and a stroller
+    - [x] urls for products should be name not id
+    - [x] active filtering dropdown for products
+    - [x] basic UI designs
+    - [x] product images
+    - [x] default product images
+    - [x] button to 'select another product' for product_a on fits page
+    - [ ] set brand on the product model, not submodels
+    - [ ] admin user for updating products and brands
+    - [ ] responsive flow for mobile
+    - [ ] logo header
+    - [ ] CI pipeline for deployment on push
+    - [ ] image CDN
+- [ ] Populate The DB
+    - [ ] populate initial product database from https://www.babylist.com/hello-baby/car-seat-stroller-compatibility
+    - [ ] populate initial product database maxicosi compatibility pdf
+    - [ ] import product data via csv (script?)
+    - [ ] pipeline to process amazon reviews for compatibility information
+- [ ] Market
+    - [ ] hosting on a domain
+    - [ ] seo optimization for combinatorial urls
+    - [ ] post to some blogs / forums
+- [ ] Profit
+    - [ ] legally using images
+    - [ ] set up affiliate marketing accounts
+    - [ ] affiliate marketing links
+    - [ ] google analytics
