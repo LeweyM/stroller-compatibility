@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_24_082251) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_28_075637) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_082251) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.string "url"
+    t.string "alt_text"
+    t.string "attribution_url"
+    t.string "attribution_text"
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_images_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "link"
@@ -83,6 +94,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_082251) do
   add_foreign_key "compatible_links", "products", column: "adapter_id", on_delete: :cascade
   add_foreign_key "compatible_links", "products", column: "product_a_id", on_delete: :cascade
   add_foreign_key "compatible_links", "products", column: "product_b_id", on_delete: :cascade
+  add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "seats", "brands"
   add_foreign_key "strollers", "brands"
