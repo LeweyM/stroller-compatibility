@@ -111,7 +111,7 @@ fly secrets set DATABASE_URL=xxxx
     - [x] product images
     - [x] default product images
     - [x] button to 'select another product' for product_a on fits page
-    - [ ] set brand on the product model, not submodels
+    - [x] set brand on the product model, not submodels
     - [ ] admin user for updating products and brands
     - [ ] responsive flow for mobile
     - [ ] logo header
