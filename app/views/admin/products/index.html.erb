@@ -1,0 +1,30 @@
+<div class="w-full">
+  <h1 class="font-bold text-4xl">Admin::Products#index</h1>
+  <table class="table w-full">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @products.each do |product| %>
+      <tr class="border-2 border-gray-200">
+        <td><%= product.id %></td>
+        <td><%= product.name %></td>
+        <td><%= product.brand.name %></td>
+        <td class="flex">
+          <%= button_to 'Edit', edit_admin_product_path(product), method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-1" %>
+          <%= button_to 'Delete', admin_product_path(product),
+                        method: :delete,
+                        form: { data: { turbo: true, turbo_confirm: 'are you sure?', turbo_method: :delete } },
+                        class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-1"
+          %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
