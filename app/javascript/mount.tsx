@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 type Components = Record<string, React.ElementType>;
 
 export default function mount(components: Components): void {
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("turbo:load", () => {
         const mountPoints = document.querySelectorAll("[data-react-component]");
         mountPoints.forEach((mountPoint) => {
             const { dataset } = mountPoint as HTMLElement;

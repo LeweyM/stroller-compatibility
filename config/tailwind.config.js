@@ -35,6 +35,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('tailwindcss-tables')(),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
