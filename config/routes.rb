@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     get 'brands/show'
     get 'brands/new'
     get 'brands/edit'
-    resources :products, only: [:index, :show, :new, :edit, :destroy]
+    resources :products, only: [:index, :show, :new, :edit, :destroy] do
+      collection { post :import }
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

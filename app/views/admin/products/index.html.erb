@@ -1,4 +1,20 @@
 <div class="w-full">
+  <div class="p-4">
+    <h1 class="font-bold text-4xl">Import Products</h1>
+
+    <%= form_with url: import_admin_products_path, local: true, multipart: true do |form| %>
+      <div class="flex flex-row">
+        <div>
+          <%= form.label :file, "CSV file" %>
+          <%= form.file_field :file %>
+        </div>
+        <div>
+          <%= form.submit "Import", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
   <h1 class="font-bold text-4xl">Admin::Products#index</h1>
   <table class="table w-full">
     <thead>
@@ -15,6 +31,7 @@
         <td><%= product.id %></td>
         <td><%= product.name %></td>
         <td><%= product.brand.name %></td>
+        <td><%= product.productable_type %></td>
         <td class="flex">
           <%= button_to 'Edit', edit_admin_product_path(product), method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-1" %>
           <%= button_to 'Delete', admin_product_path(product),

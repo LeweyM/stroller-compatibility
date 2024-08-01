@@ -112,15 +112,15 @@ fly secrets set DATABASE_URL=xxxx
     - [x] default product images
     - [x] button to 'select another product' for product_a on fits page
     - [x] set brand on the product model, not submodels
-    - [ ] admin user for updating products and brands
+    - [x] admin user for updating products and brands
     - [ ] responsive flow for mobile
     - [ ] logo header
     - [ ] CI pipeline for deployment on push
     - [ ] image CDN
 - [ ] Populate The DB
     - [ ] populate initial product database from https://www.babylist.com/hello-baby/car-seat-stroller-compatibility
-    - [ ] populate initial product database maxicosi compatibility pdf
-    - [ ] import product data via csv (script?)
+    - [x] populate initial product database maxicosi compatibility pdf
+    - [x] import product data via csv in admin panel
     - [ ] pipeline to process amazon reviews for compatibility information
 - [ ] Market
     - [ ] hosting on a domain
