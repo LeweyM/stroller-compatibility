@@ -53,11 +53,11 @@ So far:
 - I decided on server side filtering. It was possible to load all the products to the browser and filter client side. Easier and faster initially but it would have been a pain once product list grows. IMO best to avoid early, and not too hard to sort out from the start.
 - Added react. Serving react through the RoR asset pipeline, which seems a bit cumbersome but for my purposes (only a few components) this seems right. 
 
-![image1](/devlog/Screenshot 2024-07-27 at 09.45.24.png)
+![image1](./image1.png)
 
-![image2](/devlog/Screenshot 2024-07-27 at 09.47.18.png)
+![image2](./image2.png)
 
-![image3](/devlog/Screenshot 2024-07-27 at 09.49.58.png)
+![image3](./image3.png)
 
 Next up:
 - UI. I'd prefer to have this already so I can deliver early, but it's still on the todo pile. That's next on my list.
