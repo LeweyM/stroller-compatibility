@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_30_080108) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_02_081641) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_30_080108) do
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_brands_on_name", unique: true
   end
 
   create_table "compatible_links", force: :cascade do |t|
@@ -49,7 +50,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_30_080108) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.string "url"
+    t.string "url", null: false
     t.string "alt_text"
     t.string "attribution_url"
     t.string "attribution_text"
@@ -75,14 +76,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_30_080108) do
   end
 
   create_table "seats", force: :cascade do |t|
-    t.string "name"
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "strollers", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
