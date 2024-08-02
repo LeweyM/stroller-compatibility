@@ -1,14 +1,29 @@
 import React from "react";
 import mount from "../mount";
 import {Search} from "../react/src/components/Search";
-import useSearchClient, {APIResponseItem} from "../react/src/hooks/useSearchClient";
-import useSingleFlightOnlyClient from "../react/src/hooks/useSingleFlightOnlyClient";
+import useSingleFlightOnlyClient, {APIResponseItem} from "../react/src/hooks/useSingleFlightOnlyClient";
+
+function parseQueryParams(queryParams: Record<string, any>) {
+    return Object.entries(queryParams)
+        .filter(([key, value]) => value !== undefined)
+        .flatMap(([key, value]) => {
+            if (Array.isArray(value)) {
+                return value.map(v => `${encodeURIComponent(key)}[]=${encodeURIComponent(v)}`)
+            }
+            return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+        })
+        .join('&')
+}
 
 const SearchProduct = ({searchUrl}: { searchUrl: string }) => {
-    const {searchByQuery} = useSearchClient(searchUrl);
+    const client = useSingleFlightOnlyClient<APIResponseItem[]>();
 
     let getData = async (input: string) => {
-        const results = await searchByQuery(input)
+        const queryParams = {
+            search_term: input != "" ? input : undefined,
+            type: [ProductType.Stroller]
+        }
+        const results = await client.fetchData(`${searchUrl}?${parseQueryParams(queryParams)}`);
         if (!results) {
             return []
         }

@@ -78,6 +78,11 @@ bin/rails db:migrate
 bin/rails db:seed:replant
 ```
 
+Remove the local db
+```bash
+rm -rf ~/postgres-data
+```
+
 ## Deployment
 
 ### fly.io

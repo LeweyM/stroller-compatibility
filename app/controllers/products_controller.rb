@@ -8,20 +8,26 @@ class ProductsController < ApplicationController
   end
 
   def search
-    query_result = Product.where("name LIKE ?", "%#{params[:search_term]}%")
-                          .limit(15)
-                          .pluck(:slug, :name)
-    result = query_result.map { |slug, name| { slug: slug, name: name } }
+    pp params
+
+    query = Product.where("name LIKE ?", "%#{params[:search_term]}%")
+    # optional type query param
+    if params[:type].present?
+      query = query.where(productable_type: params[:type])
+    end
+    result = query.limit(15)
+                  .pluck(:slug, :name)
+                  .map { |slug, name| { slug: slug, name: name } }
     render json: result
   end
 
   def search_comparison
     pp params
     query_result = Product
-                          .where(productable_type: params[:type])
-                          .where("name LIKE ?", "%#{params[:search_term]}%")
-                          .limit(15)
-                          .pluck(:slug, :name)
+                     .where(productable_type: params[:type])
+                     .where("name LIKE ?", "%#{params[:search_term]}%")
+                     .limit(15)
+                     .pluck(:slug, :name)
     result = query_result.map { |slug, name| { slug: slug, name: name } }
     render json: result
   end

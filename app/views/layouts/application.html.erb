@@ -1,21 +1,41 @@
 <!DOCTYPE html>
-<html >
-  <head>
-    <title>StrollerCompatibility</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+<html lang="en">
+<head>
+  <title>StrollerCompatibility</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-    <%= turbo_include_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  <%= turbo_include_tags %>
+</head>
 
-<!--  <body class="bg-[url('/assets/bg.jpg')] bg-cover bg-center bg-no-repeat">-->
-  <body>
-    <main class="container mx-auto px-5 flex h-screen w-screen relative font-sans">
-      <%= yield %>
-    </main>
-  </body>
+<body>
+<main class="container mx-auto px-5 flex h-screen w-screen relative font-sans">
+  <% flash.each do |message_type, message| %>
+    <div id="flash-message" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; width: 80%; max-width: 600px;">
+      <% alert_class = message_type == 'alert' ? 'alert-danger' : 'alert-warning' %>
+      <% bg_color = message_type == 'alert' ? '#f8d7da' : '#fff3cd' %>
+      <% text_color = message_type == 'alert' ? '#721c24' : '#856404' %>
+      <% border_color = message_type == 'alert' ? '#f5c6cb' : '#ffeeba' %>
+      <%= content_tag :div, class: "alert #{alert_class}", style: "background-color: #{bg_color}; color: #{text_color}; border: 1px solid #{border_color}; border-radius: 4px; padding: 15px; margin-bottom: 20px;" do -%>
+        <%= message %>
+        <button type="button" class="close" data-dismiss="notice" onclick="closeFlash()" style="float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span>
+        </button>
+      <% end -%>
+    </div>
+  <% end %>
+  <%= yield %>
+</main>
+</body>
 </html>
+
+<script>
+    function closeFlash() {
+        document.getElementById('flash-message').style.display = 'none';
+    }
+</script>

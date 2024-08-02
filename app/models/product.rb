@@ -3,7 +3,7 @@ class Product < ApplicationRecord
 
   extend FriendlyId
 
-  belongs_to :productable, polymorphic: true
+  belongs_to :productable, polymorphic: true, dependent: :destroy
   belongs_to :brand
 
   has_many :compatible_links_as_product_a, class_name: 'CompatibleLink', foreign_key: :product_a_id
@@ -13,13 +13,16 @@ class Product < ApplicationRecord
   has_many :compatible_products_as_a, through: :compatible_links_as_product_a, source: :product_b
   has_many :compatible_products_as_b, through: :compatible_links_as_product_b, source: :product_a
 
-  has_one :image
+  has_one :image, dependent: :destroy
 
   friendly_id :name, use: :slugged
 
   def image_or_default
-    image if has_image?
-    default_image
+    if has_image?
+      image
+    else
+      default_image
+    end
   end
 
   def default_image
@@ -52,43 +55,78 @@ class Product < ApplicationRecord
   # first row is a list of car seats, except first cell
   # rest of table is compatiblity. If there is an x, the two products are compatible
   # should expect the products to already exist, otherwise error
-  def self.import(file)
+  def self.import_matrix(file)
     csv_text = File.read(file)
     csv = CSV.parse(csv_text, headers: true)
 
     seat_and_y_index = csv.headers[1..-1].each_with_index.map { |header, index| [header, index] }[1..-1]
     stroller_and_x_index = csv.each_with_index.map { |row, index| [row[0], index] }[1..-1]
 
-    # for now, create the brand
-    brand = Brand.create_or_find_by(name: "Maxicosi")
-
     # compatibility exists if not nil at intersection
-    seat_and_y_index.each do | seat_name, y |
-      stroller_and_x_index.each do | stroller_name, x |
+    seat_and_y_index.each do |seat_name, y|
+      stroller_and_x_index.each do |stroller_name, x|
         print "\n\n\n"
         print "creating or finding '#{stroller_name}' and '#{seat_name}'"
         print "\n\n\n"
-        # for now, create the products
-        seat = Seat.find_by_name(seat_name)
-        if seat.nil?
-          seat = Seat.create!(name: seat_name)
-        end
 
-        stroller = Stroller.find_by_name(stroller_name)
+        # if either seat or stroller don't exist, error
+        stroller = Product.find_by(name: stroller_name)
+        seat = Product.find_by(name: seat_name)
         if stroller.nil?
-          stroller = Stroller.create!(name: stroller_name)
+          raise "Error: stroller #{stroller_name} not found"
         end
-
-        stroller_product = Product.create_or_find_by!(productable: stroller, brand: brand, name: stroller.name)
-        seat_product = Product.create_or_find_by!(productable: seat, brand: brand, name: seat.name)
+        if seat.nil?
+          raise "Error: seat #{seat_name} not found"
+        end
 
         unless csv[seat_name][x].nil?
           print "\n\n\n"
           print " compatible! "
           print "\n\n\n"
 
-          CompatibleLink.create!(product_a: stroller_product, product_b: seat_product)
+          CompatibleLink.create!(product_a: stroller, product_b: seat)
         end
+      end
+    end
+  end
+
+  # this expects csv file where each row is a product
+  # with the following columns:
+  # type,brand,name,link,image_url
+  def self.import_products(file)
+    csv_text = File.read(file)
+    csv = CSV.parse(csv_text, headers: true)
+    csv.each do |row|
+      pp row
+      type = row[0]
+      brand_name = row[1]
+      name = row[2]
+      link = row[3]
+      image_url = row[4]
+
+      brand = Brand.find_by(name: brand_name)
+      if brand.nil?
+        brand = Brand.create!(name: brand_name)
+      end
+      product = Product.find_by(name: name)
+      if product.nil?
+        productable = (type.downcase == 'seat') ? Seat.create! : Stroller.create!
+
+        product = Product.create!(
+          name: name,
+          link: link,
+          brand: brand,
+          productable: productable
+        )
+        image = Image.find_by(url: image_url)
+        if image.nil?
+          image = Image.create!(
+            :url => image_url,
+            product: product
+          )
+          image.save!
+        end
+        product.save!
       end
     end
   end

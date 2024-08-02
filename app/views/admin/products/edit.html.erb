@@ -1,4 +1,58 @@
-<div>
-  <h1 class="font-bold text-4xl">Admin::Products#edit</h1>
-  <p>Find me in app/views/admin/products/edit.html.erb</p>
+<div class="p-4">
+
+  <h1 class="text-2xl">Edit Product: <%= @product.name %></h1>
+
+  <%= form_with(model: [:admin, @product], local: true) do |form| %>
+    <table class="table">
+      <tbody>
+      <tr>
+        <th>Name</th>
+        <td><%= form.text_field :name, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th>Brand</th>
+        <td><%= form.collection_select :brand_id, Brand.all, :id, :name, {}, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th>Type</th>
+        <td><%= form.select :productable_type, ['Stroller', 'Seat', 'Adapter'], {}, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th>Link</th>
+        <td><%= form.url_field :link, class: 'form-control' %></td>
+      </tr>
+      <% unless @product.image.nil? %>
+        <tr>
+          <th>Image URL</th>
+          <td><%= form.url_field :image_url, value: @product.image&.url, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <th>Image Alt Text</th>
+          <td><%= form.text_field :image_alt_text, value: @product.image&.alt_text, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <th>Image Attribution URL</th>
+          <td><%= form.url_field :image_attribution_url, value: @product.image&.attribution_url, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <th>Image Attribution Text</th>
+          <td><%= form.text_field :image_attribution_text, value: @product.image&.attribution_text, class: 'form-control' %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <%= render :partial => 'shared/button', :locals => { :link => admin_product_path(@product), :text => 'Update Product', :method => :post } %>
+  <% end %>
+  <% if @product.image.nil? %>
+  <% else %>
+    <%= button_to 'Delete Image',
+                  admin_product_image_path(@product),
+                  method: :delete,
+                  form: { data: { turbo: true, turbo_confirm: 'are you sure?', turbo_method: :delete } },
+                  class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-1"
+    %>
+  <% end %>
+
+  <%= render :partial => 'shared/button', :locals => { :link => admin_products_path, :text => 'Back to Products', :secondary => true } %>
 </div>

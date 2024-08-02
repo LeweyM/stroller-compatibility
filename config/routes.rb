@@ -10,12 +10,15 @@ Rails.application.routes.draw do
   end
   resources :brands, only: [:index]
   namespace :admin do
-    get 'brands/index'
-    get 'brands/show'
-    get 'brands/new'
-    get 'brands/edit'
-    resources :products, only: [:index, :show, :new, :edit, :destroy] do
-      collection { post :import }
+    get 'images/new'
+    get 'images/create'
+    get 'images/destroy'
+    resources :products, only: [:index, :new, :edit, :destroy, :update] do
+      resources :images, only: [:new, :create, :destroy]
+      collection do
+        post :import
+        post :import_matrix
+      end
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
