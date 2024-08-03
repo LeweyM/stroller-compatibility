@@ -1,0 +1,27 @@
+<%= form_with url: import_admin_products_path, local: true, id: "form_#{id}", data: { id: id }, multipart: true do |form| %>
+  <div class="flex flex-row">
+    <div>
+      <%= form.label :file, "CSV file" %>
+      <%= form.file_field :file, id: "file_#{id}" %>
+    </div>
+    <div>
+      <%= form.submit "Import",
+                      id: "submit_#{id}",
+                      class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed",
+                      disabled: true,
+                      data: { disable_with: "Importing..." }
+      %>
+    </div>
+
+    <%= javascript_tag do %>
+        document.addEventListener('turbo:load', function () {
+            const fileInput = document.getElementById(`file_<%= id %>`);
+            const submitButton = document.getElementById(`submit_<%= id %>`);
+
+            fileInput.addEventListener('change', function () {
+                submitButton.disabled = !this.files.length;
+            });
+        });
+    <% end %>
+  </div>
+<% end %>
