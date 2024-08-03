@@ -13,21 +13,19 @@
         <%= render partial: 'products/main', locals: { product: @product_a } %>
       </div>
       <div class="py-8 mt-20 w-full flex flex-col items-center">
-        <% if @link %>
-          <div class="w-1/2">
+        <div class="w-1/2">
+          <% if @link %>
             <img src="<%= asset_path('check.png') %>" alt="Check mark"/>
-          </div>
-        <% else %>
-          <div class="w-1/2">
+          <% else %>
             <img src="<%= asset_path('cross.png') %>" alt="Cross mark"/>
+          <% end %>
+        </div>
+        <div class="mt-8">
+          <%= render partial: 'shared/subtitle', locals: { text: 'Search for other compatible products', center: true } %>
+          <div class="flex justify-center mt-4">
+            <%= render partial: 'shared/button', locals: { link: fits_product_url(@product_a.id), text: 'Back', secondary: true } %>
           </div>
-          <div class="mt-8">
-            <%= render partial: 'shared/subtitle', locals: { text: 'Search for other compatible products', center: true } %>
-            <div class="flex justify-center mt-4">
-              <%= render partial: 'shared/button', locals: { link: fits_product_url(@product_a.id), text: 'Back', secondary: true } %>
-            </div>
-          </div>
-        <% end %>
+        </div>
       </div>
       <div class="p-8 w-full">
         <%= render partial: 'products/main', locals: { product: @product_b } %>
