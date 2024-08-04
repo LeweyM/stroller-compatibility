@@ -85,6 +85,19 @@ rm -rf ~/postgres-data
 
 ## Deployment
 
+### CI
+
+The app is deployed via github actions which runs on every push to main branch.
+
+Migrations are automatically run on deployment.
+
+#### Push without deployment
+
+To skip the deployment when commiting, include `[skip ci]` in the commit message, i.e: 
+```
+git commit -m "ci: [skip ci] update README.md" 
+```
+
 ### fly.io
 
 This app is deployed on fly.io.
