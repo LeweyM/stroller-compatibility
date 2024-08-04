@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def search
     pp params
 
-    query = Product.where("name LIKE ?", "%#{params[:search_term]}%")
+    query = Product.where("LOWER(name) ILIKE LOWER(?)", "%#{params[:search_term]}%")
     # optional type query param
     if params[:type].present?
       query = query.where(productable_type: params[:type])
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
     pp params
     query_result = Product
                      .where(productable_type: params[:type])
-                     .where("name LIKE ?", "%#{params[:search_term]}%")
+                     .where("name ILIKE ?", "%#{params[:search_term]}%")
                      .limit(15)
                      .pluck(:slug, :name)
     result = query_result.map { |slug, name| { slug: slug, name: name } }

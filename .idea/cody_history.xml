@@ -2758,6 +2758,67 @@
                 </messages>
                 <updatedAt value="2024-08-02T09:19:43.792396" />
               </chat>
+              <chat>
+                <internalId value="5d920d09-95a4-4523-81da-e22ec7e7753a" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-5-sonnet-20240620" />
+                    <provider value="Anthropic" />
+                    <tags>
+                      <list>
+                        <option value="gateway" />
+                        <option value="accuracy" />
+                        <option value="recommended" />
+                        <option value="free" />
+                      </list>
+                    </tags>
+                    <title value="Claude 3.5 Sonnet" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <internalId value="580575a0-c2b8-4799-be20-0b8906674cf1" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-5-sonnet-20240620" />
+                    <provider value="Anthropic" />
+                    <tags>
+                      <list>
+                        <option value="gateway" />
+                        <option value="accuracy" />
+                        <option value="recommended" />
+                        <option value="free" />
+                      </list>
+                    </tags>
+                    <title value="Claude 3.5 Sonnet" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="the highlghted line is likely to have performance impact, how can I improve this? Can i restructure my index?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Yes, you're right to consider performance improvements for this query. There are a few ways you can optimize this:&#10;&#10;1. Use a partial index:&#10;   You can create a partial index on the 'name' column that only includes lowercase values. This can speed up case-insensitive searches.&#10;&#10;   ```ruby&#10;   add_index :products, 'lower(name)', name: 'index_products_on_lower_name'&#10;   ```&#10;&#10;2. Use full-text search:&#10;   If you're frequently searching product names, consider implementing full-text search using PostgreSQL's built-in capabilities or a dedicated search engine like Elasticsearch.&#10;&#10;3. Use ILIKE instead of LOWER:&#10;   PostgreSQL supports ILIKE for case-insensitive matching, which can be more efficient than using LOWER.&#10;&#10;   ```ruby&#10;   .where(&quot;name ILIKE ?&quot;, &quot;%#{params[:search_term]}%&quot;)&#10;   ```&#10;&#10;4. Consider using trigram indexes:&#10;   If you need fuzzy matching, PostgreSQL's pg_trgm extension can be very useful. It allows for efficient similarity searches.&#10;&#10;5. Optimize the query itself:&#10;   Ensure you're only selecting the columns you need and consider paginating results to limit the amount of data returned.&#10;&#10;Implementing one or more of these suggestions can significantly improve the performance of your search query, especially as your dataset grows larger." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-08-04T10:28:44.008027" />
+              </chat>
             </list>
           </chats>
           <defaultLlm>
