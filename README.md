@@ -120,7 +120,7 @@ fly secrets set DATABASE_URL=xxxx
     - [x] admin user for updating products and brands
     - [ ] responsive flow for mobile
     - [ ] logo header
-    - [ ] CI pipeline for deployment on push
+    - [x] CI pipeline for deployment on push
     - [ ] image CDN
 - [ ] Populate The DB
     - [ ] populate initial product database from https://www.babylist.com/hello-baby/car-seat-stroller-compatibility
