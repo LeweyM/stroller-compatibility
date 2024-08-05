@@ -56,17 +56,56 @@ class Product < ApplicationRecord
     #   delegate to private methods based on filename ending  case file
     end_of_filename = filename.split('-').last.downcase.chomp('.csv')
     case end_of_filename
-    when "strollers" then import_products(file)
-    when "seats" then import_products(file)
+    when "strollers", "seats", "adapters" then import_products(file)
     when "matrix" then import_matrix(file)
+    when "compatibility" then import_compatibility(file)
     else
-      allowed_import_file_endings = %w[strollers seats matrix]
+      allowed_import_file_endings = %w[strollers seats adapters matrix compatibility]
       raise "Unknown filename '#{filename}'. Filename must end with one of #{allowed_import_file_endings.map { |ending| "'#{-ending}.csv'" }.join(', ')}"
+    end
+  end
+
+  def add_compatible_product(other_product, adapter = nil)
+    return if self == other_product
+
+    existing_link = CompatibleLink.find_by(
+      product_a: [self, other_product],
+      product_b: [self, other_product]
+    )
+
+    unless existing_link
+      CompatibleLink.create!(
+        product_a: self,
+        product_b: other_product,
+        adapter: adapter
+      )
     end
   end
 
   private
 
+  def self.import_compatibility(file)
+    # expects a csv file with 3 rows, no headers
+    # row 0: list of strollers
+    # row 1: list of car seats
+    # row 2: (optional) adapter product name
+    # any products mentioned should already exist, or an exception should be raised and no db changes made.
+    csv_text = File.read(file)
+    csv = CSV.parse(csv_text, headers: false)
+    pp csv[0]
+    pp csv[1]
+    strollers = csv[0].filter { |s| not s.nil? }
+                      .map { |name| Product.find_by!(name: name, productable_type: "Stroller") }
+    seats = csv[1].filter { |s| not s.nil? }
+                  .map { |name| Product.find_by!(name: name, productable_type: "Seat") }
+    adapter = csv[2].first unless csv[2].first.nil?
+
+    strollers.concat(seats).each do |product|
+      product.add_compatible_product(adapter)
+    end
+  end
+
+  private_class_method :import_compatibility
   # import a cvs data
   # format: first column is a list of strollers, except first cell
   # first row is a list of car seats, except first cell
@@ -98,6 +137,7 @@ class Product < ApplicationRecord
       end
     end
   end
+
   private_class_method :import_matrix
 
   # this expects csv file where each row is a product
@@ -114,13 +154,19 @@ class Product < ApplicationRecord
       link = row[3]
       image_url = row[4]
 
-      brand = Brand.find_by(name: brand_name)
-      if brand.nil?
-        brand = Brand.create!(name: brand_name)
-      end
+      brand = Brand.find_or_create_by!(name: brand_name)
       product = Product.find_by(name: name)
       if product.nil?
-        productable = (type.downcase == 'seat') ? Seat.create! : Stroller.create!
+        productable = case type.downcase
+                      when 'seat'
+                        Seat.create!
+                      when 'stroller'
+                        Stroller.create!
+                      when 'adapter'
+                        Adapter.create!
+                      else
+                        raise "Unknown product type: #{type}"
+                      end
 
         product = Product.create!(
           name: name,
@@ -140,6 +186,7 @@ class Product < ApplicationRecord
       end
     end
   end
+
   private_class_method :import_products
 
   def has_image?
