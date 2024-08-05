@@ -13,17 +13,20 @@
       <th>Name</th>
       <th>Brand</th>
       <th>Type</th>
+      <th>Compatible Products</th>
       <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <% @products.each do |product| %>
-      <tr class="border-2 border-gray-200">
-        <td><%= product.id %></td>
-        <td><%= product.slug %></td>
+ <tr class="<%= 'bg-green-50' if product.productable_type == 'Seat' %>
+            <%= 'bg-blue-50' if product.productable_type == 'Stroller' %>
+            <%= 'bg-yellow-50' if product.productable_type == 'Adapter' %> border-2 border-gray-200">
+   <td><%= product.id %></td>        <td><%= product.slug %></td>
         <td><%= product.name %></td>
         <td><%= product.brand.name %></td>
         <td><%= product.productable_type %></td>
+        <td><%= product.compatible_products %></td>
         <td class="flex">
           <%= button_to 'Edit', edit_admin_product_path(product), method: :get,
                         class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-1"
