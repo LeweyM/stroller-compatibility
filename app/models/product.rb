@@ -50,6 +50,23 @@ class Product < ApplicationRecord
     name_changed?
   end
 
+  def self.import(file)
+    filename = file.original_filename
+    raise "Invalid file type. Must be CSV." unless File.extname(filename).downcase == '.csv'
+    #   delegate to private methods based on filename ending  case file
+    end_of_filename = filename.split('-').last.downcase.chomp('.csv')
+    case end_of_filename
+    when "strollers" then import_products(file)
+    when "seats" then import_products(file)
+    when "matrix" then import_matrix(file)
+    else
+      allowed_import_file_endings = %w[strollers seats matrix]
+      raise "Unknown filename '#{filename}'. Filename must end with one of #{allowed_import_file_endings.map { |ending| "'#{-ending}.csv'" }.join(', ')}"
+    end
+  end
+
+  private
+
   # import a cvs data
   # format: first column is a list of strollers, except first cell
   # first row is a list of car seats, except first cell
@@ -65,10 +82,6 @@ class Product < ApplicationRecord
     # compatibility exists if not nil at intersection
     seat_and_y_index.each do |seat_name, y|
       stroller_and_x_index.each do |stroller_name, x|
-        print "\n\n\n"
-        print "creating or finding '#{stroller_name}' and '#{seat_name}'"
-        print "\n\n\n"
-
         # if either seat or stroller don't exist, error
         stroller = Product.find_by(name: stroller_name)
         seat = Product.find_by(name: seat_name)
@@ -80,15 +93,12 @@ class Product < ApplicationRecord
         end
 
         unless csv[seat_name][x].nil?
-          print "\n\n\n"
-          print " compatible! "
-          print "\n\n\n"
-
           CompatibleLink.create!(product_a: stroller, product_b: seat)
         end
       end
     end
   end
+  private_class_method :import_matrix
 
   # this expects csv file where each row is a product
   # with the following columns:
@@ -130,8 +140,7 @@ class Product < ApplicationRecord
       end
     end
   end
-
-  private
+  private_class_method :import_products
 
   def has_image?
     image.present?

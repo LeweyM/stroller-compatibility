@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       resources :images, only: [:new, :create, :destroy]
       collection do
         post :import
-        post :import_matrix
       end
     end
   end

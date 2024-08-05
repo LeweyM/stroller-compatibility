@@ -31,19 +31,6 @@ class Admin::ProductsController < Admin::BaseController
     redirect_to admin_products_path
   end
 
-  def import_matrix
-    file = params[:file]
-
-    if file.nil?
-      redirect_to admin_products_path, alert: "Please upload a valid CSV file."
-      return
-    end
-
-    Product.import_matrix(file)
-
-    redirect_to admin_products_path, notice: "Products imported successfully."
-  end
-
   def import
     file = params[:file]
 
@@ -52,7 +39,7 @@ class Admin::ProductsController < Admin::BaseController
       return
     end
 
-    Product.import_products(file)
+    Product.import(file)
 
     redirect_to admin_products_path, notice: "Products imported successfully."
   end
