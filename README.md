@@ -40,6 +40,21 @@ and then use it in the view like so
 <%= render Products::ShowComponent.new(name: "Shoes", price: 100) %>
 ```
 
+### Tailwindcss
+
+uses the tailwindcss-rails gem for tailwind integration
+
+#### in production
+
+css is compiled by `rails assets:precompile`, run as part of docker image step
+
+#### in development
+
+Any changes to files are watched and trigger css rebuild. The Procfile ensures that `tailwindcss:build` is run on any changes.
+
+> **Warning**
+> Make sure that the precompiled assets have been removed if you've run `rails assets:precompile` locally. They will be used by default and changes won't be picked up!!
+
 ## Local Development
 
 ### TLDR;
