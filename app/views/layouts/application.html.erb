@@ -16,7 +16,7 @@
 <main class="container mx-auto px-5 flex h-screen w-screen relative font-sans">
   <% if Rails.env.development? %>
     <h1 id="local-mode-header"
-         class="fixed top-0 right-0 bg-yellow-500 text-black px-4 py-2 m-2 rounded-md shadow-md z-50">
+        class="fixed top-0 right-0 bg-yellow-500 text-black px-4 py-2 m-2 rounded-md shadow-md z-50">
       <span>[Running Locally]</span>
       <button onclick="hideLocalModeHeader()" class="ml-2 text-sm">×</button>
     </h1>
@@ -28,12 +28,20 @@
   <% end %>
 
   <% flash.each do |message_type, message| %>
-    <div id="flash-message" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; width: 80%; max-width: 600px;">
-      <% alert_class = message_type == 'alert' ? 'alert-danger' : 'alert-warning' %>
-      <% bg_color = message_type == 'alert' ? '#f8d7da' : '#fff3cd' %>
-      <% text_color = message_type == 'alert' ? '#721c24' : '#856404' %>
-      <% border_color = message_type == 'alert' ? '#f5c6cb' : '#ffeeba' %>
-      <%= content_tag :div, class: "alert #{alert_class}", style: "background-color: #{bg_color}; color: #{text_color}; border: 1px solid #{border_color}; border-radius: 4px; padding: 15px; margin-bottom: 20px;" do -%>
+    <div id="flash-message" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 w-4/5 max-w-2xl">
+      <% alert_classes = 'bg-red-100 text-red-700 border-red-200'
+         notice_classes = 'bg-yellow-100 text-yellow-700 border-yellow-200'
+         error_classes = 'bg-red-100 text-red-700 border-red-200'
+         case message_type
+         when 'alert'
+           flash_class = alert_classes
+         when 'error'
+           flash_class = error_classes
+         else
+           flash_class = notice_classes
+         end
+      %>
+      <%= content_tag :div, class: "alert #{flash_class} border rounded-md p-4 mb-5" do -%>
         <%= message %>
         <button type="button" class="close" data-dismiss="notice" onclick="closeFlash()" style="float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;">
           <span aria-hidden="true">×</span>

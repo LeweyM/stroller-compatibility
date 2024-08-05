@@ -34,14 +34,14 @@ class Admin::ProductsController < Admin::BaseController
   def import
     file = params[:file]
 
-    if file.nil?
-      redirect_to admin_products_path, alert: "Please upload a valid CSV file."
-      return
+    begin
+      Product.import(file)
+      redirect_to admin_products_path, notice: "Products imported successfully."
+    rescue StandardError => e
+      flash[:error] = "Error importing products: #{e.message}"
+      redirect_to admin_products_path
+
     end
-
-    Product.import(file)
-
-    redirect_to admin_products_path, notice: "Products imported successfully."
   end
 
   def update
