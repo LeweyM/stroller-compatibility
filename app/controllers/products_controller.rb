@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
               .or(CompatibleLink.where(product_a_id: @product_b.id)
                                 .and(CompatibleLink.where(product_b_id: @product_a.id)))
               .first
-
+    @adapter = @link.adapter if @link
     @suggested_products = @product_a.compatible_products
   end
 

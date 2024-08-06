@@ -3286,6 +3286,42 @@
                 </messages>
                 <updatedAt value="2024-08-05T11:21:45.909217" />
               </chat>
+              <chat>
+                <internalId value="b60e4c60-24a6-4a0f-a806-1d524eb19165" />
+                <llm>
+                  <llm>
+                    <model value="openai/gpt-4-turbo" />
+                    <provider value="OpenAI" />
+                    <tags>
+                      <list>
+                        <option value="gateway" />
+                        <option value="pro" />
+                        <option value="balanced" />
+                      </list>
+                    </tags>
+                    <title value="GPT-4 Turbo" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="given this model, how can I get the compatible products, plus the adapter they might need?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To retrieve the compatible products along with the adapter they might need for a given product, you can utilize the relationships and methods defined in your `Product` model. Here's a step-by-step guide on how to achieve this:&#10;&#10;1. **Identify the Product**: First, you need to have a specific product instance from which you want to find compatible products. Let's assume you have a product instance stored in a variable called `product`.&#10;&#10;2. **Fetch Compatible Products**: Use the `compatible_products` method defined in your `Product` model. This method should return all products that are compatible with the given product.&#10;&#10;3. **Retrieve Adapters for Each Compatible Product**: For each compatible product, you need to check if there is an adapter required to make the compatibility work. This involves checking the `CompatibleLink` model for any records that link the original product with the compatible product and include an adapter.&#10;&#10;Here's how you might write this in Ruby, assuming you have the `@product` instance:&#10;&#10;```ruby&#10;# Assuming @product is the instance of the product you are querying&#10;compatible_products_with_adapters = @product.compatible_products.map do |compatible_product|&#10;  # Find the link that includes an adapter if it exists&#10;  link = CompatibleLink.find_by(product_a: @product, product_b: compatible_product, adapter_id: !nil) ||&#10;         CompatibleLink.find_by(product_a: compatible_product, product_b: @product, adapter_id: !nil)&#10;&#10;  # If a link with an adapter is found, fetch the adapter, otherwise nil&#10;  adapter = link&amp;.adapter&#10;&#10;  # Return a hash with the compatible product and its corresponding adapter&#10;  { compatible_product: compatible_product, adapter: adapter }&#10;end&#10;```&#10;&#10;This code snippet will give you an array of hashes, where each hash represents a compatible product and the adapter required for compatibility (if any). Each element in the array looks like this:&#10;&#10;```ruby&#10;{&#10;  compatible_product: &lt;Product instance&gt;,&#10;  adapter: &lt;Adapter instance or nil&gt;&#10;}&#10;```&#10;&#10;This approach leverages the relationships and methods you've defined in your models to efficiently gather the necessary information about product compatibility and the adapters involved." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-08-05T13:58:54.181396" />
+              </chat>
             </list>
           </chats>
           <defaultLlm>

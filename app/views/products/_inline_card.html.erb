@@ -1,0 +1,9 @@
+<%= link_to product.link do %>
+  <div class="inline-flex items-center p-2 bg-gray-50 rounded-full hover:bg-gray-100">
+    <i class="px-2 fa-xl fa-solid fa-plug text-gray-600"></i>
+    <div class="flex flex-row flex-wrap items-center mx-2">
+      <h5 class="text-lg font-bold tracking-tight text-gray-600 dark:text-white mr-2"><%= product.name %></h5>
+      <span class="font-normal text-gray-400 dark:text-white">by <%= product.brand.name %></span>
+    </div>
+  </div>
+<% end %>

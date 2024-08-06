@@ -12,14 +12,28 @@
       <div class="p-8 w-full">
         <%= render partial: 'products/main', locals: { product: @product_a } %>
       </div>
-      <div class="py-8 mt-20 w-full flex flex-col items-center">
-        <div class="w-1/2">
-          <% if @link %>
-            <img src="<%= asset_path('check.png') %>" alt="Check mark"/>
+      <div class="py-8 w-full flex flex-col items-center justify-between">
+        <% if @link %>
+          <div class="w-1/2">
+            <img src="<%= asset_path('check.svg') %>" alt="Check mark"/>
+          </div>
+          <% if @link&.adapter %>
+            <div class="pt-4">
+              <%= render partial: 'products/inline_card', locals: { product: @link.adapter } %>
+            </div>
           <% else %>
-            <img src="<%= asset_path('cross.png') %>" alt="Cross mark"/>
+            <div class="pt-4">
+              <div class="inline-flex items-center p-4 bg-gray-50 rounded-full">
+                <i class="fa-solid fa-plug-circle-xmark fa-xl"></i>
+                <span class="ml-2">no adapter required</span>
+              </div>
+            </div>
           <% end %>
-        </div>
+        <% else %>
+          <div class="w-1/2">
+            <img src="<%= asset_path('cross.svg') %>" alt="Cross mark"/>
+          </div>
+        <% end %>
         <div class="mt-8">
           <%= render partial: 'shared/subtitle', locals: { text: 'Search for other compatible products', center: true } %>
           <div class="flex justify-center mt-4">
@@ -31,13 +45,6 @@
         <%= render partial: 'products/main', locals: { product: @product_b } %>
       </div>
     </div>
-
-    <% if @link&.adapter %>
-      <%= render partial: 'shared/subtitle', locals: { text: 'These products need an adapter' } %>
-      <div class="mt-4">
-        <%= @link.adapter.name %>
-      </div>
-    <% end %>
 
     <%= render partial: 'products/compatible_product_carousel', locals: { product: @product_a } %>
   </div>
