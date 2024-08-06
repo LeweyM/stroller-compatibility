@@ -92,20 +92,22 @@ class Product < ApplicationRecord
     # any products mentioned should already exist, or an exception should be raised and no db changes made.
     csv_text = File.read(file)
     csv = CSV.parse(csv_text, headers: false)
-    pp csv[0]
-    pp csv[1]
     strollers = csv[0].filter { |s| not s.nil? }
                       .map { |name| Product.find_by!(name: name, productable_type: "Stroller") }
     seats = csv[1].filter { |s| not s.nil? }
                   .map { |name| Product.find_by!(name: name, productable_type: "Seat") }
-    adapter = csv[2].first unless csv[2].first.nil?
+    adapter_name = csv[2].first unless csv[2].first.nil?
+    adapter = Product.find_by!(name: adapter_name, productable_type: "Adapter")
 
-    strollers.concat(seats).each do |product|
-      product.add_compatible_product(adapter)
+    strollers.each do |product|
+      seats.each do |other_product|
+        product.add_compatible_product(other_product, adapter)
+      end
     end
   end
 
   private_class_method :import_compatibility
+
   # import a cvs data
   # format: first column is a list of strollers, except first cell
   # first row is a list of car seats, except first cell
@@ -168,21 +170,13 @@ class Product < ApplicationRecord
                         raise "Unknown product type: #{type}"
                       end
 
-        product = Product.create!(
+        Product.create!(
           name: name,
           link: link,
           brand: brand,
-          productable: productable
+          productable: productable,
+          image: image_url ? Image.create_or_find_by(:url => image_url) : nil
         )
-        image = Image.find_by(url: image_url)
-        if image.nil?
-          image = Image.create!(
-            :url => image_url,
-            product: product
-          )
-          image.save!
-        end
-        product.save!
       end
     end
   end
