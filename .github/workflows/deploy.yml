@@ -1,13 +1,22 @@
-name: Fly Deploy
+name: Deploy
 on:
   push:
     branches:
       - main
 jobs:
   deploy:
-    name: Deploy app
+    name: Test and Deploy app
     runs-on: ubuntu-latest
     concurrency: deploy-group    # optional: ensure only one action runs at a time
+
+    services:
+      postgres:
+        image: postgres:12.1-alpine
+        ports:
+          - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
       - uses: actions/checkout@v4
 
@@ -22,6 +31,9 @@ jobs:
           bundle install
 
       - name: Run tests
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: "postgres://postgres@localhost:5432/test_database_name"
         run: bundle exec rake test
 
       - uses: superfly/flyctl-actions/setup-flyctl@master
