@@ -1,13 +1,22 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  link: MyString
-  productable: one
-  productable_type: Productable
+cabriofix:
+  brand: maxicosi
+  name: cabriofix
+  link: http://www.cabriofix.com/
+  productable: cabriofix (Seat)
+  slug: cabriofix
 
-two:
-  name: MyString
-  link: MyString
-  productable: two
-  productable_type: Productable
+oxford:
+  brand: maxicosi
+  name: oxford
+  link: http://www.oxford.com/
+  productable: oxford (Stroller)
+  slug: oxford
+
+global adapter:
+  brand: yoyo
+  name: global adapter
+  link: http://www.globaladapter.com/
+  productable: global adapter (Adapter)
+  slug: global-adapter

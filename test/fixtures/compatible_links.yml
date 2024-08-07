@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  product_a: one
-  product_b: one
-  adapter: one
+#one:
+#  product_a: one
+#  product_b: one
+#  adapter: one
 
-two:
-  product_a: two
-  product_b: two
-  adapter: two
+#two:
+#  product_a: two
+#  product_b: two
+#  adapter: two

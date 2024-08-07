@@ -1,11 +1,1 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  brand: one
-  name: MyString
-  link: MyString
-
-two:
-  brand: two
-  name: MyString
-  link: MyString

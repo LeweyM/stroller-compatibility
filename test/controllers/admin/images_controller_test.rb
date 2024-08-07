@@ -12,7 +12,7 @@ class Admin::ImagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get destroy" do
-    get admin_images_destroy_url
-    assert_response :success
+    get admin_images_destroy_url, params: { id: images(:oxford_image).id }
+    assert_response :found
   end
 end

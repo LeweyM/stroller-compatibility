@@ -149,7 +149,6 @@ class Product < ApplicationRecord
     csv_text = File.read(file)
     csv = CSV.parse(csv_text, headers: true)
     csv.each do |row|
-      pp row
       type = row[0]
       brand_name = row[1]
       name = row[2]

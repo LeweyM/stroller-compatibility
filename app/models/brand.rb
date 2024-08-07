@@ -1,6 +1,11 @@
 class Brand < ApplicationRecord
-  has_many :strollers, dependent: :destroy
-  has_many :seats, dependent: :destroy
+  has_many :products, dependent: :destroy
 
+  def strollers
+    products.where(productable_type: "Stroller")
+  end
 
+  def seats
+    products.where(productable_type: "Seat")
+  end
 end

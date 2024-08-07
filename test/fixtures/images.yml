@@ -1,15 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+oxford_image:
   url: MyString
   alt_text: MyString
   attribution_url: MyString
   attribution_text: MyString
-  product: one
-
-two:
-  url: MyString
-  alt_text: MyString
-  attribution_url: MyString
-  attribution_text: MyString
-  product: two
+  product: oxford

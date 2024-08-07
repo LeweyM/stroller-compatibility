@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  website: MyString
+maxicosi:
+  name: maxicosi
+  website: http://www.maxicosi.com/
 
-two:
-  name: MyString
-  website: MyString
+yoyo:
+  name: yoyo
+  website: http://www.yoyo.com/

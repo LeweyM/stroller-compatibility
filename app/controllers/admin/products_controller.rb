@@ -2,7 +2,6 @@ class Admin::ProductsController < Admin::BaseController
   def index
     @products = Product.joins(:brand).all.order(:productable_type)
 
-    pp params
     if params[:search].present?
       @products = @products.where("name LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
     end

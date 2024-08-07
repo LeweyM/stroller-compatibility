@@ -8,8 +8,6 @@ class ProductsController < ApplicationController
   end
 
   def search
-    pp params
-
     query = Product.where("LOWER(name) ILIKE LOWER(?)", "%#{params[:search_term]}%")
     # optional type query param
     if params[:type].present?
@@ -22,7 +20,6 @@ class ProductsController < ApplicationController
   end
 
   def search_comparison
-    pp params
     query_result = Product
                      .where(productable_type: params[:type])
                      .where("name ILIKE ?", "%#{params[:search_term]}%")
