@@ -87,10 +87,9 @@ Stop the postgres instance
 pg_ctl -D ~/postgres-data stop
 ```
 
-Run the migrations and seed the db
+Run migrations
 ```bash
 bin/rails db:migrate
-bin/rails db:seed:replant
 ```
 
 Remove the local db
@@ -117,9 +116,14 @@ git commit -m "ci: [skip ci] update README.md"
 
 This app is deployed on fly.io.
 
-Use the following command to deploy:
+#### Deploy the app to production
 ```bash
 flyctl deploy
+```
+
+#### View the app in production
+```bash
+fly open
 ```
 
 ### supabase
