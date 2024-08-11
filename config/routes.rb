@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       collection do
         post :import
         get :export
+        get :export_compatible
       end
     end
   end

@@ -54,6 +54,28 @@ class Admin::ProductsController < Admin::BaseController
     send_data(data, filename: "product_export_#{Date.today}.csv", type: "text/csv")
   end
 
+  def export_compatible
+    # for each adapter, 3 rows. 1st row, a list of strollers, 2nd row a list of seats, 3rd row a single cell with adapter name
+    adapters = CompatibleLink.all.group_by(&:adapter)
+    sets = []
+    adapters.each do |adapter, links|
+      strollers_a = links.select { |link| link.product_a.productable_type == "Stroller" }
+      strollers_b = links.select { |link| link.product_b.productable_type == "Stroller" }
+      strollers = strollers_a.map { |link| link.product_a.name } + strollers_b.map { |link| link.product_b.name }
+
+      seats_a = links.select { |link| link.product_a.productable_type == "Seat" }
+      seats_b = links.select { |link| link.product_b.productable_type == "Seat" }
+      seats = seats_a.map { |link| link.product_a.name } + seats_b.map { |link| link.product_b.name }
+
+      row1 = strollers.uniq.join(",")
+      row2 = seats.uniq.join(",")
+      row3 = adapter.name
+      sets << [row1, row2, row3]
+    end
+
+    send_data(sets.join("\n"), filename: "compatible_export_#{Date.today}.csv", type: "text/csv")
+  end
+
   def update
     @product = Product.friendly.find(params[:id])
     if @product.update(product_params)
