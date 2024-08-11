@@ -1,0 +1,26 @@
+<%= form_with(model: local_assigns[:model], url: local_assigns[:url], local: true) do |form| %>
+  <table class="table">
+    <tbody>
+    <% local_assigns[:fields].each do |field, type| %>
+      <tr>
+        <th><%= field.to_s.humanize %></th>
+        <td>
+          <% case type %>
+          <% when :text_field %>
+            <%= form.text_field field, value: local_assigns[:model].send(field), class: 'form-control' %>
+          <% when :collection_select %>
+            <%= form.collection_select field, local_assigns[field], :id, :name, { selected: local_assigns[:model].send(field) }, class: 'form-control' %>
+          <% when :select %>
+            <%= form.select field, local_assigns[field], { selected: local_assigns[:model].send(field) }, class: 'form-control' %>
+          <% when :url_field %>
+            <%= form.url_field field, value: local_assigns[:model].send(field), class: 'form-control' %>
+          <% else %>
+            <%= form.send(type, field, value: local_assigns[:model].send(field), class: 'form-control') %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= form.button 'Save Changes', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-1" %>
+<% end %>

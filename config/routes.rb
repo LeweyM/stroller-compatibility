@@ -10,10 +10,12 @@ Rails.application.routes.draw do
   end
   resources :brands, only: [:index]
   namespace :admin do
+    get '', to: redirect('admin/products')
     get 'images/new'
     get 'images/create'
     get 'images/destroy'
-    resources :products, path: '', only: [:index, :new, :edit, :destroy, :update] do
+    resources :brands, path: 'brands', only: [:index, :new, :edit, :destroy, :update]
+    resources :products, path: 'products', only: [:index, :new, :edit, :destroy, :update] do
       resources :images, only: [:new, :create, :destroy]
       collection do
         post :import

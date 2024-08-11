@@ -1,0 +1,33 @@
+<table class="table">
+  <thead>
+  <tr>
+    <% attributes.each do |attribute| %>
+      <th><%= attribute.to_s.titleize %></th>
+    <% end %>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% collection.each do |item| %>
+    <tr>
+      <% attributes.each do |attribute| %>
+        <td><%= item.send(attribute) %></td>
+      <% end %>
+      <td class="flex">
+        <% if edit_path %>
+          <%= button_to 'Edit', eval("#{edit_path}(item)"), method: :get,
+                        class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-1"
+          %>
+        <% end %>
+        <% if delete_path %>
+          <%= button_to 'Delete', eval("#{delete_path}(item)"),
+                        method: :delete,
+                        form: { data: { turbo: true, turbo_confirm: 'are you sure?', turbo_method: :delete } },
+                        class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-1"
+          %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

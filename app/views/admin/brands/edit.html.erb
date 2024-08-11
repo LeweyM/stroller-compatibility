@@ -1,4 +1,7 @@
 <div>
   <h1 class="font-bold text-4xl">Admin::Brands#edit</h1>
-  <p>Find me in app/views/admin/brands/edit.html.erb</p>
+  <%= render 'shared/edit_form', model: @brand, url: admin_brand_url, fields: {
+    name: :text_field,
+    website: :url_field,
+  } %>
 </div>

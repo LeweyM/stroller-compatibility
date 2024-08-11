@@ -8,4 +8,8 @@ class Brand < ApplicationRecord
   def seats
     products.where(productable_type: "Seat")
   end
+
+  def product_count
+    products.count
+  end
 end
