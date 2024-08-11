@@ -1,7 +1,12 @@
 <div class="w-full">
   <div class="p-4">
     <h1 class="font-bold text-4xl">Import Products</h1>
-    <%= render partial: 'admin/shared/file_upload_form', locals: { url: import_admin_products_path, id: 'import-products' } %>
+    <div class="flex flex-row">
+      <%= render partial: 'admin/shared/file_upload_form', locals: { url: import_admin_products_path, id: 'import-products' } %>
+      <%= link_to "Export To CSV", export_admin_products_path,
+                  class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mx-1"
+      %>
+    </div>
   </div>
 
   <h1 class="font-bold text-4xl">Admin::Products#index</h1>
@@ -19,14 +24,15 @@
     </thead>
     <tbody>
     <% @products.each do |product| %>
- <tr class="<%= 'bg-green-50' if product.productable_type == 'Seat' %>
+      <tr class="<%= 'bg-green-50' if product.productable_type == 'Seat' %>
             <%= 'bg-blue-50' if product.productable_type == 'Stroller' %>
             <%= 'bg-yellow-50' if product.productable_type == 'Adapter' %> border-2 border-gray-200">
-   <td><%= product.id %></td>        <td><%= product.slug %></td>
+        <td><%= product.id %></td>
+        <td><%= product.slug %></td>
         <td><%= product.name %></td>
         <td><%= product.brand.name %></td>
         <td><%= product.productable_type %></td>
-        <td><%= product.compatible_products.map { | p | p.name }.join(", ") %></td>
+        <td><%= product.compatible_products.map { |p| p.name }.join(", ") %></td>
         <td class="flex">
           <%= button_to 'Edit', edit_admin_product_path(product), method: :get,
                         class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-1"

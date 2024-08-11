@@ -1,5 +1,10 @@
 <div>
   <h1 class="font-bold text-4xl">Admin::Brands#index</h1>
+  <div class="py-4">
+    <%= link_to "Export To CSV", export_admin_brands_path,
+                class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mx-1"
+    %>
+  </div>
   <%= render 'shared/table', collection: @brands, attributes: [:name, :website, :product_count], edit_path: 'edit_admin_brand_path', delete_path: 'admin_brand_path' %>
   <h2>Total Product Count: <%= @total_product_count %></h2>
 </div>

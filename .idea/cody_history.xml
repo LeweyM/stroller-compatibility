@@ -4321,6 +4321,42 @@
                 </messages>
                 <updatedAt value="2024-08-11T11:48:55.034536" />
               </chat>
+              <chat>
+                <internalId value="661ddc5f-4743-418b-8a7e-d3a3b6e5dfee" />
+                <llm>
+                  <llm>
+                    <model value="openai/gpt-4-turbo" />
+                    <provider value="OpenAI" />
+                    <tags>
+                      <list>
+                        <option value="gateway" />
+                        <option value="pro" />
+                        <option value="balanced" />
+                      </list>
+                    </tags>
+                    <title value="GPT-4 Turbo" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="should type not be csv or soemthign?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Yes, you are correct. In the context of exporting data as a CSV file, it would be more appropriate to specify the MIME type as `&quot;text/csv&quot;` instead of `&quot;text/plain&quot;`. This helps ensure that the file is handled correctly by applications that consume or display CSV files. Here's how you might adjust the code:&#10;&#10;```ruby&#10;send_data(data, filename: &quot;product_export_#{Date.today}.csv&quot;, type: &quot;text/csv&quot;)&#10;```&#10;&#10;This change specifies the correct MIME type for CSV files, which is `&quot;text/csv&quot;`." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-08-11T12:07:51.036616" />
+              </chat>
             </list>
           </chats>
           <defaultLlm>

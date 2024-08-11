@@ -24,6 +24,7 @@ class Admin::ProductsController < Admin::BaseController
   def edit
     @product = Product.friendly.find(params[:id])
   end
+
   def destroy
     @product = Product.friendly.find(params[:id])
     @product.destroy
@@ -41,6 +42,16 @@ class Admin::ProductsController < Admin::BaseController
       redirect_to admin_products_path
 
     end
+  end
+
+  def export
+    headers = "type,brand,name,url,image_url"
+    rows = Product.all.map do |product|
+      "#{product.productable_type.capitalize},#{product.brand.name},#{product.name},#{product.link},#{product.image&.url}"
+    end
+    rows = rows.sort_by { |row| [row.split(",")[1], row.split(",")[0]] }
+    data = headers + "\n" + rows.join("\n")
+    send_data(data, filename: "product_export_#{Date.today}.csv", type: "text/csv")
   end
 
   def update

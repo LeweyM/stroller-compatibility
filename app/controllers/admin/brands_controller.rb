@@ -21,6 +21,14 @@ class Admin::BrandsController < Admin::BaseController
     redirect_to admin_brands_path
   end
 
+  def export
+    headers = "name,website"
+    rows = Brand.all.map do |brand|
+      "#{brand.name},#{brand.website}"
+    end
+    send_data headers + "\n" + rows.join("\n"), filename: "brands_#{Date.today}.csv", type: "text/csv"
+  end
+
   private
 
   def brand_params

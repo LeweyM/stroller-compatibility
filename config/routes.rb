@@ -14,11 +14,16 @@ Rails.application.routes.draw do
     get 'images/new'
     get 'images/create'
     get 'images/destroy'
-    resources :brands, path: 'brands', only: [:index, :new, :edit, :destroy, :update]
+    resources :brands, path: 'brands', only: [:index, :new, :edit, :destroy, :update] do
+      collection do
+        get :export
+      end
+    end
     resources :products, path: 'products', only: [:index, :new, :edit, :destroy, :update] do
       resources :images, only: [:new, :create, :destroy]
       collection do
         post :import
+        get :export
       end
     end
   end
