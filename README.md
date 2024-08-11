@@ -155,6 +155,9 @@ fly secrets set DATABASE_URL=xxxx
     - [x] CI pipeline for deployment on push
     - [ ] image CDN
 - [ ] Populate The DB
+    - [x] export data to CSV
+    - [ ] automated image search based on product name
+    - [ ] automated product url based on product name
     - [ ] populate initial product database from https://www.babylist.com/hello-baby/car-seat-stroller-compatibility
     - [x] populate initial product database maxicosi compatibility pdf
     - [x] import product data via csv in admin panel
