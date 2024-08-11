@@ -1,0 +1,25 @@
+{
+  "name": "openai-file-parser",
+  "version": "1.0.0",
+  "description": "Simple AI parser for pipeline file processing",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/index.ts",
+    "start": "node ./dist/index.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lewis B Metcalf",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.1.0",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "dotenv": "^16.4.5",
+    "openai": "^4.55.1"
+  }
+}
