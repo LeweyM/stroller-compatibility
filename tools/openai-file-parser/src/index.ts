@@ -81,7 +81,7 @@ async function processStep(step: Step<any>, pipelineDirectoryPath: string, fileP
 }
 
 // Function to process step.txt and execute its instructions
-const processSteps = async (pipelineDirectoryPath: string, filePath: string, pipeline: Pipeline<any>) => {
+const processSteps = async (pipelineDirectoryPath: string, filePath: string) => {
     const file = fs.readFileSync(filePath, 'utf-8');
 
     const steps = getCurrentSteps(path.dirname(filePath));
@@ -99,7 +99,7 @@ async function processFile(filePath: string) {
     if (path.dirname(filePath) !== path.join(pipelinesDir, 'origin')) return;
 
     console.log(`processing file: ${filePath}`);
-    await processSteps(pipelinesDir, filePath, pipeline);
+    await processSteps(pipelinesDir, filePath);
 }
 
 watcher
