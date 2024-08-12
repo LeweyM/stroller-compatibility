@@ -23,6 +23,8 @@ class Admin::ProductsController < Admin::BaseController
 
   def edit
     @product = Product.friendly.find(params[:id])
+    @next_product = Product.where("id > ?", @product.id).first
+    @previous_product = Product.where("id < ?", @product.id).last
   end
 
   def destroy

@@ -70,4 +70,27 @@
   <div class="py-2">
     <%= render :partial => 'shared/button', :locals => { :link => admin_products_path, :text => 'Back to Products', :secondary => true } %>
   </div>
+  <p class="italic text-gray-700 text-sm">hint: you can use ctrl+opt+n and ctrl+opt+p to navigate</p>
+  <div class="py-2 flex">
+    <% if @previous_product %>
+      <div class="">
+        <%= render :partial => 'shared/button',
+                   :locals => { :link => edit_admin_product_path(@previous_product),
+                                :text => 'prev',
+                                :accesskey => 'p',
+                   }
+        %>
+      </div>
+    <% end %>
+    <% if @next_product %>
+      <div class="px-2">
+        <%= render :partial => 'shared/button',
+                   :locals => { :link => edit_admin_product_path(@next_product),
+                                :text => 'next',
+                                :accesskey => 'n',
+                   }
+        %>
+      </div>
+    <% end %>
+  </div>
 </div>
