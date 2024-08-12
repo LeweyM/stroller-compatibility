@@ -19,7 +19,10 @@
       </tr>
       <tr>
         <th>Link</th>
-        <td><%= form.url_field :link, class: 'form-control' %></td>
+        <td class="flex items-center">
+          <%= form.url_field :link, class: 'form-control' %>
+          <%= render CheckLink::ShowComponent.new(productId: @product.slug, checkLinkPath: check_link_admin_products_path) %>
+        </td>
       </tr>
       <% unless @product.image.nil? %>
         <tr>
@@ -60,6 +63,7 @@
                   class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-1"
     %>
   <% end %>
-
-  <%= render :partial => 'shared/button', :locals => { :link => admin_products_path, :text => 'Back to Products', :secondary => true } %>
+  <div class="py-2">
+    <%= render :partial => 'shared/button', :locals => { :link => admin_products_path, :text => 'Back to Products', :secondary => true } %>
+  </div>
 </div>

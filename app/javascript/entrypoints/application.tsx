@@ -2,6 +2,7 @@ import React from "react";
 import mount from "../mount";
 import {Search} from "../react/src/components/Search";
 import useSingleFlightOnlyClient, {APIResponseItem} from "../react/src/hooks/useSingleFlightOnlyClient";
+import CheckLink from "../react/src/components/CheckLink";
 
 function parseQueryParams(queryParams: Record<string, any>) {
     return Object.entries(queryParams)
@@ -85,4 +86,5 @@ const SearchComparisonProduct = ({searchUrl, product}: { searchUrl: string, prod
 mount({
     SearchProduct,
     SearchComparisonProduct,
+    CheckLink
 })

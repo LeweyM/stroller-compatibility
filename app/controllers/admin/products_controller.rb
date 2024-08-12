@@ -31,6 +31,17 @@ class Admin::ProductsController < Admin::BaseController
     redirect_to admin_products_path
   end
 
+  # make a http request against the product link to check if it's a valid link
+  def check_link
+    @product = Product.friendly.find(params[:product_id])
+    product_link = @product.link
+    response = HTTParty.get(product_link, follow_redirects: false)
+
+    render json: {
+      response_status: response.code,
+    }
+  end
+
   def import
     file = params[:file]
 
