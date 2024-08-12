@@ -30,6 +30,12 @@ jobs:
           gem install bundler
           bundle install
 
+      - name: Setup DB
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: "postgres://postgres@localhost:5432/test_database_name"
+        run: bundle exec rake db:create db:migrate
+
       - name: Run tests
         env:
           RAILS_ENV: test
