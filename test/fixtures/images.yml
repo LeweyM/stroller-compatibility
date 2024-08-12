@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 oxford_image:
-  url: MyString
+  url: https://www.somesite.com/this-image-does-not-exist
   alt_text: MyString
   attribution_url: MyString
   attribution_text: MyString
