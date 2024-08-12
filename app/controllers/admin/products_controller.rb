@@ -39,6 +39,7 @@ class Admin::ProductsController < Admin::BaseController
 
     render json: {
       response_status: response.code,
+      redirect_to: response.headers['location'] || nil
     }
   end
 
@@ -89,10 +90,12 @@ class Admin::ProductsController < Admin::BaseController
 
   def update
     @product = Product.friendly.find(params[:id])
+    pp product_params
     if @product.update(product_params)
-      update_or_create_image(@product, params[:product])
-      redirect_to admin_products_path, notice: 'Product was successfully updated.'
-    else
+          if params[:product][:image_url] || params[:product][:image_alt_text] || params[:product][:image_attribution_url] || params[:product][:image_attribution_text]
+            update_or_create_image(@product, params[:product])
+          end
+          redirect_to admin_products_path, notice: 'Product was successfully updated.'    else
       render :edit
     end
   end
