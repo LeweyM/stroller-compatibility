@@ -45,6 +45,9 @@
     <%= render :partial => 'shared/button', :locals => { :link => admin_product_path(@product), :text => 'Update Product', :method => :post } %>
   <% end %>
   <% if @product.image.nil? %>
+    <div class="py-2">
+      <%= render :partial => 'shared/button', :locals => { :link => generate_admin_product_images_path(@product), :text => 'Generate Image', :method => :post } %>
+    </div>
   <% else %>
     <%= button_to 'Delete Image',
                   admin_product_image_path(@product),

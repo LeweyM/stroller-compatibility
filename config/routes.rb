@@ -20,8 +20,13 @@ Rails.application.routes.draw do
       end
     end
     resources :products, path: 'products', only: [:index, :new, :edit, :destroy, :update] do
-      resources :images, only: [:new, :create, :destroy]
+      resources :images, only: [:new, :create, :destroy] do
+        collection do
+          post :generate
+        end
+      end
       collection do
+        post :check_link
         post :import
         get :export
         get :export_compatible

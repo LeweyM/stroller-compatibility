@@ -11,6 +11,9 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 # for slug urls
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
+# for http requests
+gem 'httparty'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
