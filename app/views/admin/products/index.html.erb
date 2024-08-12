@@ -21,6 +21,7 @@
       <th>Name</th>
       <th>Brand</th>
       <th>Type</th>
+      <th>Image</th>
       <th>Compatible Products</th>
       <th>Actions</th>
     </tr>
@@ -35,6 +36,9 @@
         <td><%= product.name %></td>
         <td><%= product.brand.name %></td>
         <td><%= product.productable_type %></td>
+        <td class="<%= product.image.present? ? 'text-green-500' : 'text-red-500' %>">
+          <%= product.image.present? ? "✔" : "✘" %>
+        </td>
         <td><%= product.compatible_products.map { |p| p.name }.join(", ") %></td>
         <td class="flex">
           <%= button_to 'Edit', edit_admin_product_path(product), method: :get,
