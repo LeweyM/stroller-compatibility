@@ -23,6 +23,10 @@
       </tr>
       <% unless @product.image.nil? %>
         <tr>
+          <th>Image Preview</th>
+          <td><%= image_tag @product.image.url, class: 'rounded', size: "200x200" %></td>
+        </tr>
+        <tr>
           <th>Image URL</th>
           <td><%= form.url_field :image_url, value: @product.image&.url, class: 'form-control' %></td>
         </tr>
