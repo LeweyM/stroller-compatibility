@@ -157,6 +157,7 @@ fly secrets set DATABASE_URL=xxxx
 - [ ] Populate The DB
     - [x] export data to CSV
     - [x] automated image search based on product name
+    - [ ] 100 products ready (41/100)
     - [ ] automated product url based on product name
     - [ ] automated url fixing for 301 links
     - [ ] populate initial product database from https://www.babylist.com/hello-baby/car-seat-stroller-compatibility
