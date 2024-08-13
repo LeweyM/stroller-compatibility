@@ -1,4 +1,4 @@
-<div class="p-4">
+<div class="p-4 table">
 
   <h1 class="text-2xl">Edit Product: <%= @product.name %></h1>
 
@@ -20,9 +20,10 @@
       <tr>
         <th>Link</th>
         <td class="flex items-center">
-          <%= form.url_field :link, class: 'form-control' %>
+          <%= form.url_field :link, class: 'form-control w-full' %>
           <a class="p-2 m-2 rounded-full bg-gray-200 text-gray-800 w-8 h-8 flex items-center justify-center hover:bg-gray-300 cursor-pointer"
-            href="<%= @product.link %>"
+             target="_blank"
+             href="<%= @product.link %>"
           >
             <i class="fa-solid fa-globe"></i>
           </a>
@@ -40,7 +41,7 @@
         </tr>
         <tr>
           <th>Image URL</th>
-          <td><%= form.url_field :image_url, value: @product.image&.url, class: 'form-control' %></td>
+          <td><%= form.url_field :image_url, value: @product.image&.url, class: 'form-control w-full' %></td>
         </tr>
         <tr>
           <th>Image Alt Text</th>
