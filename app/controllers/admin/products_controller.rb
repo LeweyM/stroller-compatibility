@@ -1,9 +1,9 @@
 class Admin::ProductsController < Admin::BaseController
   def index
-    @products = Product.joins(:brand).all.order(:productable_type)
+    @products = Product.joins(:brand)
 
     if params[:search].present?
-      @products = @products.where("name LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+      @products = @products.where("products.name ILIKE ?", "%#{params[:search]}%")
     end
 
     if params[:type].present?
@@ -11,8 +11,10 @@ class Admin::ProductsController < Admin::BaseController
     end
 
     if params[:brand].present?
-      @products = @products.joins(:brand).where(brands: { name: params[:brand].capitalize })
+      @products = @products.joins(:brand).where("brands.name ILIKE ?", "%#{params[:brand]}%")
     end
+
+    @products = @products.all.order(:productable_type)
   end
 
   def show
@@ -96,7 +98,7 @@ class Admin::ProductsController < Admin::BaseController
       if params[:product][:image_url] || params[:product][:image_alt_text] || params[:product][:image_attribution_url] || params[:product][:image_attribution_text]
         update_or_create_image(@product, params[:product])
       end
-      flash[:notice] ='Product was successfully updated.'
+      flash[:notice] = 'Product was successfully updated.'
     else
       flash[:error] = 'Something went wrong when updating the product'
     end
