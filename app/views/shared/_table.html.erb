@@ -4,29 +4,44 @@
     <% attributes.each do |attribute| %>
       <th><%= attribute.to_s.titleize %></th>
     <% end %>
-    <th>Actions</th>
+    <% if defined? edit_path or defined? delete_path %>
+      <th>Actions</th>
+    <% end %>
   </tr>
   </thead>
   <tbody>
   <% collection.each do |item| %>
     <tr>
       <% attributes.each do |attribute| %>
-        <td><%= item.send(attribute) %></td>
+        <td>
+          <% if attribute.include?('.') %>
+            <% nested_attributes = attribute.split('.') %>
+            <% value = item %>
+            <% nested_attributes.each do |nested_attribute| %>
+              <% value = value.send(nested_attribute) %>
+            <% end %>
+            <%= value %>
+          <% else %>
+            <%= item.send(attribute) %>
+          <% end %>
+        </td>
       <% end %>
-      <td class="flex">
-        <% if edit_path %>
-          <%= button_to 'Edit', eval("#{edit_path}(item)"), method: :get,
-                        class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-1"
-          %>
-        <% end %>
-        <% if delete_path %>
-          <%= button_to 'Delete', eval("#{delete_path}(item)"),
-                        method: :delete,
-                        form: { data: { turbo: true, turbo_confirm: 'are you sure?', turbo_method: :delete } },
-                        class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-1"
-          %>
-        <% end %>
-      </td>
+      <% if defined? edit_path or defined? delete_path %>
+        <td class="flex">
+          <% if defined? edit_path %>
+            <%= button_to 'Edit', eval("#{edit_path}(item)"), method: :get,
+                          class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-1"
+            %>
+          <% end %>
+          <% if defined? delete_path %>
+            <%= button_to 'Delete', eval("#{delete_path}(item)"),
+                          method: :delete,
+                          form: { data: { turbo: true, turbo_confirm: 'are you sure?', turbo_method: :delete } },
+                          class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-1"
+            %>
+          <% end %>
+        </td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
