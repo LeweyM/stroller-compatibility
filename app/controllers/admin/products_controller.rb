@@ -92,14 +92,15 @@ class Admin::ProductsController < Admin::BaseController
 
   def update
     @product = Product.friendly.find(params[:id])
-    pp product_params
     if @product.update(product_params)
-          if params[:product][:image_url] || params[:product][:image_alt_text] || params[:product][:image_attribution_url] || params[:product][:image_attribution_text]
-            update_or_create_image(@product, params[:product])
-          end
-          redirect_to admin_products_path, notice: 'Product was successfully updated.'    else
-      render :edit
+      if params[:product][:image_url] || params[:product][:image_alt_text] || params[:product][:image_attribution_url] || params[:product][:image_attribution_text]
+        update_or_create_image(@product, params[:product])
+      end
+      flash[:notice] ='Product was successfully updated.'
+    else
+      flash[:error] = 'Something went wrong when updating the product'
     end
+    render :edit
   end
 
   private
