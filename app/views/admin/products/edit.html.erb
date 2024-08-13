@@ -59,22 +59,40 @@
       </tbody>
     </table>
 
-    <%= render :partial => 'shared/button', :locals => { :link => admin_product_path(@product), :text => 'Update Product', :method => :post } %>
+    <%= render :partial => 'shared/button',
+               :locals => {
+                 :link => admin_product_path(@product),
+                 :text => 'Update Product',
+                 :method => :post
+               } %>
   <% end %>
   <% if @product.image.nil? %>
     <div class="py-2">
-      <%= render :partial => 'shared/button', :locals => { :link => generate_admin_product_images_path(@product), :text => 'Generate Image', :method => :post } %>
+      <%= render :partial => 'shared/button',
+                 :locals => {
+                   :link => generate_admin_product_images_path(@product),
+                   :text => 'Generate Image',
+                   :method => :post
+                 } %>
     </div>
   <% else %>
-    <%= button_to 'Delete Image',
-                  admin_product_image_path(@product.image),
-                  method: :delete,
-                  form: { data: { turbo: true, turbo_confirm: 'are you sure?', turbo_method: :delete } },
-                  class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-1"
-    %>
+    <div class="py-2">
+      <%= render :partial => 'shared/button',
+                 :locals => {
+                   :danger => true,
+                   :link => admin_image_path(@product.image),
+                   :text => 'Delete Image',
+                   :method => :delete,
+                   :confirm => 'are you sure?'
+                 } %>
+    </div>
   <% end %>
   <div class="py-2">
-    <%= render :partial => 'shared/button', :locals => { :link => admin_products_path, :text => 'Back to Products', :secondary => true } %>
+    <%= render :partial => 'shared/button',
+               :locals => { :link => admin_products_path,
+                            :text => 'Back to Products',
+                            :secondary => true
+               } %>
   </div>
   <p class="italic text-gray-700 text-sm">hint: you can use ctrl+opt+n and ctrl+opt+p to navigate</p>
   <div class="py-2 flex">

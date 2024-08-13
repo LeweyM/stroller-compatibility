@@ -1,13 +1,22 @@
-<% method = :get if method.nil? %>
+<% method = local_assigns[:method] || :get %>
 <div class="flex items-center justify-between">
   <% if local_assigns[:secondary] %>
     <% button_style = 'bg-white text-purple-800 border-purple-800 border-solid border-2' %>
     <% hover_style = 'hover:bg-gray-200' %>
     <% focus_style = 'focus:ring-blue-300' %>
+  <% elsif local_assigns[:danger] %>
+    <% button_style = 'bg-red-600 text-white' %>
+    <% hover_style = 'hover:bg-red-700' %>
+    <% focus_style = 'focus:ring-red-300' %>
   <% else %>
     <% button_style = 'bg-purple-800 text-white' %>
     <% hover_style = 'hover:bg-purple-600' %>
     <% focus_style = 'focus:ring-blue-300' %>
   <% end %>
-  <%= button_to text, link, class: "#{button_style} #{hover_style} #{focus_style} focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center", method: method, accesskey: local_assigns[:accesskey] %>
+  <%= button_to text, link,
+                class: "#{button_style} #{hover_style} #{focus_style} focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center",
+                method: method,
+                accesskey: local_assigns[:accesskey],
+                form: { data: { turbo: true, turbo_confirm: local_assigns[:confirm], turbo_method: local_assigns[:method] } }
+  %>
 </div>
