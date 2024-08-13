@@ -34,28 +34,28 @@
           ) %>
         </td>
       </tr>
-      <% unless @product.image.nil? %>
-        <tr>
-          <th>Image Preview</th>
-          <td><%= image_tag @product.image.url, class: 'rounded', size: "200x200" %></td>
-        </tr>
-        <tr>
-          <th>Image URL</th>
-          <td><%= form.url_field :image_url, value: @product.image&.url, class: 'form-control w-full' %></td>
-        </tr>
-        <tr>
-          <th>Image Alt Text</th>
-          <td><%= form.text_field :image_alt_text, value: @product.image&.alt_text, class: 'form-control' %></td>
-        </tr>
-        <tr>
-          <th>Image Attribution URL</th>
-          <td><%= form.url_field :image_attribution_url, value: @product.image&.attribution_url, class: 'form-control' %></td>
-        </tr>
-        <tr>
-          <th>Image Attribution Text</th>
-          <td><%= form.text_field :image_attribution_text, value: @product.image&.attribution_text, class: 'form-control' %></td>
-        </tr>
-      <% end %>
+      <tr>
+        <th>Image Preview</th>
+        <% unless @product.image.nil? %>
+          <td><%= image_tag @product.image&.url, class: 'rounded', size: "200x200" %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th>Image URL</th>
+        <td><%= form.url_field :image_url, value: @product.image&.url, class: 'form-control w-full' %></td>
+      </tr>
+      <tr>
+        <th>Image Alt Text</th>
+        <td><%= form.text_field :image_alt_text, value: @product.image&.alt_text, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th>Image Attribution URL</th>
+        <td><%= form.url_field :image_attribution_url, value: @product.image&.attribution_url, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th>Image Attribution Text</th>
+        <td><%= form.text_field :image_attribution_text, value: @product.image&.attribution_text, class: 'form-control' %></td>
+      </tr>
       </tbody>
     </table>
 
@@ -67,7 +67,7 @@
     </div>
   <% else %>
     <%= button_to 'Delete Image',
-                  admin_product_image_path(@product),
+                  admin_product_image_path(@product.image),
                   method: :delete,
                   form: { data: { turbo: true, turbo_confirm: 'are you sure?', turbo_method: :delete } },
                   class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-1"
