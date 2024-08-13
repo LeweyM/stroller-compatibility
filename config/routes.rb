@@ -11,9 +11,7 @@ Rails.application.routes.draw do
   resources :brands, only: [:index]
   namespace :admin do
     get '', to: redirect('admin/products')
-    get 'images/new'
-    get 'images/create'
-    get 'images/destroy'
+    resources :images, only: [:new, :create, :destroy]
     resources :brands, path: 'brands', only: [:index, :new, :edit, :destroy, :update] do
       collection do
         get :export
