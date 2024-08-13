@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :brands, only: [:index]
   namespace :admin do
     get '', to: redirect('admin/products')
-    resources :images, only: [:new, :create, :destroy]
+    resources :compatibility, only: [:index]
     resources :brands, path: 'brands', only: [:index, :new, :edit, :destroy, :update] do
       collection do
         get :export
