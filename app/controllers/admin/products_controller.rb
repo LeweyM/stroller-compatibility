@@ -100,7 +100,9 @@ class Admin::ProductsController < Admin::BaseController
     else
       flash[:error] = 'Something went wrong when updating the product'
     end
-    render :edit
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.action(:refresh, "") }
+    end
   end
 
   private
