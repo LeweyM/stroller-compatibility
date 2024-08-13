@@ -18,7 +18,8 @@ Rails.application.routes.draw do
       end
     end
     resources :products, path: 'products', only: [:index, :new, :edit, :destroy, :update] do
-      resources :images, only: [:new, :create, :destroy] do
+      delete :destroy_image, on: :member, controller: :images
+      resources :images, only: [:new, :create] do
         collection do
           post :generate
         end

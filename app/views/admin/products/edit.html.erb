@@ -80,7 +80,7 @@
       <%= render :partial => 'shared/button',
                  :locals => {
                    :danger => true,
-                   :link => admin_image_path(@product.image),
+                   :link => destroy_image_admin_product_path(@product),
                    :text => 'Delete Image',
                    :method => :delete,
                    :confirm => 'are you sure?'

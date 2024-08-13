@@ -102,6 +102,7 @@ class Admin::ProductsController < Admin::BaseController
     end
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.action(:refresh, "") }
+      format.html { render :edit }
     end
   end
 

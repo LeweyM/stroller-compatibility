@@ -5,8 +5,9 @@ class Admin::ImagesController < ApplicationController
   def create
   end
 
-  def destroy
-    @image = Image.find(params[:id])
+  def destroy_image
+    @product = Product.friendly.find(params[:id])
+    @image = @product.image
     @image.destroy
     redirect_to admin_products_path, notice: 'Product image was successfully deleted.'
   end

@@ -2,17 +2,17 @@ require "test_helper"
 
 class Admin::ImagesControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get admin_images_new_url
+    get new_admin_product_image_url(:oxford)
     assert_response :success
   end
 
   test "should get create" do
-    get admin_images_create_url
+    post admin_product_images_url(:oxford)
     assert_response :success
   end
 
   test "should get destroy" do
-    get admin_images_destroy_url, params: { id: images(:oxford_image).id }
+    delete destroy_image_admin_product_url(:oxford)
     assert_response :found
   end
 end

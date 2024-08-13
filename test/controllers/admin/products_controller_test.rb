@@ -32,7 +32,7 @@ class Admin::ProductsControllerTest < ActionDispatch::IntegrationTest
     patch admin_product_url(:oxford),
           headers: http_login,
           params: { product: { link: new_link } }
+    assert_response :success
     assert_equal new_link, Product.find_by(name: "oxford").link
-    assert_response :redirect
   end
 end
