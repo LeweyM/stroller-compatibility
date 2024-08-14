@@ -8,16 +8,12 @@ type SearchResult = {
 }
 
 type SearchWrapperProps = {
-    searchUrl: string,
-    slugToUrl: (slug: string, prevUrl: string) => string,
+    onChange: (selected: string) => void,
     getData: (input: string) => Promise<SearchResult[]>
     debounce?: number
 };
 
-const SearchWrapper = ({slugToUrl, getData, debounce = 0}: SearchWrapperProps) => {
-    const onChange = (selected: string) =>
-        window.location.href = slugToUrl(selected, window.location.pathname);
-
+const SearchWrapper = ({onChange, getData, debounce = 0}: SearchWrapperProps) => {
     const debouncedLoader =
         _.debounce((inputValue: string, callback: Function) => {
                 getData(inputValue).then((res) => {

@@ -8,8 +8,8 @@ class ProductsController < ApplicationController
   end
 
   def search
-    query = Product.where("LOWER(name) ILIKE LOWER(?)", "%#{params[:search_term]}%")
-    # optional type query param
+    query = Product.where("name ILIKE (?)", "%#{params[:search_term]}%")
+    # optional type query param, can be a string or an array
     if params[:type].present?
       query = query.where(productable_type: params[:type])
     end
@@ -19,19 +19,11 @@ class ProductsController < ApplicationController
     render json: result
   end
 
-  def search_comparison
-    query_result = Product
-                     .where(productable_type: params[:type])
-                     .where("name ILIKE ?", "%#{params[:search_term]}%")
-                     .limit(15)
-                     .pluck(:slug, :name)
-    result = query_result.map { |slug, name| { slug: slug, name: name } }
-    render json: result
-  end
-
   def fits
     @product = Product.friendly.includes(:image, :brand).find(params[:slug])
     @other_products = Product.where.not(productable_type: @product.productable_type).includes(:image, :brand)
+    # all types except for the type of the product
+    @search_types = %w[Stroller Seat Adapter] - [@product.productable_type]
   end
 
   def compatible

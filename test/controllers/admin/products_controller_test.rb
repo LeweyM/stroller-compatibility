@@ -142,3 +142,86 @@ class Admin::ProductsControllerTest < Admin::BaseControllerTest
     end
   end
 end
+
+class ProductsControllerSearchTest < ActionDispatch::IntegrationTest
+  test "should return search results" do
+    get products_search_url(search_term: "oxford"), as: :json
+
+    assert_response :success
+    assert_equal "application/json", @response.media_type
+    results = JSON.parse(@response.body)
+    assert_instance_of Array, results
+    assert_not_empty results
+    assert_equal %w[slug name], results.first.keys
+  end
+
+  test "should limit search results to 15" do
+    20.times { |i| create_product!(name: "Test Product #{i}") }
+    get products_search_url(search_term: "Test"), as: :json
+    assert_response :success
+    results = JSON.parse(@response.body)
+    assert_equal 15, results.length
+  end
+
+  test "should filter search results by type" do
+    stroller = create_product!(name: "Test Stroller", type: Stroller)
+    car_seat = create_product!(name: "Test Car Seat", type: Seat)
+
+    get products_search_url(search_term: "Test", type: "Stroller"), as: :json
+
+    assert_response :success
+    results = JSON.parse(@response.body)
+    assert_equal 1, results.length
+    assert_equal stroller.slug, results.first["slug"]
+  end
+
+  test "should handle multiple types in search" do
+    stroller = create_product!(name: "Test Stroller", type: Stroller)
+    car_seat = create_product!(name: "Test Car Seat", type: Seat)
+
+    get products_search_url(search_term: "Test", type: ["Stroller", "Seat"]), as: :json
+
+    assert_response :success
+    results = JSON.parse(@response.body)
+    assert_equal 2, results.length
+    assert_includes results.map { |r| r["slug"] }, stroller.slug
+    assert_includes results.map { |r| r["slug"] }, car_seat.slug
+  end
+
+  test "should return empty array for no results" do
+    get products_search_url(search_term: "NonexistentProduct"), as: :json
+    assert_response :success
+    results = JSON.parse(@response.body)
+    assert_empty results
+  end
+
+  test "should handle empty search term" do
+    get products_search_url(search_term: ""), as: :json
+
+    assert_response :success
+    results = JSON.parse(@response.body)
+    assert_equal Product.count, results.length
+  end
+
+  test "should be case insensitive" do
+    create_product! type: Stroller, name: "UPPERCASE PRODUCT"
+
+    get products_search_url(search_term: "uppercase"), as: :json
+
+    assert_response :success
+    results = JSON.parse(@response.body)
+    assert_equal 1, results.length
+    assert_equal "UPPERCASE PRODUCT", results.first["name"]
+  end
+
+  test "should handle special characters in search term" do
+    create_product!(name: "Product with % and _", type: Stroller)
+
+    get products_search_url(search_term: "% and _"), as: :json
+
+    assert_response :success
+    results = JSON.parse(@response.body)
+    assert_equal 1, results.length
+    assert_equal "Product with % and _", results.first["name"]
+  end
+end

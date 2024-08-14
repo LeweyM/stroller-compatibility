@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'products/index'
   get 'products/search', to: 'products#search'
-  get 'products/search_comparison', to: 'products#search_comparison'
   resources :products, param: :slug, path: '', :only => ['index', 'fits', 'comparison'] do
     member do
       get :fits

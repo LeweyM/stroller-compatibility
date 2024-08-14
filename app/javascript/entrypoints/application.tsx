@@ -33,9 +33,12 @@ const SearchProduct = ({searchUrl}: { searchUrl: string }) => {
             label: result.name
         }))
     };
+
+    const onChange = (selected: string) =>
+        window.location.href = `${selected}/fits`;
+
     return <Search
-        searchUrl={searchUrl}
-        slugToUrl={(slug: string) => `${slug}/fits`}
+        onChange={onChange}
         getData={getData}
         debounce={700}
     />
@@ -54,17 +57,21 @@ type Product = {
     // brand: string
 }
 
-const SearchComparisonProduct = ({searchUrl, product}: { searchUrl: string, product: Product }) => {
+const SearchComparisonProduct = ({searchUrl, product, types}: { searchUrl: string, product: Product, types?: ProductType[] }) => {
     const client = useSingleFlightOnlyClient<APIResponseItem[]>();
 
-    const typeFilter = {
+    const typeFilter = types || {
         [ProductType.Seat]: [ProductType.Stroller],
         [ProductType.Stroller]: [ProductType.Seat],
         [ProductType.Adapter]: [ProductType.Stroller, ProductType.Seat],
-    }[product.productable_type].map(type => `type[]=${type}`).join('&');
+    }[product.productable_type]
 
     let getData = async (input: string) => {
-        const url = `${searchUrl}?search_term=${input}&${typeFilter}`;
+        const queryParams = {
+            type: typeFilter,
+            search_term: input != "" ? input : undefined,
+        }
+        const url = `${searchUrl}?${parseQueryParams(queryParams)}`
         const results = await client.fetchData(url)
         if (!results) {
             return []
@@ -74,9 +81,12 @@ const SearchComparisonProduct = ({searchUrl, product}: { searchUrl: string, prod
             label: result.name
         }))
     };
+
+    const onChange = (selected: string) =>
+        window.location.href = `${window.location.href}/${selected}`;
+
     return <Search
-        searchUrl={searchUrl}
-        slugToUrl={(slug: string, prevUrl: string) => `${prevUrl}/${slug}`}
+        onChange={onChange}
         getData={getData}
         debounce={700}
     />

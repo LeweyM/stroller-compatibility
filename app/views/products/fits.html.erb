@@ -11,7 +11,7 @@
       </div>
       <div class="p-8 w-full">
         <%= render partial: 'shared/subtitle', locals: { text: 'Search for a product to compare:' } %>
-        <%= render SearchComparisonProduct::ShowComponent.new(searchUrl: url_for(controller: 'products', action: 'search_comparison'), product: @product) %>
+        <%= render SearchComparisonProduct::ShowComponent.new(searchUrl: url_for(controller: 'products', action: 'search'), product: @product, types: @search_types) %>
       </div>
     </div>
 
