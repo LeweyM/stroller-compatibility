@@ -105,6 +105,8 @@ GEM
     dotenv (3.1.2)
     drb (2.2.1)
     erubi (1.13.0)
+    faker (3.4.2)
+      i18n (>= 1.8.11, < 2)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-arm-linux-gnu)
     ffi (1.17.0-arm64-darwin)
@@ -208,6 +210,10 @@ GEM
       activesupport (= 7.1.3.4)
       bundler (>= 1.15.0)
       railties (= 7.1.3.4)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -312,6 +318,7 @@ DEPENDENCIES
   debug
   dockerfile-rails (>= 1.6)
   dotenv
+  faker
   font-awesome-sass (~> 6.5.2)
   friendly_id (~> 5.4, >= 5.4.2)
   httparty
@@ -321,6 +328,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.4)
+  rails-controller-testing
   rails_live_reload
   selenium-webdriver
   sprockets-rails

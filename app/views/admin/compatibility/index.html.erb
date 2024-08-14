@@ -2,5 +2,15 @@
   <h1 class="font-bold text-4xl">Admin::Compatible#index</h1>
   <div class="py-4">
   </div>
-  <%= render 'shared/table', collection: @compatibility_links, attributes: ['adapter.name', 'adapter.brand.name', 'product_a.name', 'product_b.name'] %>
+  <% @compatibility_links.each do |adapter, links| %>
+    <h1 class="font-bold text-2xl"><%= adapter.brand.name %> - <%= adapter.name %></h1>
+    <% links.each do |type, products| %>
+      <h2 class="font-semibold text-xl"><%= type.pluralize %></h2>
+      <% products.each do |product| %>
+        <%= product.name %>
+      <% end %>
+
+    <% end %>
+    <%#= render 'shared/table', collection: links, attributes: ['adapter.name', 'adapter.brand.name', 'product_a.name', 'product_b.name'] %>
+  <% end %>
 </div>
