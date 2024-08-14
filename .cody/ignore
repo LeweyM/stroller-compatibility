@@ -1,0 +1,16 @@
+/log
+/out
+/node_modules
+/.idea
+/.git
+/.yarn
+/bin
+/tmp
+/vendor
+.env*
+.env.local
+.env.development
+.env
+.env.production
+package-lock.json
+yarn.lock
