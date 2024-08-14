@@ -17,6 +17,8 @@ class Product < ApplicationRecord
 
   friendly_id :name, use: :slugged
 
+  validates :name, presence: true
+
   def image_or_default
     if has_image?
       image
@@ -43,7 +45,7 @@ class Product < ApplicationRecord
   end
 
   def compatible_products
-    Product.where(id: compatible_products_as_a.pluck(:id) + compatible_products_as_b.pluck(:id))
+    (compatible_products_as_a + compatible_products_as_b).uniq
   end
 
   def should_generate_new_friendly_id?
