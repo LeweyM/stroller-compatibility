@@ -8,4 +8,4 @@
 /dataSources.local.xml
 
 # do not commit cody_history
-./cody_history.xml
+cody_history.xml
