@@ -30,8 +30,8 @@ class ProductsController < ApplicationController
   end
 
   def fits
-    @product = Product.friendly.find(params[:slug])
-    @other_products = Product.where.not(productable_type: @product.productable_type)
+    @product = Product.friendly.includes(:image, :brand).find(params[:slug])
+    @other_products = Product.where.not(productable_type: @product.productable_type).includes(:image, :brand)
   end
 
   def compatible
