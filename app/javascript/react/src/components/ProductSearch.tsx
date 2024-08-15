@@ -1,25 +1,26 @@
 import React from "react";
-import AsyncSelect from 'react-select/async';
+import {ProductFilters} from "../types/product";
+import {useProductSearchClient} from "../hooks/useProductSearchClient";
 import _ from "lodash";
-
-type SearchResult = {
-    value: string,
-    label: string
-}
+import AsyncSelect from "react-select/async";
 
 type SearchWrapperProps = {
     onChange: (selected: string) => void,
-    getData: (input: string) => Promise<SearchResult[]>
-    debounce?: number
+    searchUrl: string,
+    filter?: Filter,
 };
 
-const SearchWrapper = ({onChange, getData, debounce = 0}: SearchWrapperProps) => {
+type Filter = Partial<ProductFilters>
+
+export const ProductSearch = ({onChange, searchUrl, filter = {}}: SearchWrapperProps) => {
+    const {query} = useProductSearchClient(searchUrl);
+
     const debouncedLoader =
         _.debounce((inputValue: string, callback: Function) => {
-                getData(inputValue).then((res) => {
+                query(inputValue, filter).then((res) => {
                     return res && callback(res);
                 });
-            }, debounce
+            }, 700
         );
 
     return <AsyncSelect
@@ -29,5 +30,3 @@ const SearchWrapper = ({onChange, getData, debounce = 0}: SearchWrapperProps) =>
         onChange={(selected: any) => onChange(selected.value)}
     />
 };
-
-export const Search = SearchWrapper;

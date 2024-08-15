@@ -1,11 +1,5 @@
 import {useRef} from 'react';
 
-export type APIResponseItem = {
-    slug: string
-    name: string
-    brand: string
-}
-
 const useSearchClient = <T>() => {
     const controller = useRef<AbortController>();
 
