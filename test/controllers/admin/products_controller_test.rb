@@ -2,11 +2,6 @@ require "test_helper"
 require_relative './base_controller_test'
 
 class Admin::ProductsControllerTest < Admin::BaseControllerTest
-  test "should get index" do
-    get admin_products_url, headers: http_login
-    assert_response :success
-  end
-
   test "should get new" do
     get new_admin_product_url, headers: http_login
     assert_response :success
@@ -14,6 +9,13 @@ class Admin::ProductsControllerTest < Admin::BaseControllerTest
 
   test "should get edit" do
     get edit_admin_product_url(:oxford), headers: http_login
+    assert_response :success
+  end
+end
+
+class Admin::ProductsControllerIndexTest < Admin::BaseControllerTest
+  test "should get index" do
+    get admin_products_url, headers: http_login
     assert_response :success
   end
 
