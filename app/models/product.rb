@@ -67,21 +67,34 @@ class Product < ApplicationRecord
     end
   end
 
-  def add_compatible_product(other_product, adapter = nil)
-    return if self == other_product
+  def link!(other_product, adapter = nil)
+    l = link(other_product, adapter)
+    l.save!
+    l
+  end
 
-    existing_link = CompatibleLink.find_by(
-      product_a: [self, other_product],
-      product_b: [self, other_product]
-    )
-
-    unless existing_link
-      CompatibleLink.create!(
-        product_a: self,
-        product_b: other_product,
-        adapter: adapter
-      )
+  def link(other_product, adapter = nil)
+    if self == other_product
+      raise "Cannot link a product to itself"
     end
+
+    sorted_products = [self, other_product].sort
+    CompatibleLink.allow_creation = true
+    CompatibleLink.new(
+      product_a: sorted_products[0],
+      product_b: sorted_products[1],
+      adapter: adapter
+    )
+  ensure
+    CompatibleLink.allow_creation = false
+  end
+
+  def is_compatible_with?(other_product, adapter)
+    CompatibleLink.find_by(
+      product_a: [self, other_product],
+      product_b: [self, other_product],
+      adapter: adapter
+    ).present?
   end
 
   private
