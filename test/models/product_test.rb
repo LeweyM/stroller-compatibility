@@ -1,12 +1,12 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  link = 'https://www.maxicosi.com/maxicosi_120'
+  url = 'https://www.maxicosi.com/maxicosi_120'
 
   setup do
     @brand = Brand.create!(name: 'some-brand')
-    @product_a = create_product! type:Stroller, brand:@brand, link:link
-    @product_b = create_product! type:Stroller, brand:@brand
+    @product_a = create_product! type: Stroller, brand: @brand, url: url
+    @product_b = create_product! type: Stroller, brand: @brand
     CompatibleLink.create!(product_a: @product_a, product_b: @product_b)
   end
 
@@ -24,7 +24,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test 'should return the correct product URL' do
-    assert_equal link, @product_a.link
+    assert_equal url, @product_a.url
   end
 
   test 'should return the compatible products' do

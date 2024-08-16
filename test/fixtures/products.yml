@@ -3,20 +3,20 @@
 cabriofix:
   brand: maxicosi
   name: cabriofix
-  link: http://www.cabriofix.com/
+  url: http://www.cabriofix.com/
   productable: cabriofix (Seat)
   slug: cabriofix
 
 oxford:
   brand: maxicosi
   name: oxford
-  link: http://www.oxford.com/
+  url: http://www.oxford.com/
   productable: oxford (Stroller)
   slug: oxford
 
 global adapter:
   brand: yoyo
   name: global adapter
-  link: http://www.globaladapter.com/
+  url: http://www.globaladapter.com/
   productable: global adapter (Adapter)
   slug: global-adapter

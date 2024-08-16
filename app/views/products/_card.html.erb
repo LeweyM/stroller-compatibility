@@ -7,6 +7,6 @@
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= product.name %></h5>
     <% end %>
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">By <%= product.brand.name %></p>
-    <%= render partial: 'shared/button', locals: { link: product.link, text: 'Go to Website' } %>
+    <%= render partial: 'shared/button', locals: { link: product.url, text: 'Go to Website' } %>
   </div>
 <% end %>

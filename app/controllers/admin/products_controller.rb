@@ -36,10 +36,10 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   # make a http request against the product link to check if it's a valid link
-  def check_link
+  def check_url
     @product = Product.friendly.find(params[:product_id])
-    product_link = @product.link
-    response = HTTParty.get(product_link, follow_redirects: false)
+    product_url = @product.url
+    response = HTTParty.get(product_url, follow_redirects: false)
 
     render json: {
       response_status: response.code,
@@ -63,7 +63,7 @@ class Admin::ProductsController < Admin::BaseController
   def export
     headers = "type,brand,name,url,image_url"
     rows = Product.all.map do |product|
-      "#{product.productable_type.capitalize},#{product.brand.name},#{product.name},#{product.link},#{product.image&.url}"
+      "#{product.productable_type.capitalize},#{product.brand.name},#{product.name},#{product.url},#{product.image&.url}"
     end
     rows = rows.sort_by { |row| [row.split(",")[1], row.split(",")[0]] }
     data = headers + "\n" + rows.join("\n")

@@ -173,7 +173,7 @@ class Product < ApplicationRecord
 
         Product.create!(
           name: name,
-          link: link,
+          url: link,
           brand: brand,
           productable: productable,
           image: image_url ? Image.create_or_find_by(:url => image_url) : nil

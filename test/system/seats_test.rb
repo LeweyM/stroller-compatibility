@@ -15,7 +15,6 @@ class SeatsTest < ApplicationSystemTestCase
     click_on "New seat"
 
     fill_in "Brand", with: @seat.brand_id
-    fill_in "Link", with: @seat.link
     fill_in "Name", with: @seat.name
     click_on "Create Seat"
 
@@ -28,7 +27,6 @@ class SeatsTest < ApplicationSystemTestCase
     click_on "Edit this seat", match: :first
 
     fill_in "Brand", with: @seat.brand_id
-    fill_in "Link", with: @seat.link
     fill_in "Name", with: @seat.name
     click_on "Update Seat"
 
