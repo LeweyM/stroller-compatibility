@@ -145,7 +145,7 @@ class Admin::ProductsControllerIndexTest < Admin::BaseControllerTest
   end
 end
 
-class ProductsControllerSearchTest < ActionDispatch::IntegrationTest
+class Admin::ProductsControllerSearchTest < ActionDispatch::IntegrationTest
   test "should return search results" do
     get products_search_url(search_term: "oxford"), as: :json
 

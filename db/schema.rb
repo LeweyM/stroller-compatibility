@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_16_133938) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_16_150809) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_16_133938) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["adapter_id"], name: "index_compatible_links_on_adapter_id"
+    t.index ["product_a_id", "product_b_id", "adapter_id"], name: "index_compatible_links", unique: true
     t.index ["product_a_id"], name: "index_compatible_links_on_product_a_id"
     t.index ["product_b_id"], name: "index_compatible_links_on_product_b_id"
   end

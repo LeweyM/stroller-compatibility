@@ -112,13 +112,14 @@ class ProductLinkTest < ActiveSupport::TestCase
     end
   end
 
-  test 'link creates only one CompatibleLink for the same product pair' do
+  test 'link raises a validation error if a symmetrical link already exists' do
     p1 = create_product!
     p2 = create_product!
     p1.link!(p2)
-    p2.link!(p1)
+    assert_raises(ActiveRecord::RecordInvalid) do
+      p2.link!(p1)
+    end
     assert_equal 1, p1.compatible_products.count
-    assert_equal 1, p2.compatible_products.count
   end
 
   test 'link! creates a new CompatibleLink for different product pairs' do
@@ -132,5 +133,54 @@ class ProductLinkTest < ActiveSupport::TestCase
     @product_a.link!(@product_b, @adapter)
     @product_a.link!(@product_b, create_product!(type: Adapter))
     assert_equal 3, CompatibleLink.where(product_a: @product_a).count
+  end
+end
+
+class ProductCompatibleProductsByAdapterTest < ActiveSupport::TestCase
+  setup do
+    @product_a = create_product! type: Stroller
+    @product_b = create_product! type: Stroller
+    @product_c = create_product! type: Stroller
+    @product_d = create_product! type: Stroller
+    @adapter_1 = create_product! type: Adapter
+    @adapter_2 = create_product! type: Adapter
+    @product_a.link!(@product_b, @adapter_1)
+    @product_a.link!(@product_c, @adapter_2)
+    @product_a.link!(@product_d)
+  end
+
+  test 'compatible_products_by_adapter returns correct grouping' do
+    result = @product_a.compatible_products_by_adapter
+    assert_equal 3, result.keys.size
+    assert_includes result.keys, @adapter_1
+    assert_includes result.keys, @adapter_2
+    assert_includes result.keys, nil
+  end
+
+  test 'compatible_products_by_adapter groups products correctly' do
+    result = @product_a.compatible_products_by_adapter
+    assert_equal [@product_b], result[@adapter_1]
+    assert_equal [@product_c], result[@adapter_2]
+    assert_equal [@product_d], result[nil]
+  end
+
+  test 'compatible_products_by_adapter handles bidirectional compatibility' do
+    @product_b.link!(@product_c, @adapter_1)
+    result = @product_b.compatible_products_by_adapter
+    adapter_count = result.keys.size
+    assert_equal 1, adapter_count
+    assert_equal [@product_a, @product_c], result[@adapter_1]
+  end
+
+  test 'compatible_products_by_adapter returns empty hash for product with no compatibility' do
+    isolated_product = create_product! type: Stroller
+    result = isolated_product.compatible_products_by_adapter
+    assert_empty result
+  end
+
+  test 'compatible_products_by_adapter handles multiple products with same adapter' do
+    @product_a.link!(@product_d, @adapter_1)
+    result = @product_a.compatible_products_by_adapter
+    assert_equal [@product_b, @product_d], result[@adapter_1]
   end
 end

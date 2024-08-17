@@ -32,12 +32,9 @@ class Admin::CompatibilityControllerTest < Admin::BaseControllerTest
     assert_includes grouped_products.keys, "Seat"
   end
 
-  test "index action removes duplicate products" do
+  test "index action shows grouped products" do
     adapter = create_product!(type: Adapter)
-    product_a = create_product!(type: Stroller)
-    product_b = create_product!(type: Seat)
-    product_a.link!(product_b, adapter)
-    product_b.link!(product_a, adapter)
+    create_product!(type: Stroller).link!(create_product!(type: Seat), adapter)
 
     get admin_compatibility_index_path, headers: http_login
 

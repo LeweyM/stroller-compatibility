@@ -3,6 +3,8 @@ class CompatibleLink < ApplicationRecord
   belongs_to :product_b, class_name: "Product"
   belongs_to :adapter, class_name: "Product", optional: true
 
+  validates :product_a_id, uniqueness: { scope: [:product_b_id, :adapter_id], message: "products and adapter combination must be unique" }
+
   # CompatibleLinks should not be created directly,
   # instead, use product.link(!) and product.unlink(!)
 

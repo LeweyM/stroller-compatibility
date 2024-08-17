@@ -12,4 +12,22 @@ class Admin::CompatibilityController < Admin::BaseController
       merged.transform_values!(&:uniq)
     end
   end
+
+  def link
+    adapter = Product.friendly.find(params[:adapter])
+    product_a = Product.friendly.find(params[:product_a])
+    product_b = Product.friendly.find(params[:product_b])
+
+    product_a.link!(product_b, adapter)
+  end
+
+  def unlink
+    adapter = Product.friendly.find(params[:adapter])
+    product_a = Product.friendly.find(params[:product_a])
+    product_b = Product.friendly.find(params[:product_b])
+
+    product_a.unlink!(product_b, adapter)
+  end
+
+  private
 end

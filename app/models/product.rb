@@ -44,8 +44,33 @@ class Product < ApplicationRecord
     image_or_default.attribution_required?
   end
 
-  def compatible_products
-    (compatible_products_as_a + compatible_products_as_b).uniq
+  # get all adapters linked to this product, grouped by the adapter
+  def compatible_products_by_adapter
+    adapters = CompatibleLink.where(product_a_id: id).or(CompatibleLink.where(product_b_id: id))
+    adapters.includes(:product_a, :product_b)
+      .reduce(Hash.new { |h, k| h[k] = [] }) do |adapters, link|
+      if link.product_a_id == id
+        adapters[link.adapter] << link.product_b
+      end
+      if link.product_b_id == id
+        adapters[link.adapter] << link.product_a
+      end
+      adapters
+    end
+  end
+
+  def compatible_products(adapter = nil)
+    CompatibleLink.where(product_a_id: id).or(CompatibleLink.where(product_b_id: id))
+                  .where(adapter_id: adapter&.id)
+                  .includes(:product_a, :product_b)
+                  .reduce([]) do |products, link|
+      if link.product_a_id == id
+        products << link.product_b
+      elsif link.product_b_id == id
+        products << link.product_a
+      end
+      products
+    end
   end
 
   def should_generate_new_friendly_id?
@@ -89,7 +114,21 @@ class Product < ApplicationRecord
     CompatibleLink.allow_creation = false
   end
 
-  def is_compatible_with?(other_product, adapter)
+  def unlink!(other_product, adapter = nil)
+    if self == other_product
+      raise "Cannot unlink a product from itself"
+    end
+
+    sorted_products = [self, other_product].sort
+
+    CompatibleLink.where(
+      product_a: sorted_products[0],
+      product_b: sorted_products[1],
+      adapter: adapter
+    ).delete_all
+  end
+
+  def is_compatible_with?(other_product, adapter = nil)
     CompatibleLink.find_by(
       product_a: [self, other_product],
       product_b: [self, other_product],

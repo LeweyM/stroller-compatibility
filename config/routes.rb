@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   resources :brands, only: [:index]
   namespace :admin do
     get '', to: redirect('admin/products')
-    resources :compatibility, only: [:index]
+    resources :compatibility, only: [:index] do
+      collection do
+        delete :unlink
+        post :link
+      end
+    end
     resources :brands, path: 'brands', only: [:index, :new, :edit, :destroy, :update] do
       collection do
         get :export
@@ -24,7 +29,7 @@ Rails.application.routes.draw do
         end
       end
       collection do
-        post :check_link
+        post :check_url
         post :import
         get :export
         get :export_compatible
