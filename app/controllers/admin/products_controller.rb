@@ -1,5 +1,6 @@
 class Admin::ProductsController < Admin::BaseController
   def index
+    @brands = Brand.all
     @products = Product.includes(:compatible_products_as_a, :compatible_products_as_b, :brand, :image)
 
     if params[:search].present?

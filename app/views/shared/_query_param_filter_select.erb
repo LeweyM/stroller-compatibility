@@ -1,0 +1,14 @@
+<select name="<%= name %>" class="px-2 py-1 border rounded" id="query-param-select-<%= name %>">
+  <% if params[param].present? %>
+    <option value="">None</option>
+  <% else %>
+    <option value="" selected><%= label_text %></option>
+  <% end %>
+  <% options.each do |option| %>
+    <option
+      value=<%= option %> <%= option === params[param] ? 'selected' : '' %>
+    >
+      <%= option %>
+    </option>
+  <% end %>
+</select>

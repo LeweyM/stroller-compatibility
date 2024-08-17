@@ -12,23 +12,27 @@
     </div>
   </div>
 
-  <h1 class="font-bold text-4xl">Admin::Products#index</h1>
   <form action="<%= admin_products_path %>" method="get" class="mb-4">
     <div class="flex flex-wrap items-center">
       <div class="mr-2">
         <input type="text" name="search" placeholder="Search products" class="px-2 py-1 border rounded">
       </div>
       <div class="mr-2">
-        <select name="type" class="px-2 py-1 border rounded">
-          <option disabled selected value="">Type</option>
-          <option value="Seat">Seat</option>
-          <option value="Stroller">Stroller</option>
-          <option value="Adapter">Adapter</option>
-        </select>
+        <%= render partial: 'shared/query_param_filter_select', locals: {
+          name: 'type',
+          param: :type,
+          options: ['Seat', 'Stroller', 'Adapter'],
+          label_text: 'Type'
+        } %>
       </div>
       <div class="mr-2">
         <div class="mr-2">
-          <input type="text" name="brand" placeholder="Search brand" class="px-2 py-1 border rounded">
+          <%= render partial: 'shared/query_param_filter_select', locals: {
+            name: 'brand',
+            param: :brand,
+            options: @brands.map { |brand| brand.name },
+            label_text: 'Brand'
+          } %>
         </div>
       </div>
       <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -65,7 +69,7 @@
         <td>
           <% product.compatible_products_by_adapter.each do |adapter, products| %>
             <p class="text-sm font-semibold text-gray-300">with: <%= adapter.name %></p>
-            <p class="text-md"><%= products.map {|p| p.name}.join(", ") %></p>
+            <p class="text-md"><%= products.map { |p| p.name }.join(", ") %></p>
           <% end %>
         </td>
         <td class="flex">
