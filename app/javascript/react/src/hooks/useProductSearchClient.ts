@@ -8,7 +8,7 @@ export type APIResponseItem = {
     brand: string
 }
 
-type Filter = Partial<ProductFilters>
+type Filter = Partial<ProductFilters> & { not?: Partial<ProductFilters> }
 
 type SearchResult = {
     value: string,
@@ -22,6 +22,7 @@ export const useProductSearchClient = (searchUrl: string) => {
         const queryParams = {
             type: filter?.types,
             search_term: input != "" ? input : undefined,
+            exclude_names: filter?.not?.names,
         }
         const url = `${searchUrl}?${parseQueryParams(queryParams)}`
         const results = await client.fetchData(url)
@@ -30,7 +31,7 @@ export const useProductSearchClient = (searchUrl: string) => {
         }
         return results.map((result) => ({
             value: result.slug,
-            label: result.name
+            label: result.name,
         }))
     }
 

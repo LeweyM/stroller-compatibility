@@ -3,6 +3,7 @@ import mount from "../mount";
 import CheckLink from "../react/src/components/CheckLink";
 import {ProductType} from "../react/src/types/product";
 import {ProductSearch} from "../react/src/components/ProductSearch";
+import {MultiProductSearch} from "../react/src/components/MultiProductSearch";
 
 mount({
     SearchProduct: ({searchUrl}: { searchUrl: string }) => {
@@ -22,5 +23,6 @@ mount({
             }}
         />
     },
+    SearchProductMulti: MultiProductSearch,
     CheckLink
 })

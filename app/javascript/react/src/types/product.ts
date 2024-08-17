@@ -1,3 +1,10 @@
+export type Product = {
+    id: number,
+    name: string,
+    slug: string,
+    type: ProductType
+}
+
 export enum ProductType {
     Stroller = "Stroller",
     Seat = "Seat",
@@ -6,4 +13,5 @@ export enum ProductType {
 
 export type ProductFilters = {
     types: ProductType[]
+    names: string[]
 }
