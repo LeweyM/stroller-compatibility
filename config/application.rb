@@ -6,6 +6,8 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv::Rails.files.unshift(".env.production.local") if ENV["USE_PROD_DB"] == "true"
+
 module StrollerCompatibility
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
