@@ -57,45 +57,29 @@ Any changes to files are watched and trigger css rebuild. The Procfile ensures t
 
 ## Local Development
 
-### TLDR;
+### Run the app locally against a local database
 ```bash
-yarn build --watch # rebuilds assets on change
-```
-```bash
-pg_ctl -D ~/postgres-data -l ~/postgres-data/server.log start
-```
-```bash
-bin/dev
+make setup-local-db
+make start-local-db
+make local
 ```
 
-### Setting up the db
-
-Setup a folder for the postgres db 
+#### restart the local database
 ```bash
-mkdir -p ~/postgres-data
-initdb -D ~/postgres-data
+make restart-local-db
 ```
 
-Start a postgres instance
-
+#### teardown the local database
 ```bash
-pg_ctl -D ~/postgres-data -l ~/postgres-data/server.log start
+make teardown-local-db
 ```
 
-Stop the postgres instance
+### Run the app locally against the production database
+
 ```bash
-pg_ctl -D ~/postgres-data stop
+make local-production
 ```
 
-Run migrations
-```bash
-bin/rails db:migrate
-```
-
-Remove the local db
-```bash
-rm -rf ~/postgres-data
-```
 
 ## Deployment
 
