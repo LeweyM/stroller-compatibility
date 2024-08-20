@@ -3,7 +3,7 @@
     <%= render partial: 'shared/hero', locals: { title: 'Is your stroller compatible?' } %>
     <div class="mt-8">
       <%= render partial: 'shared/subtitle', locals: { text: 'Search for your stroller' } %>
-      <%= render SearchProduct::ShowComponent.new(searchUrl: url_for(controller: 'products', action: 'search')) %>
+      <%= render SearchProduct::ShowComponent.new(searchUrl: url_for(controller: 'products', action: 'search'), types: ['Stroller']) %>
     </div>
   </div>
 <% end %>

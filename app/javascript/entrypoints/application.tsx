@@ -6,11 +6,14 @@ import {ProductSearch} from "../react/src/components/ProductSearch";
 import {MultiProductSearch} from "../react/src/components/MultiProductSearch";
 
 mount({
-    SearchProduct: ({searchUrl}: { searchUrl: string }) => {
+    SearchProduct: ({searchUrl, types}: { searchUrl: string, types?: ProductType[] }) => {
         return <ProductSearch
             onChange={(selected: string) =>
                 window.location.href = `${selected}/fits`}
             searchUrl={searchUrl}
+            filter={{
+                types: types
+            }}
         />
     },
     SearchComparisonProduct: ({searchUrl, types}: { searchUrl: string, types?: ProductType[] }) => {
