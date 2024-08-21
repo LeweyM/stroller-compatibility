@@ -1,6 +1,12 @@
 class Admin::BaseController < ApplicationController
   before_action :authenticate
 
+  helper_method :is_admin?
+
+  def is_admin?
+    true
+  end
+
   private
 
   def authenticate
