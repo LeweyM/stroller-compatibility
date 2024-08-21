@@ -1,10 +1,45 @@
 <div>
-  <h1 class="font-bold text-4xl">Admin::Brands#index</h1>
+  <h1 class="font-bold text-4xl">admin::brands#index</h1>
   <div class="py-4">
-    <%= link_to "Export To CSV", export_admin_brands_path,
+    <%= link_to "export to csv", export_admin_brands_path,
                 class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mx-1"
     %>
   </div>
-  <%= render 'shared/table', collection: @brands, attributes: [:name, :website, :product_count], edit_path: 'edit_admin_brand_path', delete_path: 'admin_brand_path' %>
-  <h2>Total Product Count: <%= @total_product_count %></h2>
+  <table class="table w-full">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>website</th>
+      <th></th>
+      <th>product count</th>
+      <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @brands.each do |brand| %>
+      <tr>
+        <td><%= brand.id %></td>
+        <td><%= brand.name %></td>
+        <td><%= brand.website %></td>
+        <td><% if brand.website %>
+            <%= render 'shared/website_button', url: brand.website %>
+          <% end %>
+        </td>
+        <td><%= brand.product_count %></td>
+        <td class="flex">
+          <%= button_to 'edit', edit_admin_brand_path(brand), method: :get,
+                        class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-1"
+          %>
+          <%= button_to 'delete', admin_brand_path(brand),
+                        method: :delete,
+                        form: { data: { turbo: true, turbo_confirm: 'are you sure?', turbo_method: :delete } },
+                        class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-1"
+          %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <h2>total product count: <%= @total_product_count %></h2>
 </div>
