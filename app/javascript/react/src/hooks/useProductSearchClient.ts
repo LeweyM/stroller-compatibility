@@ -23,6 +23,7 @@ export const useProductSearchClient = (searchUrl: string) => {
             type: filter?.types,
             search_term: input != "" ? input : undefined,
             exclude_names: filter?.not?.names,
+            exclude_types: filter?.not?.types,
         }
         const url = `${searchUrl}?${parseQueryParams(queryParams)}`
         const results = await client.fetchData(url)

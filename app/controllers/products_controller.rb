@@ -13,6 +13,12 @@ class ProductsController < ApplicationController
     if params[:type].present?
       query = query.where(productable_type: params[:type])
     end
+    if params[:exclude_types].present?
+      query = query.where.not(productable_type: params[:exclude_types])
+    end
+    if params[:exclude_names].present?
+      query = query.where.not(name: params[:exclude_names])
+    end
     result = query.limit(15)
                   .pluck(:slug, :name)
                   .map { |slug, name| { slug: slug, name: name } }
