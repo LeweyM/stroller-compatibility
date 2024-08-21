@@ -14,7 +14,7 @@
     <tr>
       <% attributes.each do |attribute| %>
         <td>
-          <% if attribute.include?('.') %>
+          <% if attribute.is_a?(String) && attribute.include?('.') %>
             <% nested_attributes = attribute.split('.') %>
             <% value = item %>
             <% nested_attributes.each do |nested_attribute| %>
