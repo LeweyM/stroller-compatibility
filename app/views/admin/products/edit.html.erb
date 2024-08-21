@@ -18,20 +18,22 @@
         <td><%= form.select :productable_type, ['Stroller', 'Seat', 'Adapter'], {}, class: 'form-control' %></td>
       </tr>
       <tr>
-        <th>Link</th>
+        <th>URL</th>
         <td class="flex items-center">
           <%= form.url_field :url, class: 'form-control w-full' %>
-          <a class="p-2 m-2 rounded-full bg-gray-200 text-gray-800 w-8 h-8 flex items-center justify-center hover:bg-gray-300 cursor-pointer"
-             target="_blank"
-             href="<%= @product.url %>"
-          >
-            <i class="fa-solid fa-globe"></i>
-          </a>
-          <%= render CheckLink::ShowComponent.new(
-            productId: @product.slug,
-            checkLinkPath: check_url_admin_products_path,
-            updateProductURL: admin_product_url(@product),
-          ) %>
+          <% if @product.url.present? %>
+            <a class="p-2 m-2 rounded-full bg-gray-200 text-gray-800 w-8 h-8 flex items-center justify-center hover:bg-gray-300 cursor-pointer"
+               target="_blank"
+               href="<%= @product.url %>"
+            >
+              <i class="fa-solid fa-globe"></i>
+            </a>
+            <%= render CheckLink::ShowComponent.new(
+              productId: @product.slug,
+              checkLinkPath: check_url_admin_products_path,
+              updateProductURL: admin_product_url(@product),
+            ) %>
+          <% end %>
         </td>
       </tr>
       <tr>
@@ -58,6 +60,23 @@
       </tr>
       </tbody>
     </table>
+
+    <% if @product.productable_type == 'Adapter' %>
+      <h1>Compatible Products</h1>
+      <% ['Seat', 'Stroller'].each do |productable_type| %>
+        <div class="py-2">
+          <h1><%= productable_type %></h1>
+          <%= compatible_products_for_type = @product.productable.products.where(productable_type: productable_type)
+              render SearchProductMulti::ShowComponent.new(searchUrl: products_search_url,
+                                                           initialProducts: compatible_products_for_type,
+                                                           addLinkUrl: link_admin_compatibility_index_url,
+                                                           unlinkUrl: unlink_admin_compatibility_index_url,
+                                                           adapter: @product,
+                                                           filter: { not: { types: ['Adapter', productable_type] } })
+          %>
+        </div>
+      <% end %>
+    <% end %>
 
     <%= render :partial => 'shared/button',
                :locals => {
