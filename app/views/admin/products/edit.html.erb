@@ -22,12 +22,9 @@
         <td class="flex items-center">
           <%= form.url_field :url, class: 'form-control w-full' %>
           <% if @product.url.present? %>
-            <a class="p-2 m-2 rounded-full bg-gray-200 text-gray-800 w-8 h-8 flex items-center justify-center hover:bg-gray-300 cursor-pointer"
-               target="_blank"
-               href="<%= @product.url %>"
-            >
-              <i class="fa-solid fa-globe"></i>
-            </a>
+            <div class="p-2 m-2">
+            <%= render 'shared/website_button', url: @product.url %>
+            </div>
             <%= render CheckLink::ShowComponent.new(
               productId: @product.slug,
               checkLinkPath: check_url_admin_products_path,
