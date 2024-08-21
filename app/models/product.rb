@@ -6,12 +6,8 @@ class Product < ApplicationRecord
   belongs_to :productable, polymorphic: true, dependent: :destroy
   belongs_to :brand
 
-  has_many :compatible_links_as_product_a, class_name: 'CompatibleLink', foreign_key: :product_a_id
-  has_many :compatible_links_as_product_b, class_name: 'CompatibleLink', foreign_key: :product_b_id
-  has_many :compatible_links_as_adapter, class_name: 'CompatibleLink', foreign_key: :adapter_id
-
-  has_many :compatible_products_as_a, through: :compatible_links_as_product_a, source: :product_b
-  has_many :compatible_products_as_b, through: :compatible_links_as_product_b, source: :product_a
+  has_many :product_adapters
+  has_many :adapters, through: :product_adapters
 
   has_one :image, dependent: :destroy
 
@@ -46,30 +42,10 @@ class Product < ApplicationRecord
 
   # get all adapters linked to this product, grouped by the adapter
   def compatible_products_by_adapter
-    adapters = CompatibleLink.where(product_a_id: id).or(CompatibleLink.where(product_b_id: id))
-    adapters.includes(:product_a, :product_b)
-      .reduce(Hash.new { |h, k| h[k] = [] }) do |adapters, link|
-      if link.product_a_id == id
-        adapters[link.adapter] << link.product_b
-      end
-      if link.product_b_id == id
-        adapters[link.adapter] << link.product_a
-      end
-      adapters
-    end
-  end
-
-  def compatible_products(adapter = nil)
-    CompatibleLink.where(product_a_id: id).or(CompatibleLink.where(product_b_id: id))
-                  .where(adapter_id: adapter&.id)
-                  .includes(:product_a, :product_b)
-                  .reduce([]) do |products, link|
-      if link.product_a_id == id
-        products << link.product_b
-      elsif link.product_b_id == id
-        products << link.product_a
-      end
-      products
+    adapters.includes(:products).each_with_object({}) do |adapter, h|
+      h[adapter.product] = adapter.products
+                                  .where.not(productable_type: self.productable_type)
+                                  .to_a.filter { |p| p.id != self.id }
     end
   end
 
@@ -92,51 +68,30 @@ class Product < ApplicationRecord
     end
   end
 
-  def link!(other_product, adapter = nil)
-    l = link(other_product, adapter)
-    l.save!
-    l
+  def link!(other_product)
+    validate_linkable(other_product)
+
+    adapter = other_product.productable
+    adapter.products << self
   end
 
-  def link(other_product, adapter = nil)
-    if self == other_product
-      raise "Cannot link a product to itself"
-    end
+  def unlink!(other_product)
+    validate_linkable(other_product)
 
-    sorted_products = [self, other_product].sort
-    CompatibleLink.allow_creation = true
-    CompatibleLink.new(
-      product_a: sorted_products[0],
-      product_b: sorted_products[1],
-      adapter: adapter
-    )
-  ensure
-    CompatibleLink.allow_creation = false
+    adapter = other_product.productable
+    adapter.products.delete(self)
   end
 
-  def unlink!(other_product, adapter = nil)
-    if self == other_product
-      raise "Cannot unlink a product from itself"
-    end
-
-    sorted_products = [self, other_product].sort
-
-    CompatibleLink.where(
-      product_a: sorted_products[0],
-      product_b: sorted_products[1],
-      adapter: adapter
-    ).delete_all
-  end
-
-  def is_compatible_with?(other_product, adapter = nil)
-    CompatibleLink.find_by(
-      product_a: [self, other_product],
-      product_b: [self, other_product],
-      adapter: adapter
-    ).present?
+  def is_compatible_with?(other_product)
+    adapters.exists? { |adapter| adapter.products.exists?(id: other_product.id) }
   end
 
   private
+
+  def validate_linkable(other_product)
+    raise "Cannot link a product to itself" if self == other_product
+    raise "Can only link a product to an adapter" if other_product.productable_type != 'Adapter'
+  end
 
   def self.import_compatibility(file)
     # expects a csv file with 3 rows, no headers
@@ -146,16 +101,23 @@ class Product < ApplicationRecord
     # any products mentioned should already exist, or an exception should be raised and no db changes made.
     csv_text = File.read(file)
     csv = CSV.parse(csv_text, headers: false)
-    strollers = csv[0].filter { |s| not s.nil? }
-                      .map { |name| Product.find_by!(name: name, productable_type: "Stroller") }
-    seats = csv[1].filter { |s| not s.nil? }
-                  .map { |name| Product.find_by!(name: name, productable_type: "Seat") }
-    adapter_name = csv[2].first unless csv[2].first.nil?
-    adapter = Product.find_by!(name: adapter_name, productable_type: "Adapter")
 
-    strollers.each do |product|
-      seats.each do |other_product|
-        product.add_compatible_product(other_product, adapter)
+    csv.each_slice(3) do |batch|
+      # Ensure there are exactly 3 rows in the batch (strollers, seats, adapter)
+      next unless batch.size == 3
+
+      strollers = batch[0].filter { |s| not s.nil? }
+                          .map { |name| Product.find_by!(name: name, productable_type: "Stroller") }
+      seats = batch[1].filter { |s| not s.nil? }
+                      .map { |name| Product.find_by!(name: name, productable_type: "Seat") }
+      adapter_name = batch[2].first unless batch[2].first.nil?
+      adapter = Product.find_by!(name: adapter_name, productable_type: "Adapter")
+
+      strollers.each do |product|
+        product.link!(adapter)
+      end
+      seats.each do |product|
+        product.link!(adapter)
       end
     end
   end
@@ -188,7 +150,7 @@ class Product < ApplicationRecord
         end
 
         unless csv[seat_name][x].nil?
-          CompatibleLink.create!(product_a: stroller, product_b: seat)
+          raise 'TODO: Implement linking without an adapter'
         end
       end
     end

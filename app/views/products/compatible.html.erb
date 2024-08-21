@@ -2,7 +2,7 @@
   <div class="min-w-64">
     <h1 class="text-center text-gray-700">Are they compatible?</h1>
 
-    <% if @link %>
+    <% if @adapter.present? %>
       <%= render partial: 'shared/hero', locals: { title: 'Yes, these products are compatible!' } %>
     <% else %>
       <%= render partial: 'shared/hero', locals: { title: 'Sorry, they\'re not compatible.' } %>
@@ -13,13 +13,13 @@
         <%= render partial: 'products/main', locals: { product: @product_a } %>
       </div>
       <div class="py-8 w-full flex flex-col items-center justify-between">
-        <% if @link %>
+        <% if @adapter.present? %>
           <div class="w-1/2">
             <img src="<%= asset_path('check.svg') %>" alt="Check mark"/>
           </div>
-          <% if @link&.adapter %>
+          <% if @adapter.present? %>
             <div class="pt-4">
-              <%= render partial: 'products/inline_card', locals: { product: @link.adapter } %>
+              <%= render partial: 'products/inline_card', locals: { product: @adapter } %>
             </div>
           <% else %>
             <div class="pt-4">

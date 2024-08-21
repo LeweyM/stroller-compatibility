@@ -7,7 +7,6 @@ class ProductTest < ActiveSupport::TestCase
     @brand = Brand.create!(name: 'some-brand')
     @product_a = create_product! type: Stroller, brand: @brand, url: url
     @product_b = create_product! type: Stroller, brand: @brand
-    @product_a.link!(@product_b)
   end
 
   test 'should be valid' do
@@ -26,10 +25,6 @@ class ProductTest < ActiveSupport::TestCase
   test 'should return the correct product URL' do
     assert_equal url, @product_a.url
   end
-
-  test 'should return the compatible products' do
-    assert_equal [@product_b], @product_a.compatible_products
-  end
 end
 
 class ProductCompatibleTest < ActiveSupport::TestCase
@@ -38,40 +33,25 @@ class ProductCompatibleTest < ActiveSupport::TestCase
     @product_b = create_product! type: Stroller
     @product_c = create_product! type: Stroller
     @adapter = create_product! type: Adapter
-    @product_a.link!(@product_b)
-    @product_a.link!(@product_c, @adapter)
-  end
-
-  test 'is_compatible_with? returns true for compatible products without adapter' do
-    assert @product_a.is_compatible_with?(@product_b, nil)
+    @product_a.link!(@adapter)
+    @product_c.link!(@adapter)
   end
 
   test 'is_compatible_with? returns false for incompatible products' do
-    assert_not @product_b.is_compatible_with?(@product_c, nil)
-  end
-
-  test 'is_compatible_with? handles nil other_product' do
-    assert_not @product_a.is_compatible_with?(nil, nil)
+    assert_not @product_b.is_compatible_with?(@product_c)
   end
 
   test 'is_compatible_with? handles compatibility in both directions' do
-    assert @product_b.is_compatible_with?(@product_a, nil)
+    assert @product_a.is_compatible_with?(@product_c)
+    assert @product_c.is_compatible_with?(@product_a)
   end
 
   test 'is_compatible_with? handles compatibility with adapter' do
-    assert @product_c.is_compatible_with?(@product_a, @adapter)
+    assert @product_c.is_compatible_with?(@product_a)
   end
 
   test 'is_compatible_with? handles compatibility with adapter in both directions' do
-    assert @product_a.is_compatible_with?(@product_c, @adapter)
-  end
-
-  test 'is_compatible_with? returns false if adapter is not provided' do
-    assert_not @product_a.is_compatible_with?(@product_c, nil)
-  end
-
-  test 'is_compatible_with? returns false if wrong adapter is provided' do
-    assert_not @product_a.is_compatible_with?(@product_c, create_product!(type: Adapter))
+    assert @product_a.is_compatible_with?(@product_c)
   end
 end
 
@@ -83,56 +63,39 @@ class ProductLinkTest < ActiveSupport::TestCase
     @adapter = create_product! type: Adapter
   end
 
-  test 'link creates a new CompatibleLink but does not save' do
-    link = @product_a.link(@product_b)
-    assert_not link.persisted?
-
-    link_saved = create_product!.link!(create_product!)
-    assert link_saved.persisted?
+  test 'link! creates a link between a product and an adapter' do
+    @product_a.link!(@adapter)
+    assert_equal @adapter, @product_a.adapters.first.product
   end
 
-  test 'link creates a CompatibleLink between two products' do
-    @product_a.link!(@product_b)
-    assert CompatibleLink.exists?(product_a: @product_a, product_b: @product_b)
+  test 'link! raises an error when trying to link a product directly to another product' do
+    assert_raises(RuntimeError, "Cannot link a product to another product") do
+      @product_a.link!(@product_b)
+    end
   end
 
-  test 'link creates a CompatibleLink with adapter' do
-    @product_a.link!(@product_b, @adapter)
-    assert CompatibleLink.exists?(product_a: @product_a, product_b: @product_b, adapter: @adapter)
-  end
-
-  test 'link sorts products before creating CompatibleLink' do
-    @product_b.link!(@product_a)
-    assert CompatibleLink.exists?(product_a: @product_a, product_b: @product_b)
-  end
-
-  test 'link raises an error when trying to link a product to itself' do
+  test 'link! raises an error when trying to link a product to itself' do
     assert_raises(RuntimeError, "Cannot link a product to itself") do
-      @product_a.link(@product_a)
+      @product_a.link!(@product_a)
     end
   end
 
-  test 'link raises a validation error if a symmetrical link already exists' do
-    p1 = create_product!
-    p2 = create_product!
-    p1.link!(p2)
-    assert_raises(ActiveRecord::RecordInvalid) do
-      p2.link!(p1)
+  test 'unlink! removes a link between a product and an adapter' do
+    @product_a.link!(@adapter)
+    @product_a.unlink!(@adapter)
+    assert_equal 0, @product_a.adapters.size
+  end
+
+  test 'unlink! raises an error when trying to unlink a product directly to another product' do
+    assert_raises(RuntimeError, "Cannot unlink a product to another product") do
+      @product_a.unlink!(@product_b)
     end
-    assert_equal 1, p1.compatible_products.count
   end
 
-  test 'link! creates a new CompatibleLink for different product pairs' do
-    @product_a.link!(@product_b)
-    @product_a.link!(@product_c)
-    assert_equal 2, CompatibleLink.where(product_a: @product_a).count
-  end
-
-  test 'creates a new link! if a link! already exists with a different adapter' do
-    @product_a.link!(@product_b)
-    @product_a.link!(@product_b, @adapter)
-    @product_a.link!(@product_b, create_product!(type: Adapter))
-    assert_equal 3, CompatibleLink.where(product_a: @product_a).count
+  test 'unlink! raises an error when trying to unlink a product to itself' do
+    assert_raises(RuntimeError, "Cannot unlink a product to itself") do
+      @product_a.unlink!(@product_a)
+    end
   end
 end
 
@@ -144,28 +107,27 @@ class ProductCompatibleProductsByAdapterTest < ActiveSupport::TestCase
     @product_d = create_product! type: Stroller
     @adapter_1 = create_product! type: Adapter
     @adapter_2 = create_product! type: Adapter
-    @product_a.link!(@product_b, @adapter_1)
-    @product_a.link!(@product_c, @adapter_2)
-    @product_a.link!(@product_d)
+    @product_a.link!(@adapter_1)
+    @product_b.link!(@adapter_1)
+    @product_a.link!(@adapter_2)
+    @product_c.link!(@adapter_2)
   end
 
   test 'compatible_products_by_adapter returns correct grouping' do
     result = @product_a.compatible_products_by_adapter
-    assert_equal 3, result.keys.size
+    assert_equal 2, result.keys.size
     assert_includes result.keys, @adapter_1
     assert_includes result.keys, @adapter_2
-    assert_includes result.keys, nil
   end
 
   test 'compatible_products_by_adapter groups products correctly' do
     result = @product_a.compatible_products_by_adapter
     assert_equal [@product_b], result[@adapter_1]
     assert_equal [@product_c], result[@adapter_2]
-    assert_equal [@product_d], result[nil]
   end
 
   test 'compatible_products_by_adapter handles bidirectional compatibility' do
-    @product_b.link!(@product_c, @adapter_1)
+    @product_c.link!(@adapter_1)
     result = @product_b.compatible_products_by_adapter
     adapter_count = result.keys.size
     assert_equal 1, adapter_count
@@ -179,7 +141,7 @@ class ProductCompatibleProductsByAdapterTest < ActiveSupport::TestCase
   end
 
   test 'compatible_products_by_adapter handles multiple products with same adapter' do
-    @product_a.link!(@product_d, @adapter_1)
+    @product_d.link!(@adapter_1)
     result = @product_a.compatible_products_by_adapter
     assert_equal [@product_b, @product_d], result[@adapter_1]
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_16_150809) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_19_150145) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_16_150809) do
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
+  create_table "product_adapters", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "adapter_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["adapter_id"], name: "index_product_adapters_on_adapter_id"
+    t.index ["product_id", "adapter_id"], name: "index_product_adapters_on_product_id_and_adapter_id", unique: true
+    t.index ["product_id"], name: "index_product_adapters_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "productable_type", null: false
@@ -90,5 +100,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_16_150809) do
   add_foreign_key "compatible_links", "products", column: "product_a_id", on_delete: :cascade
   add_foreign_key "compatible_links", "products", column: "product_b_id", on_delete: :cascade
   add_foreign_key "images", "products"
+  add_foreign_key "product_adapters", "adapters"
+  add_foreign_key "product_adapters", "products"
   add_foreign_key "products", "brands"
 end

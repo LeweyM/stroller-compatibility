@@ -1,7 +1,7 @@
 class Admin::ProductsController < Admin::BaseController
   def index
     @brands = Brand.all
-    @products = Product.includes(:compatible_products_as_a, :compatible_products_as_b, :brand, :image)
+    @products = Product.includes(:product_adapters, :brand, :image, adapters: [:products, :product])
 
     if params[:search].present?
       @products = @products.where("products.name ILIKE ?", "%#{params[:search]}%")
@@ -15,7 +15,7 @@ class Admin::ProductsController < Admin::BaseController
       @products = @products.joins(:brand).where("brands.name ILIKE ?", "%#{params[:brand]}%")
     end
 
-    @products = @products.all.order(:productable_type)
+    @products = @products.order(:productable_type).to_a
   end
 
   def show
@@ -73,20 +73,16 @@ class Admin::ProductsController < Admin::BaseController
 
   def export_compatible
     # for each adapter, 3 rows. 1st row, a list of strollers, 2nd row a list of seats, 3rd row a single cell with adapter name
-    adapters = CompatibleLink.all.group_by(&:adapter)
+    adapters = Adapter.all
     sets = []
-    adapters.each do |adapter, links|
-      strollers_a = links.select { |link| link.product_a.productable_type == "Stroller" }
-      strollers_b = links.select { |link| link.product_b.productable_type == "Stroller" }
-      strollers = strollers_a.map { |link| link.product_a.name } + strollers_b.map { |link| link.product_b.name }
-
-      seats_a = links.select { |link| link.product_a.productable_type == "Seat" }
-      seats_b = links.select { |link| link.product_b.productable_type == "Seat" }
-      seats = seats_a.map { |link| link.product_a.name } + seats_b.map { |link| link.product_b.name }
+    adapters.each do |adapter |
+      products = adapter.products.all
+      strollers = products.filter { |product| product.productable_type == "Stroller" }.map(&:name)
+      seats = products.filter { |product| product.productable_type == "Seat" }.map(&:name)
 
       row1 = strollers.uniq.join(",")
       row2 = seats.uniq.join(",")
-      row3 = adapter.name
+      row3 = adapter.product.name
       sets << [row1, row2, row3]
     end
 
@@ -112,7 +108,7 @@ class Admin::ProductsController < Admin::BaseController
   private
 
   def product_params
-    params.require(:product).permit(:name, :brand_id, :productable_type, :link)
+    params.require(:product).permit(:name, :brand_id, :productable_type, :url)
   end
 
   def update_or_create_image(product, image_params)

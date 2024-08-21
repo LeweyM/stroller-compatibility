@@ -57,9 +57,8 @@ export const MultiProductSearch = ({
         )
         if (newItems.length === 1) {
             const newItemSlug = newItems[0].value;
-            const otherItemSlugs = previousSlugs.filter(item => item !== newItemSlug)
 
-            Promise.all(otherItemSlugs.map(otherItem => saveProductUpdate("POST", addLinkUrl, newItemSlug, otherItem)))
+            saveProductUpdate("POST", addLinkUrl, newItemSlug)
                 .then(() => setItemLoaded(newItemSlug))
         }
         const oldItemSlugs = previousSlugs.filter(
@@ -67,14 +66,13 @@ export const MultiProductSearch = ({
         )
         if (oldItemSlugs.length === 1) {
             const oldItemSlug = oldItemSlugs[0];
-            const otherItemSlugs = value.map(i => i.value).filter(slug => slug !== oldItemSlug)
 
-            Promise.all(otherItemSlugs.map(otherItem => saveProductUpdate("DELETE", unlinkUrl, oldItemSlug, otherItem)))
-                .then(() => console.log(`successfully removed links for ${otherItemSlugs.length} products`))
+            saveProductUpdate("DELETE", unlinkUrl, oldItemSlug)
+                .then(() => console.log(`successfully removed link for ${oldItemSlug}`))
         }
     }, [value])
 
-    const saveProductUpdate = async (method: "POST" | "DELETE", url: string, productA: string, productB: string): Promise<Response> => {
+    const saveProductUpdate = async (method: "POST" | "DELETE", url: string, productA: string): Promise<Response> => {
         // @ts-ignore
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         return fetch(url, {
@@ -87,7 +85,6 @@ export const MultiProductSearch = ({
             body: JSON.stringify({
                 adapter: adapter?.slug || null,
                 product_a: productA,
-                product_b: productB,
             })
         })
     };

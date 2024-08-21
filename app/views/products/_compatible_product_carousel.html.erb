@@ -1,6 +1,7 @@
 <div class="mt-8">
   <%= render partial: 'shared/subtitle', locals: { text: 'Compatible products for ' + product.name + ':' } %>
   <div class="mt-4">
-    <%= render partial: 'image_carousel', locals: { products: product.compatible_products } %>
+    <%= compatible_products = product.compatible_products_by_adapter.values.flatten
+        render partial: 'image_carousel', locals: { products: compatible_products } %>
   </div>
 </div>
