@@ -37,7 +37,7 @@
         <div class="mt-8">
           <%= render partial: 'shared/subtitle', locals: { text: 'Search for other compatible products', center: true } %>
           <div class="flex justify-center mt-4">
-            <%= render partial: 'shared/button', locals: { link: fits_product_url(@product_a.id), text: 'Back', secondary: true } %>
+            <%= render partial: 'shared/button', locals: { link: fits_product_url(@product_a.slug), text: 'Back', secondary: true } %>
           </div>
         </div>
       </div>
