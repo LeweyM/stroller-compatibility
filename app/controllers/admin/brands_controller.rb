@@ -1,7 +1,9 @@
 class Admin::BrandsController < Admin::BaseController
   def index
-    @brands = Brand.all
-    @total_product_count = @brands.reduce(0) { |sum, brand| sum + brand.product_count }
+    brands_with_counts, total_products = Brand.ordered_by_product_count_with_totals
+
+    @brands = brands_with_counts
+    @total_product_count = total_products
   end
 
   def edit
