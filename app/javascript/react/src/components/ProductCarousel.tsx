@@ -14,43 +14,43 @@ function SampleArrow(props: CustomArrowProps) {
     );
 }
 
-const responsive = [
-    {
-        breakpoint: 1024,
-        settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            dots: true
-        }
-    },
-    {
-        breakpoint: 600,
-        settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
-        }
-    },
-    {
-        breakpoint: 480,
-        settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-        }
-    }
-];
 
 type Props = {
     items: Product[]
 };
 function MultipleItems({items}: Props) {
     console.log(items)
+    const showItems = (n: number) => Math.min(items.length, n);
+    const responsive = [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: showItems(3),
+                slidesToScroll: showItems(3),
+                dots: true
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: showItems(2),
+                slidesToScroll: showItems(2),
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: showItems(1),
+                slidesToScroll: showItems(1)
+            }
+        }
+    ];
     const settings = {
         dots: true,
         arrows: true,
         speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: showItems(3),
+        slidesToScroll: showItems(3),
         nextArrow: <SampleArrow />,
         prevArrow: <SampleArrow />,
         responsive,
