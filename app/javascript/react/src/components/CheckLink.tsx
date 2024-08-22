@@ -1,4 +1,4 @@
-import React, {useState, useEffect, PropsWithChildren, Fragment} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 
 type CheckLinkProps = {
     productId: string,
