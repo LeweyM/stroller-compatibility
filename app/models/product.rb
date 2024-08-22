@@ -44,7 +44,9 @@ class Product < ApplicationRecord
   def compatible_products_by_adapter
     adapters.includes(:products).each_with_object({}) do |adapter, h|
       h[adapter.product] = adapter.products
+                                  .includes(:image, :brand)
                                   .where.not(productable_type: self.productable_type)
+                                  .select('products.*, images.url as image_url, brands.name as brand_name').references(:images, :brands)
                                   .to_a.filter { |p| p.id != self.id }
     end
   end

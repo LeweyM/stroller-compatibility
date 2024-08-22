@@ -11,6 +11,10 @@ module.exports = {
       'focus:outline-none',
       'shadow-none',
       'focus:shadow-none',
+      'h-52',
+      'object-scale-down',
+      'text-purple-800',
+      'bg-purple-800',
   ],
   theme: {
     extend: {

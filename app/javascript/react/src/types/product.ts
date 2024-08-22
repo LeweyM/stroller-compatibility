@@ -2,7 +2,10 @@ export type Product = {
     id: number,
     name: string,
     slug: string,
-    type: ProductType
+    type: ProductType,
+    image_url: string,
+    brand_name: string,
+    url: string,
 }
 
 export enum ProductType {
