@@ -49,6 +49,7 @@
       <th>Brand</th>
       <th>Type</th>
       <th>Image</th>
+      <th>URL</th>
       <th>Compatible Products</th>
       <th>Actions</th>
     </tr>
@@ -65,6 +66,9 @@
         <td><%= product.productable_type %></td>
         <td class="<%= product.image.present? ? 'text-green-500' : 'text-red-500' %>">
           <%= product.image.present? ? "✔" : "✘" %>
+        </td>
+        <td class="<%= product.url.present? ? 'text-green-500' : 'text-red-500' %>">
+          <%= product.url.present? ? "✔" : "✘" %>
         </td>
         <td>
           <% product.compatible_products_by_adapter.each do |adapter, products| %>
