@@ -102,9 +102,9 @@ end
 class ProductCompatibleProductsByAdapterTest < ActiveSupport::TestCase
   setup do
     @product_a = create_product! type: Stroller
-    @product_b = create_product! type: Stroller
+    @product_b = create_product! type: Seat
     @product_c = create_product! type: Stroller
-    @product_d = create_product! type: Stroller
+    @product_d = create_product! type: Seat
     @adapter_1 = create_product! type: Adapter
     @adapter_2 = create_product! type: Adapter
     @product_a.link!(@adapter_1)
@@ -123,7 +123,7 @@ class ProductCompatibleProductsByAdapterTest < ActiveSupport::TestCase
   test 'compatible_products_by_adapter groups products correctly' do
     result = @product_a.compatible_products_by_adapter
     assert_equal [@product_b], result[@adapter_1]
-    assert_equal [@product_c], result[@adapter_2]
+    assert_equal [], result[@adapter_2]
   end
 
   test 'compatible_products_by_adapter handles bidirectional compatibility' do
@@ -142,7 +142,22 @@ class ProductCompatibleProductsByAdapterTest < ActiveSupport::TestCase
 
   test 'compatible_products_by_adapter handles multiple products with same adapter' do
     @product_d.link!(@adapter_1)
-    result = @product_a.compatible_products_by_adapter
-    assert_equal [@product_b, @product_d], result[@adapter_1]
+    result = @product_d.compatible_products_by_adapter
+    assert_equal [@product_a].sort, result[@adapter_1].sort
+  end
+
+  test 'only gets products of a differnt type' do
+    stroller = create_product! type: Stroller
+    another_stroller = create_product! type: Stroller
+    seat = create_product! type: Seat
+    adapter = create_product! type: Adapter
+    stroller.link!(adapter)
+    another_stroller.link!(adapter)
+    seat.link!(adapter)
+
+    result = stroller.compatible_products_by_adapter
+
+    assert_not_includes result[adapter], another_stroller
+    assert_includes result[adapter], seat
   end
 end
