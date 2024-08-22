@@ -2,10 +2,11 @@
 <div class="bg-gray-100 p-4 flex justify-center">
   <nav class="admin-nav">
     <ul class="list-none flex justify-between">
-      <li class="p-2"><%= link_to 'Products', admin_products_path, class: "text-blue-500 hover:text-blue-700" %></li>
-      <li class="p-2"><%= link_to 'Brands', admin_brands_path, class: "text-blue-500 hover:text-blue-700" %></li>
-      <li class="p-2"><%= link_to 'Compatibility', admin_compatibility_index_path, class: "text-blue-500 hover:text-blue-700" %></li>
-      <li class="p-2"><%= link_to 'Adapters', admin_products_path(type: 'Adapter'), class: "text-blue-500 hover:text-blue-700" %></li>
+      <li class="p-2"> <%= render 'admin/shared/internal_link', name: 'Main Site', path: products_path %></li>
+      <li class="p-2"> <%= render 'admin/shared/internal_link', name: 'Products', path: admin_products_path %></li>
+      <li class="p-2"> <%= render 'admin/shared/internal_link', name: 'Brands', path: admin_brands_path %></li>
+      <li class="p-2"> <%= render 'admin/shared/internal_link', name: 'Compatibility', path: admin_compatibility_index_path %></li>
+      <li class="p-2"> <%= render 'admin/shared/internal_link', name: 'Adapters', path: admin_products_path(type: 'Adapter') %></li>
     </ul>
   </nav>
 </div>
