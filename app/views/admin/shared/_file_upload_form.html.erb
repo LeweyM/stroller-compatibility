@@ -18,6 +18,10 @@
             const fileInput = document.getElementById(`file_<%= id %>`);
             const submitButton = document.getElementById(`submit_<%= id %>`);
 
+            if (!fileInput ||!submitButton) {
+              return;
+            }
+
             fileInput.addEventListener('change', function () {
                 submitButton.disabled = !this.files.length;
             });
