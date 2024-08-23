@@ -1,5 +1,6 @@
 <% method = local_assigns[:method] || :get %>
 <div class="flex items-center justify-between">
+  <% wrap_classes = local_assigns[:no_wrap] ? 'text-nowrap' : '' %>
   <% if local_assigns[:secondary] %>
     <% button_style = 'bg-white text-purple-800 border-purple-800 border-solid border-2' %>
     <% hover_style = 'hover:bg-gray-200' %>
@@ -13,10 +14,22 @@
     <% hover_style = 'hover:bg-purple-600' %>
     <% focus_style = 'focus:ring-blue-300' %>
   <% end %>
-  <%= button_to text, link,
-                class: "#{button_style} #{hover_style} #{focus_style} focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center",
-                method: method,
-                accesskey: local_assigns[:accesskey],
-                form: { data: { turbo: true, turbo_confirm: local_assigns[:confirm], turbo_method: local_assigns[:method] } }
-  %>
+  <% button_classes = "#{button_style} #{hover_style} #{focus_style} #{wrap_classes} focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>
+  <% if local_assigns[:escape_form] %>
+    <%= button_tag text,
+                   type: :submit,
+                   formmethod: method,
+                   formaction: link,
+                   class: button_classes,
+                   data: { turbo_method: method.to_s }
+    %>
+  <% else %>
+        <%= button_to text, link,
+                  type: 'button',
+                  class: button_classes,
+                  method: method,
+                  accesskey: local_assigns[:accesskey],
+                  form: { data: { turbo: true, turbo_confirm: local_assigns[:confirm], turbo_method: local_assigns[:method] } }
+    %>
+  <% end %>
 </div>
