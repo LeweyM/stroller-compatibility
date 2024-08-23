@@ -1,8 +1,10 @@
 <div class="mt-8">
   <%= render partial: 'shared/subtitle', locals: { text: 'Compatible products for ' + product.name + ':' } %>
   <div class="mt-4">
-    <%= compatible_products = product.compatible_products_by_adapter.values.flatten
-       render ProductCarousel::ShowComponent.new(items: compatible_products)
+    <%= compatible_products = product.compatible_products_by_adapter
+                                     .values.flatten
+                                     .map { |p| p.image = p.image_or_default; p }
+        render ProductCarousel::ShowComponent.new(items: compatible_products)
     %>
   </div>
 </div>
