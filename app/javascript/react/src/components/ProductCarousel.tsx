@@ -3,12 +3,13 @@ import Slider, {CustomArrowProps} from "react-slick";
 import {Product} from "../types/product";
 
 const PURPLE_800_COLOR = "#6b21a8";
+
 function SampleArrow(props: CustomArrowProps) {
-    const { className, style, onClick } = props;
+    const {className, style, onClick} = props;
     return (
         <div
             className={className}
-            style={{ ...style, color: PURPLE_800_COLOR, display: "block" }}
+            style={{...style, color: PURPLE_800_COLOR, display: "block"}}
             onClick={onClick}
         />
     );
@@ -18,6 +19,7 @@ function SampleArrow(props: CustomArrowProps) {
 type Props = {
     items: Product[]
 };
+
 function MultipleItems({items}: Props) {
     const showItems = (n: number) => Math.min(items.length, n);
     const responsive = [
@@ -51,8 +53,8 @@ function MultipleItems({items}: Props) {
         infinite: false,
         slidesToShow: showItems(3),
         slidesToScroll: showItems(3),
-        nextArrow: <SampleArrow />,
-        prevArrow: <SampleArrow />,
+        nextArrow: <SampleArrow/>,
+        prevArrow: <SampleArrow/>,
         responsive,
     };
     return (
@@ -60,11 +62,13 @@ function MultipleItems({items}: Props) {
             <Slider {...settings}>
                 {items.map((item, index) => (
                     <div key={index}>
-                        <img className={"w-52 h-52 object-scale-down"} src={item.image_url} alt={item.name}/>
-                        <a href={item.url}>
-                            <p>{item.name}</p>
-                        </a>
-                        <p className={"text-gray-400"}>By {item.brand_name}</p>
+                        <div className={"flex flex-col items-center justify-center p-2"}>
+                            <img className={"w-52 h-52 object-scale-down"} src={item.image_url} alt={item.name}/>
+                            <a href={item.url}>
+                                <p>{item.name}</p>
+                            </a>
+                            <p className={"text-gray-400"}>By {item.brand_name}</p>
+                        </div>
                     </div>
                 ))}
             </Slider>

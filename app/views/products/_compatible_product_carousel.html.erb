@@ -1,10 +1,16 @@
 <div class="mt-8">
-  <%= render partial: 'shared/subtitle', locals: { text: 'Compatible products for ' + product.name + ':' } %>
-  <div class="mt-4">
-    <%= compatible_products = product.compatible_products_by_adapter
-                                     .values.flatten
-                                     .map { |p| p.image = p.image_or_default; p }
-        render ProductCarousel::ShowComponent.new(items: compatible_products)
-    %>
-  </div>
+  <%= render partial: 'shared/subtitle', locals: { text: 'Compatible products for ' + product.name, center: true } %>
+  <% if product.compatible_products_by_adapter.empty? %>
+    <div class="mt-4 flex flex-row justify-center w-full">
+      <p class="text-gray-500">No compatible products found</p>
+    </div>
+  <% else %>
+    <div class="mt-4">
+      <%= compatible_products = product.compatible_products_by_adapter
+                                       .values.flatten
+                                       .map { |p| p.image = p.image_or_default; p }
+          render ProductCarousel::ShowComponent.new(items: compatible_products)
+      %>
+    </div>
+  <% end %>
 </div>
