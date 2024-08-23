@@ -19,7 +19,6 @@ type Props = {
     items: Product[]
 };
 function MultipleItems({items}: Props) {
-    console.log(items)
     const showItems = (n: number) => Math.min(items.length, n);
     const responsive = [
         {
@@ -49,6 +48,7 @@ function MultipleItems({items}: Props) {
         dots: true,
         arrows: true,
         speed: 500,
+        infinite: false,
         slidesToShow: showItems(3),
         slidesToScroll: showItems(3),
         nextArrow: <SampleArrow />,
