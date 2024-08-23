@@ -25,15 +25,18 @@
 
 <body>
 <% if is_admin? %>
-<div class="mb-4">
-  <%= render 'admin/shared/admin_nav' %>
-</div>
+  <div class="mb-4">
+    <%= render 'admin/shared/admin_nav' %>
+  </div>
 <% end %>
 <main class="container mx-auto px-5 flex flex-col h-screen w-screen relative font-sans">
   <% if Rails.env.development? %>
     <h1 id="local-mode-header"
         class="fixed top-0 right-0 bg-yellow-500 text-black px-4 py-2 m-2 rounded-md shadow-md z-50">
       <span>[Running Locally]</span>
+      <% if ENV['USE_PROD_DB'] %>
+        <span> against production database!</span>
+      <% end %>
       <button onclick="hideLocalModeHeader()" class="ml-2 text-sm">×</button>
     </h1>
     <script>
