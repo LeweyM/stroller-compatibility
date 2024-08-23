@@ -23,13 +23,24 @@
           <%= form.url_field :url, class: 'form-control w-full' %>
           <% if @product.url.present? %>
             <div class="p-2 m-2">
-            <%= render 'shared/website_button', url: @product.url %>
+              <%= render 'shared/website_button', url: @product.url %>
             </div>
             <%= render CheckLink::ShowComponent.new(
               productId: @product.slug,
               checkLinkPath: check_url_admin_products_path,
               updateProductURL: admin_product_url(@product),
             ) %>
+          <% else %>
+            <div class="px-4">
+              <%= render :partial => 'shared/button',
+                         :locals => {
+                           :link => generate_url_admin_product_path(@product),
+                           :text => 'Generate URL',
+                           :method => :post,
+                           :no_wrap => true,
+                           :escape_form => true,
+                         } %>
+            </div>
           <% end %>
         </td>
       </tr>
@@ -134,3 +145,10 @@
     <% end %>
   </div>
 </div>
+
+<%= form_with model: @product,
+              url: generate_url_admin_product_path(@product),
+              method: :post,
+              id: 'testy',
+              class: 'w-full' do %>
+<% end %>

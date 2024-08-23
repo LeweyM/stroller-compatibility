@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     end
     resources :products, path: 'products', only: [:index, :new, :edit, :destroy, :update] do
       delete :destroy_image, on: :member, controller: :images
+      post :generate_url, on: :member, controller: :products, action: :generate_url
       resources :images, only: [:new, :create] do
         collection do
           post :generate

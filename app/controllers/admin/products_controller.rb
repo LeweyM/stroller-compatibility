@@ -48,6 +48,23 @@ class Admin::ProductsController < Admin::BaseController
     }
   end
 
+  def generate_url
+    @product = Product.friendly.find(params[:id])
+    client = GoogleApiService.new
+    begin
+      results = client.url_search(@product)
+      @product.url = results.first["link"]
+      @product.save
+      flash[:success] = "URL for #{@product.name} updated."
+      redirect_to edit_admin_product_path(@product)
+    rescue => e
+      logger.error "Failed to find URL: #{e.message}"
+      flash[:error] = "No URL found for #{@product.name}."
+      redirect_to edit_admin_product_path(@product)
+      return
+    end
+  end
+
   def import
     file = params[:file]
 
@@ -75,7 +92,7 @@ class Admin::ProductsController < Admin::BaseController
     # for each adapter, 3 rows. 1st row, a list of strollers, 2nd row a list of seats, 3rd row a single cell with adapter name
     adapters = Adapter.all
     sets = []
-    adapters.each do |adapter |
+    adapters.each do |adapter|
       products = adapter.products.all
       strollers = products.filter { |product| product.productable_type == "Stroller" }.map(&:name)
       seats = products.filter { |product| product.productable_type == "Seat" }.map(&:name)
