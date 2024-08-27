@@ -7476,6 +7476,52 @@
                 </messages>
                 <updatedAt value="2024-08-23T08:27:27.823525" />
               </chat>
+              <chat>
+                <internalId value="55f163fc-131c-402a-b110-da56ae8b9e8d" />
+                <llm>
+                  <llm>
+                    <model value="openai/gpt-4-turbo" />
+                    <provider value="OpenAI" />
+                    <tags>
+                      <list>
+                        <option value="gateway" />
+                        <option value="pro" />
+                        <option value="balanced" />
+                      </list>
+                    </tags>
+                    <title value="GPT-4 Turbo" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <internalId value="d9bba570-89b2-4557-89f4-32ea2d5cecf9" />
+                <llm>
+                  <llm>
+                    <model value="openai/gpt-4-turbo" />
+                    <provider value="OpenAI" />
+                    <tags>
+                      <list>
+                        <option value="gateway" />
+                        <option value="pro" />
+                        <option value="balanced" />
+                      </list>
+                    </tags>
+                    <title value="GPT-4 Turbo" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+              </chat>
             </list>
           </chats>
           <defaultLlm>
