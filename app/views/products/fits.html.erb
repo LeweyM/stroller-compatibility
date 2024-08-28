@@ -2,8 +2,8 @@
   <div class="min-w-64">
     <%= render partial: 'shared/hero', locals: { title: 'Does it fit?' } %>
 
-    <div class="mt-8 flex">
-      <div class="p-8 w-full">
+    <div class="mt-8 flex flex-wrap md:flex-nowrap">
+      <div class="p-8 w-full flex flex-col items-center">
         <%= render partial: 'products/main', locals: { product: @product } %>
         <div class="mt-4 flex justify-center">
           <%= render partial: 'shared/button', locals: { text: 'Choose another product', link: products_path, secondary: true } %>
