@@ -154,7 +154,7 @@ class Admin::ProductsControllerSearchTest < ActionDispatch::IntegrationTest
     results = JSON.parse(@response.body)
     assert_instance_of Array, results
     assert_not_empty results
-    assert_equal %w[slug name], results.first.keys
+    assert_equal %w[slug name brand], results.first.keys
   end
 
   test "should limit search results to 15" do
