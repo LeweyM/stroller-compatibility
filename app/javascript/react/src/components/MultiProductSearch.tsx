@@ -30,7 +30,7 @@ export const MultiProductSearch = ({
                                        adapter,
                                        filter = {}
                                    }: Props) => {
-    const {query} = useProductSearchClient(searchUrl);
+    const {debouncedLoader} = useProductSearchClient(searchUrl);
     const [value, setValue] = React.useState<Item[]>(initialProducts.map(p => ({
         value: p.slug,
         label: p.name,
@@ -89,18 +89,6 @@ export const MultiProductSearch = ({
         })
     };
 
-    const debouncedLoader =
-        _.debounce((inputValue: string, callback: Function) => {
-                query(inputValue, filter).then((res) => {
-                    return res && callback(res.map(r => ({
-                        brand: r.brand,
-                        value: r.slug,
-                        label: r.name,
-                    })))
-                });
-            }, 700
-        );
-
     return <Fragment>
         <AsyncSelect
             isMulti
@@ -114,7 +102,7 @@ export const MultiProductSearch = ({
             value={value}
             isClearable={false}
             closeMenuOnSelect={false}
-            loadOptions={debouncedLoader}
+            loadOptions={debouncedLoader(filter)}
             onChange={(selected: any) => {
                 setValue(selected);
             }}

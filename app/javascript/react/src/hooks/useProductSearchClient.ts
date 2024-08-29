@@ -1,6 +1,7 @@
 import {parseQueryParams} from "../utils/requestUtils";
 import useSingleFlightOnlyClient from "./useSingleFlightOnlyClient";
 import {ProductFilters} from "../types/product";
+import _ from "lodash";
 
 export type APIResponseItem = {
     slug: string
@@ -28,5 +29,25 @@ export const useProductSearchClient = (searchUrl: string) => {
         return results
     }
 
-    return {query};
+    const debouncedLoader = (filter: Filter, waitMs: number = 700) =>
+        _.debounce((inputValue: string, callback: Function) => {
+                query(inputValue, filter).then((res) => {
+                    if (!res) return;
+
+                    const resultsByBrand = _.groupBy(res, 'brand');
+
+                    const options = _.map(resultsByBrand, (results, brand) => ({
+                        label: brand,
+                        options: results.map(r => ({
+                            value: r.slug,
+                            label: r.name
+                        }))
+                    }))
+
+                    return callback(options);
+                });
+            }, waitMs
+        )
+
+    return {query, debouncedLoader};
 };
