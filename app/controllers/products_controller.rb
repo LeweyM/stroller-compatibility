@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    query = Product.where("products.name ILIKE (?)", "%#{params[:search_term]}%")
+    query = Product.where("products.name ILIKE (?) OR brands.name ILIKE (?)", "%#{params[:search_term]}%", "%#{params[:search_term]}%")
     # optional type query param, can be a string or an array
     if params[:type].present?
       query = query.where(productable_type: params[:type])
