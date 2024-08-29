@@ -1,7 +1,5 @@
 class ProductsController < ApplicationController
   def index
-    @strollers = Product.where(productable_type: "Stroller").group_by(&:brand)
-    @seats = Product.where(productable_type: "Seat").group_by(&:brand)
   end
 
   def show
