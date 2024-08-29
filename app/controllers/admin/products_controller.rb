@@ -22,6 +22,26 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def new
+    @product = Product.new
+    @brands = Brand.all
+  end
+
+  def create
+    @product = Product.new(product_params)
+    productable = case product_params[:productable_type]
+                  when "Stroller" then Stroller.new
+                  when "Seat" then Seat.new
+                  else raise "Invalid product type"
+                  end
+    @product.productable = productable
+    @product.brand = Brand.find(params[:product][:brand])
+    if @product.save
+      redirect_to edit_admin_product_path(@product), notice: "Product was successfully created."
+      return
+    end
+
+    flash[:error] = "Something went wrong when creating the product"
+    render :new
   end
 
   def edit

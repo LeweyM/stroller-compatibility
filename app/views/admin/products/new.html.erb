@@ -1,4 +1,21 @@
-<div>
-  <h1 class="font-bold text-4xl">Admin::Products#new</h1>
-  <p>Find me in app/views/admin/products/new.html.erb</p>
+<div class="p-4">
+  <h1 class="font-bold text-4xl mb-4">Admin::Products#new</h1>
+  <p class="mb-2">Find me in app/views/admin/products/new.html.erb</p>
+  <div class="max-w-xl">
+    <%= form_with model: [:admin, @product], local: true, class: "space-y-4" do |form| %>
+      <div>
+        <%= form.label :productable_type, "Type:", class: "block font-medium text-gray-700" %>
+        <%= form.select :productable_type, ['Stroller', 'Seat'], {}, { class: "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" } %>
+      </div>
+      <div>
+        <%= form.label :name, "Product Name:", class: "block font-medium text-gray-700" %>
+        <%= form.text_field :name, class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+      </div>
+      <div>
+        <%= form.label :brand, "Brand:", class: "block font-medium text-gray-700" %>
+        <%= form.select :brand, @brands.map { |b| [b.name, b.id] }, { include_blank: true }, { class: "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" } %>
+      </div>
+      <%= form.submit "Create Product", class: "mt-2 px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-700" %>
+    <% end %>
+  </div>
 </div>
