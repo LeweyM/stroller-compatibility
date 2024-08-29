@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    query = Product.where("name ILIKE (?)", "%#{params[:search_term]}%")
+    query = Product.where("products.name ILIKE (?)", "%#{params[:search_term]}%")
     # optional type query param, can be a string or an array
     if params[:type].present?
       query = query.where(productable_type: params[:type])
@@ -17,9 +17,10 @@ class ProductsController < ApplicationController
     if params[:exclude_names].present?
       query = query.where.not(name: params[:exclude_names])
     end
-    result = query.limit(15)
-                  .pluck(:slug, :name)
-                  .map { |slug, name| { slug: slug, name: name } }
+    result = query.joins(:brand)
+                  .limit(15)
+                  .select('products.slug, products.name, brands.name AS brand_name')
+                  .map { |product| { slug: product.slug, name: product.name, brand: product.brand_name } }
     render json: result
   end
 

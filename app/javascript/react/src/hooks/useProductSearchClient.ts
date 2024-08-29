@@ -10,15 +10,10 @@ export type APIResponseItem = {
 
 type Filter = Partial<ProductFilters> & { not?: Partial<ProductFilters> }
 
-type SearchResult = {
-    value: string,
-    label: string
-}
-
 export const useProductSearchClient = (searchUrl: string) => {
     const client = useSingleFlightOnlyClient<APIResponseItem[]>();
 
-    const query = async (input: string, filter: Filter): Promise<SearchResult[]> => {
+    const query = async (input: string, filter: Filter): Promise<APIResponseItem[]> => {
         const queryParams = {
             type: filter?.types,
             search_term: input != "" ? input : undefined,
@@ -30,10 +25,7 @@ export const useProductSearchClient = (searchUrl: string) => {
         if (!results) {
             return []
         }
-        return results.map((result) => ({
-            value: result.slug,
-            label: result.name,
-        }))
+        return results
     }
 
     return {query};

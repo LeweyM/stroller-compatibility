@@ -92,7 +92,11 @@ export const MultiProductSearch = ({
     const debouncedLoader =
         _.debounce((inputValue: string, callback: Function) => {
                 query(inputValue, filter).then((res) => {
-                    return res && callback(res)
+                    return res && callback(res.map(r => ({
+                        brand: r.brand,
+                        value: r.slug,
+                        label: r.name,
+                    })))
                 });
             }, 700
         );
