@@ -9,7 +9,6 @@ const useSearchClient = <T>() => {
         }
         controller.current = new AbortController();
         try {
-            console.log('sending request url: ', url);
             const response = await fetch(url, {signal: controller.current.signal});
             if (response.ok) {
                 return await response.json()
