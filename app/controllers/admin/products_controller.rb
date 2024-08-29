@@ -109,7 +109,11 @@ class Admin::ProductsController < Admin::BaseController
   def update
     @product = Product.friendly.find(params[:id])
     if @product.update(product_params)
-      if params[:product][:image_url] || params[:product][:image_alt_text] || params[:product][:image_attribution_url] || params[:product][:image_attribution_text]
+      has_image_to_update = !params[:product][:image_url].empty? ||
+        !params[:product][:image_alt_text].empty? ||
+        !params[:product][:image_attribution_url].empty? ||
+        !params[:product][:image_attribution_text].empty?
+      if has_image_to_update
         update_or_create_image(@product, params[:product])
       end
       flash[:notice] = 'Product was successfully updated.'
