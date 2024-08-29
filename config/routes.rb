@@ -16,7 +16,7 @@ Rails.application.routes.draw do
         post :link
       end
     end
-    resources :brands, path: 'brands', only: [:index, :new, :edit, :destroy, :update] do
+    resources :brands, path: 'brands', only: [:index, :new, :create, :edit, :destroy, :update] do
       collection do
         get :export
       end

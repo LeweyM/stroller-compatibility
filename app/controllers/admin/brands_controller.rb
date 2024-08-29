@@ -1,4 +1,18 @@
 class Admin::BrandsController < Admin::BaseController
+
+  def new
+    @brand = Brand.new
+  end
+
+  def create
+    @brand = Brand.new(brand_params)
+    if @brand.save
+      redirect_to admin_brands_path, notice: 'Brand was successfully created.'
+    else
+      flash[:error] = "Something went wrong when creating the brand"
+      render :new
+    end
+  end
   def index
     brands_with_counts, total_products = Brand.ordered_by_product_count_with_totals
 
