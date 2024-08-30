@@ -29,6 +29,7 @@ class ProductsController < ApplicationController
     @other_products = Product.where.not(productable_type: @product.productable_type).includes(:image, :brand)
     # all types except for the type of the product
     @search_types = %w[Stroller Seat Adapter] - [@product.productable_type]
+    @other_type = @product.productable_type == "Stroller" ? "car seat" : "stroller"
   end
 
   def compatible

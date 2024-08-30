@@ -9,8 +9,8 @@
           <%= render partial: 'shared/button', locals: { text: 'Choose another product', link: products_path, secondary: true } %>
         </div>
       </div>
-      <div class="p-8 w-full">
-        <%= render partial: 'shared/subtitle', locals: { text: 'Search for a product to compare:' } %>
+      <div class="p-8 w-full order-first md:order-none">
+        <%= render partial: 'shared/subtitle', locals: { text: "Search for a #{@other_type}:" } %>
         <%= render SearchComparisonProduct::ShowComponent.new(searchUrl: url_for(controller: 'products', action: 'search'), product: @product, types: @search_types) %>
       </div>
     </div>
