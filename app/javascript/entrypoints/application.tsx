@@ -6,6 +6,7 @@ import {ProductSearch} from "../react/src/components/ProductSearch";
 import {MultiProductSearch} from "../react/src/components/MultiProductSearch";
 import ProductCarousel from "../react/src/components/ProductCarousel";
 
+require("../application.js")
 
 mount({
     SearchProduct: ({searchUrl, types}: { searchUrl: string, types?: ProductType[] }) => {
