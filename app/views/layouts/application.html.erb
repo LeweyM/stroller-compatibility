@@ -25,22 +25,20 @@
 <body>
 <% if Rails.env.development? %>
   <h1 id="local-mode-header"
+      data-controller="hide"
       class="fixed top-0 right-0 bg-yellow-500 text-black px-4 py-2 m-2 rounded-md shadow-md z-50">
     <span>[Running Locally]</span>
     <% if ENV['USE_PROD_DB'] %>
       <span> against production database!</span>
     <% end %>
-    <button onclick="hideLocalModeHeader()" class="ml-2 text-sm">×</button>
+    <button data-action="click->hide#hide" class="ml-2 text-sm">×</button>
   </h1>
-  <script>
-      function hideLocalModeHeader() {
-          document.getElementById('local-mode-header').style.display = 'none';
-      }
-  </script>
 <% end %>
 
 <% flash.each do |message_type, message| %>
-  <div id="flash-message-<%= hash_string_to_number message %>" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 w-4/5 max-w-2xl">
+  <div data-controller="hide"
+       class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 w-4/5 max-w-2xl"
+  >
     <% alert_classes = 'bg-red-100 text-red-700 border-red-200'
        notice_classes = 'bg-yellow-100 text-yellow-700 border-yellow-200'
        error_classes = 'bg-red-100 text-red-700 border-red-200'
@@ -55,7 +53,7 @@
     %>
     <%= content_tag :div, class: "alert #{flash_class} border rounded-md p-4 mb-5" do -%>
       <%= message %>
-      <button type="button" class="close" data-dismiss="notice" onclick="closeFlash('<%= hash_string_to_number message %>')" style="float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;">
+      <button type="button" class="close" data-dismiss="notice" data-action="click->hide#hide" style="float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;">
         <span aria-hidden="true">×</span>
         <span class="sr-only">Close</span>
       </button>
@@ -74,9 +72,3 @@
 </main>
 </body>
 </html>
-
-<script>
-    function closeFlash(suffix) {
-        document.getElementById('flash-message-' + suffix).style.display = 'none';
-    }
-</script>

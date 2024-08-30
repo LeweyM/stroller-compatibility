@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import HideController from "./hide_controller"
+application.register("hide", HideController)
+
 import ToggleVisibilityController from "./toggle_visibility_controller"
 application.register("toggle-visibility", ToggleVisibilityController)
