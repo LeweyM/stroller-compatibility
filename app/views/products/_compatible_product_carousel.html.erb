@@ -5,7 +5,7 @@
       <p class="text-gray-500">No compatible products found</p>
     </div>
   <% else %>
-    <div class="mt-4">
+    <div class="my-2 mx-8">
       <%= compatible_products = product.compatible_products_by_adapter
                                        .values.flatten
                                        .map { |p| p.image = p.image_or_default; p }

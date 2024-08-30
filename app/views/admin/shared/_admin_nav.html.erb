@@ -1,12 +1,12 @@
 <!-- app/views/admin/shared/_admin_nav.html.erb -->
-<div class="bg-gray-100 p-4 flex justify-center">
+<div class="bg-gray-100 p-4 inline-flex justify-start md:justify-center w-full">
   <nav class="admin-nav">
-    <ul class="list-none flex justify-between">
-      <li class="p-2"> <%= render 'admin/shared/internal_link', name: 'Main Site', path: products_path %></li>
-      <li class="p-2"> <%= render 'admin/shared/internal_link', name: 'Products', path: admin_products_path %></li>
-      <li class="p-2"> <%= render 'admin/shared/internal_link', name: 'Brands', path: admin_brands_path %></li>
-      <li class="p-2"> <%= render 'admin/shared/internal_link', name: 'Compatibility', path: admin_compatibility_index_path %></li>
-      <li class="p-2"> <%= render 'admin/shared/internal_link', name: 'Adapters', path: admin_products_path(type: 'Adapter') %></li>
+    <ul class="list-none flex flex-wrap justify-between flex-col md:flex-row">
+      <li class="px-2"> <%= render 'admin/shared/internal_link', name: 'Main Site', path: products_path %></li>
+      <li class="px-2"> <%= render 'admin/shared/internal_link', name: 'Products', path: admin_products_path %></li>
+      <li class="px-2"> <%= render 'admin/shared/internal_link', name: 'Brands', path: admin_brands_path %></li>
+      <li class="px-2"> <%= render 'admin/shared/internal_link', name: 'Compatibility', path: admin_compatibility_index_path %></li>
+      <li class="px-2"> <%= render 'admin/shared/internal_link', name: 'Adapters', path: admin_products_path(type: 'Adapter') %></li>
     </ul>
   </nav>
 </div>

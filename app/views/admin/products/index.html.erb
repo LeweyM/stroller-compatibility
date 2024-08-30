@@ -13,7 +13,11 @@
   </div>
 
   <form action="<%= admin_products_path %>" method="get" class="mb-4">
-    <div class="flex flex-wrap items-center">
+    <div class="flex flex-wrap flex-col items-start md:flex-row md:items-center ">
+      <div class="m-2 text-gray-500">
+        <i class="fa-solid fa-filter"></i>
+        <p class="inline">filters</p>
+      </div>
       <div class="mr-2">
         <input type="text" name="search" placeholder="Search products" class="px-2 py-1 border rounded">
       </div>
@@ -26,18 +30,18 @@
         } %>
       </div>
       <div class="mr-2">
-        <div class="mr-2">
-          <%= render partial: 'shared/query_param_filter_select', locals: {
-            name: 'brand',
-            param: :brand,
-            options: @brands.map { |brand| brand.name },
-            label_text: 'Brand'
-          } %>
-        </div>
+        <%= render partial: 'shared/query_param_filter_select', locals: {
+          name: 'brand',
+          param: :brand,
+          options: @brands.map { |brand| brand.name },
+          label_text: 'Brand'
+        } %>
       </div>
-      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Search
-      </button>
+      <div class="mr-2">
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
+          Search
+        </button>
+      </div>
     </div>
   </form>
   <table class="table w-full">
