@@ -6,6 +6,7 @@ cabriofix:
   url: http://www.cabriofix.com/
   productable: cabriofix (Seat)
   slug: cabriofix
+  tags: [infant]
 
 oxford:
   brand: maxicosi
@@ -13,6 +14,7 @@ oxford:
   url: http://www.oxford.com/
   productable: oxford (Stroller)
   slug: oxford
+  tags: [infant]
 
 global adapter:
   brand: yoyo

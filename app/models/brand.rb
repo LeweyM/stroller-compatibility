@@ -1,5 +1,6 @@
 class Brand < ApplicationRecord
   has_many :products, dependent: :destroy
+  has_many :tags, dependent: :destroy
 
   def self.ordered_by_product_count_with_totals
     brands_with_counts = Brand.left_joins(:products)

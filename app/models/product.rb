@@ -9,6 +9,8 @@ class Product < ApplicationRecord
   has_many :product_adapters
   has_many :adapters, through: :product_adapters
 
+  has_and_belongs_to_many :tags
+
   has_one :image, dependent: :destroy
 
   friendly_id :name, use: :slugged
@@ -86,6 +88,20 @@ class Product < ApplicationRecord
 
   def is_compatible_with?(other_product)
     adapters.exists? { |adapter| adapter.products.exists?(id: other_product.id) }
+  end
+
+  def add_tag(tag)
+    # Check if the tag is already associated with the product
+    unless self.tags.include?(tag)
+      self.tags << tag
+    end
+  end
+
+  def remove_tag(tag)
+    # Check if the tag is associated with the product
+    if self.tags.include?(tag)
+      self.tags.delete(tag)
+    end
   end
 
   private

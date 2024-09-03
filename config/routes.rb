@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :brands, only: [:index]
   namespace :admin do
+    resources :tags, only: [:create, :destroy]
     resources :compatibility, only: [:index] do
       collection do
         delete :unlink
