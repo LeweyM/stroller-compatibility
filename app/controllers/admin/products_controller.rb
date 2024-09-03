@@ -149,7 +149,7 @@ class Admin::ProductsController < Admin::BaseController
   private
 
   def product_params
-    params.require(:product).permit(:name, :brand_id, :productable_type, :url)
+    params.require(:product).permit(:name, :brand_id, :productable_type, :url, tag_ids: [])
   end
 
   def update_or_create_image(product, image_params)

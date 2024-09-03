@@ -60,6 +60,7 @@
       <th>Type</th>
       <th>Image</th>
       <th>URL</th>
+      <th>Tags</th>
       <th>Compatible Products</th>
       <th>Actions</th>
     </tr>
@@ -79,6 +80,11 @@
         </td>
         <td class="<%= product.url.present? ? 'text-green-500' : 'text-red-500' %>">
           <%= product.url.present? ? "✔" : "✘" %>
+        </td>
+        <td>
+          <% product.tags.each do |tag| %>
+            <p><%= tag.label %></p>
+          <% end %>
         </td>
         <td>
           <% product.compatible_products_by_adapter.each do |adapter, products| %>

@@ -45,6 +45,12 @@
         </td>
       </tr>
       <tr>
+        <th>Tags</th>
+        <td>
+          <%= form.collection_check_boxes :tag_ids, @product.brand.tags, :id, :label, {}, class: 'form-control' %>
+        </td>
+      </tr>
+      <tr>
         <th>Image Preview</th>
         <% unless @product.image.nil? %>
           <td><%= image_tag @product.image&.url, class: 'rounded', size: "200x200" %></td>
