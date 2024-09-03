@@ -4,6 +4,7 @@ class Brand < ApplicationRecord
 
   def self.ordered_by_product_count_with_totals
     brands_with_counts = Brand.left_joins(:products)
+                              .includes(:tags)
                               .select('brands.*, COUNT(products.id) AS products_count')
                               .group('brands.id')
                               .order('COUNT(products.id) DESC')
