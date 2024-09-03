@@ -48,6 +48,6 @@ class Admin::BrandsController < Admin::BaseController
   private
 
   def brand_params
-    params.require(:brand).permit(:name, :website)
+    params.require(:brand).permit(:name, :website, tag_ids: [])
   end
 end

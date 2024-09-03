@@ -12,6 +12,7 @@
       <th>name</th>
       <th>website</th>
       <th></th>
+      <th>tags</th>
       <th>product count</th>
       <th>actions</th>
     </tr>
@@ -26,6 +27,7 @@
             <%= render 'shared/website_button', url: brand.website %>
           <% end %>
         </td>
+        <td><%= brand.tags.map { |tag| tag.label }.join ", " %></td>
         <td><%= brand.products_count %></td>
         <td class="flex">
           <%= button_to 'edit', edit_admin_brand_path(brand), method: :get,

@@ -1,7 +1,8 @@
 <%= form_with(model: local_assigns[:model], url: local_assigns[:url], local: true) do |form| %>
   <table class="table">
     <tbody>
-    <% local_assigns[:fields].each do |field, type| %>
+    <% local_assigns[:fields].each do |field, details| %>
+      <% type = details[:type] %>
       <tr>
         <th><%= field.to_s.humanize %></th>
         <td>
@@ -11,7 +12,14 @@
           <% when :collection_select %>
             <%= form.collection_select field, local_assigns[field], :id, :name, { selected: local_assigns[:model].send(field) }, class: 'form-control' %>
           <% when :select %>
-            <%= form.select field, local_assigns[field], { selected: local_assigns[:model].send(field) }, class: 'form-control' %>
+            <% options = details[:options] || local_assigns[field] %>
+            <%= form.select field, options, { selected: local_assigns[:model].send(field) }, class: 'form-control' %>
+          <% when :checkbox %>
+            <% options = details[:options] || local_assigns[field] %>
+            <% options.each do |option| %>
+              <%= form.check_box field, { multiple: true, class: 'form-control' }, option.id, nil %>
+              <%= option.label %>
+            <% end %>
           <% when :url_field %>
             <%= form.url_field field, value: local_assigns[:model].send(field), class: 'form-control' %>
           <% else %>
