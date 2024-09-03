@@ -1,9 +1,7 @@
 require "test_helper"
+require_relative './base_controller_test'
 
-class BrandsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @brand = brands(:maxicosi)
-  end
+class Admin::BrandsControllerTest < Admin::BaseControllerTest
 
   test "should get index" do
     get brands_url
