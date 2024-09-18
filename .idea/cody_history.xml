@@ -78,12 +78,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -113,12 +107,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -135,12 +123,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -157,12 +139,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -179,12 +155,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -214,12 +184,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -257,12 +221,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -292,12 +250,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -335,12 +287,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -378,12 +324,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -421,12 +361,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -456,12 +390,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -499,12 +427,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -542,12 +464,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -564,12 +480,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -586,12 +496,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -629,12 +533,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -696,12 +594,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -731,12 +623,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -753,12 +639,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -775,12 +655,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -810,12 +684,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -853,12 +721,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -875,12 +737,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -910,12 +766,6 @@
                   <llm>
                     <model value="openai/gpt-3.5-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="speed" />
-                      </list>
-                    </tags>
                     <title value="GPT-3.5 Turbo" />
                     <usage>
                       <list>
@@ -969,9 +819,8 @@
                     <tags>
                       <list>
                         <option value="gateway" />
+                        <option value="power" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
                       </list>
                     </tags>
                     <title value="GPT-4o" />
@@ -1006,9 +855,8 @@
                     <tags>
                       <list>
                         <option value="gateway" />
+                        <option value="power" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
                       </list>
                     </tags>
                     <title value="GPT-4o" />
@@ -1043,9 +891,8 @@
                     <tags>
                       <list>
                         <option value="gateway" />
+                        <option value="power" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
                       </list>
                     </tags>
                     <title value="GPT-4o" />
@@ -1080,9 +927,8 @@
                     <tags>
                       <list>
                         <option value="gateway" />
+                        <option value="power" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
                       </list>
                     </tags>
                     <title value="GPT-4o" />
@@ -1125,9 +971,8 @@
                     <tags>
                       <list>
                         <option value="gateway" />
+                        <option value="power" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
                       </list>
                     </tags>
                     <title value="GPT-4o" />
@@ -1194,9 +1039,8 @@
                     <tags>
                       <list>
                         <option value="gateway" />
+                        <option value="power" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
                       </list>
                     </tags>
                     <title value="GPT-4o" />
@@ -1218,9 +1062,8 @@
                     <tags>
                       <list>
                         <option value="gateway" />
+                        <option value="power" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
                       </list>
                     </tags>
                     <title value="GPT-4o" />
@@ -1242,9 +1085,8 @@
                     <tags>
                       <list>
                         <option value="gateway" />
+                        <option value="power" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
                       </list>
                     </tags>
                     <title value="GPT-4o" />
@@ -1279,9 +1121,8 @@
                     <tags>
                       <list>
                         <option value="gateway" />
+                        <option value="power" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
                       </list>
                     </tags>
                     <title value="GPT-4o" />
@@ -1332,9 +1173,8 @@
                     <tags>
                       <list>
                         <option value="gateway" />
+                        <option value="power" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
                       </list>
                     </tags>
                     <title value="GPT-4o" />
@@ -1370,8 +1210,7 @@
                       <list>
                         <option value="gateway" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
+                        <option value="power" />
                       </list>
                     </tags>
                     <title value="Claude 3 Opus" />
@@ -1415,8 +1254,7 @@
                       <list>
                         <option value="gateway" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
+                        <option value="power" />
                       </list>
                     </tags>
                     <title value="Claude 3 Opus" />
@@ -1452,8 +1290,7 @@
                       <list>
                         <option value="gateway" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
+                        <option value="power" />
                       </list>
                     </tags>
                     <title value="Claude 3 Opus" />
@@ -1485,13 +1322,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1521,13 +1351,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1557,13 +1380,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1617,13 +1433,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1653,13 +1462,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1721,13 +1523,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1765,13 +1560,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1788,13 +1576,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1811,13 +1592,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1834,13 +1608,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1873,13 +1640,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1899,13 +1659,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1925,13 +1678,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -1961,13 +1707,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -2008,13 +1747,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -2044,13 +1776,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -2080,13 +1805,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -2124,13 +1842,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -2168,13 +1879,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -2208,8 +1912,7 @@
                       <list>
                         <option value="gateway" />
                         <option value="pro" />
-                        <option value="recommended" />
-                        <option value="accuracy" />
+                        <option value="power" />
                       </list>
                     </tags>
                     <title value="Claude 3 Opus" />
@@ -2244,7 +1947,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2268,7 +1971,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2292,7 +1995,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2329,7 +2032,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2381,7 +2084,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2418,7 +2121,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2479,7 +2182,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2503,7 +2206,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2527,7 +2230,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2595,7 +2298,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2640,7 +2343,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2693,7 +2396,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2730,7 +2433,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2767,7 +2470,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2791,7 +2494,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2828,7 +2531,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2873,7 +2576,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2918,7 +2621,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -2955,7 +2658,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -3000,7 +2703,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -3093,7 +2796,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -3130,7 +2833,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -3154,7 +2857,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -3178,7 +2881,7 @@
                     <tags>
                       <list>
                         <option value="gateway" />
-                        <option value="accuracy" />
+                        <option value="power" />
                         <option value="recommended" />
                         <option value="free" />
                       </list>
@@ -3212,13 +2915,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3256,13 +2952,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3292,13 +2981,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3328,13 +3010,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3364,13 +3039,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3387,13 +3055,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3410,13 +3071,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3433,13 +3087,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3456,13 +3103,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3492,13 +3132,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3536,13 +3169,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3559,13 +3185,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3595,13 +3214,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3631,13 +3243,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3683,13 +3288,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3719,13 +3317,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3763,13 +3354,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3799,13 +3383,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3843,13 +3420,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3887,13 +3457,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3939,13 +3502,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -3983,13 +3539,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4019,13 +3568,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4063,13 +3605,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4107,13 +3642,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4167,13 +3695,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4211,13 +3732,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4255,13 +3769,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4291,13 +3798,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4327,13 +3827,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4363,13 +3856,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4415,13 +3901,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4451,13 +3930,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4495,13 +3967,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4531,13 +3996,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4575,13 +4033,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4611,13 +4062,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4666,13 +4110,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4726,13 +4163,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4768,13 +4198,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4791,13 +4214,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4814,13 +4230,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4850,13 +4259,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4902,13 +4304,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4938,13 +4333,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -4982,13 +4370,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5018,13 +4399,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5054,13 +4428,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5090,13 +4457,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5134,13 +4494,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5170,13 +4523,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5214,13 +4560,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5258,13 +4597,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5294,13 +4626,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5341,13 +4666,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5364,13 +4682,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5387,13 +4698,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5423,13 +4727,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5446,13 +4743,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5469,13 +4759,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5505,13 +4788,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5541,13 +4817,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5577,13 +4846,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5636,13 +4898,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5680,13 +4935,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5716,13 +4964,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5752,13 +4993,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5788,13 +5022,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5832,13 +5059,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5868,13 +5088,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5907,13 +5120,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5946,13 +5152,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -5998,13 +5197,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6034,13 +5226,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6078,13 +5263,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6122,13 +5300,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6158,13 +5329,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6202,13 +5366,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6238,13 +5395,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6298,13 +5448,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6342,13 +5485,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6386,13 +5522,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6422,13 +5551,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6445,13 +5567,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6489,13 +5604,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6512,13 +5620,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6572,13 +5673,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6616,13 +5710,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6660,13 +5747,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6712,13 +5792,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6756,13 +5829,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6779,13 +5845,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6802,13 +5861,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6870,13 +5922,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6906,13 +5951,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6958,13 +5996,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -6993,13 +6024,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7029,13 +6053,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7081,13 +6098,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7141,13 +6151,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7177,13 +6180,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7221,13 +6217,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7265,13 +6254,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7317,13 +6299,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7369,13 +6344,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7392,13 +6360,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7415,13 +6376,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7438,13 +6392,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7482,13 +6429,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7505,13 +6445,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7528,13 +6461,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7551,13 +6477,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7574,13 +6493,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7613,13 +6525,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7636,13 +6541,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7659,13 +6557,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7695,13 +6586,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7742,13 +6626,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7786,13 +6663,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7822,13 +6692,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7858,13 +6721,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7894,13 +6750,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -7962,13 +6811,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8014,13 +6856,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8050,13 +6885,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8086,13 +6914,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8122,13 +6943,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8169,13 +6983,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8301,13 +7108,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8324,13 +7124,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8360,13 +7153,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8396,13 +7182,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8440,13 +7219,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8484,13 +7256,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8544,13 +7309,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8604,13 +7362,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8656,13 +7407,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8724,13 +7468,6 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
-                    <tags>
-                      <list>
-                        <option value="gateway" />
-                        <option value="pro" />
-                        <option value="balanced" />
-                      </list>
-                    </tags>
                     <title value="GPT-4 Turbo" />
                     <usage>
                       <list>
@@ -8768,14 +7505,548 @@
                   <llm>
                     <model value="openai/gpt-4-turbo" />
                     <provider value="OpenAI" />
+                    <title value="GPT-4 Turbo" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <internalId value="06aa8dcc-3a05-47ed-926b-56b7634b73da" />
+                <llm>
+                  <llm>
+                    <model value="openai/gpt-4-turbo" />
+                    <provider value="OpenAI" />
+                    <title value="GPT-4 Turbo" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <internalId value="387e16b1-8589-4b14-ae5f-84614261583e" />
+                <llm>
+                  <llm>
+                    <model value="openai/gpt-4-turbo" />
+                    <provider value="OpenAI" />
+                    <title value="GPT-4 Turbo" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="can i give a field a default value here?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Based on the code snippet you provided from `application.js`:&#10;&#10;```javascript&#10;get defaultValue() {&#10;  return defaultValueForDefinition(typeDefinition);&#10;}&#10;```&#10;&#10;This JavaScript code defines a getter method named `defaultValue` that retrieves a default value for a field based on its type definition. The function `defaultValueForDefinition(typeDefinition)` appears to be responsible for determining the default value based on the type definition provided.&#10;&#10;To answer your question: Yes, you can give a field a default value in this context by ensuring that the `defaultValueForDefinition` function is set up to return an appropriate default value for each type definition it handles. If you want to specify or change the default value for a particular field, you would need to adjust the logic within the `defaultValueForDefinition` function or the data it uses to determine what default value to return." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="  def brand_params&#10;    params.require(:brand).permit(:name, :website, tag_ids: [])&#10;  end&#10;&#10;i want tag_ids to be empty array if not included" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="In the Ruby on Rails code snippet you provided from the `brands_controller.rb`, the `brand_params` method is used to whitelist certain parameters for a brand. This method uses strong parameters to require a `brand` object and permit specific attributes (`name`, `website`, and `tag_ids`) to be mass-assigned. Here's the method for reference:&#10;&#10;```ruby&#10;def brand_params&#10;  params.require(:brand).permit(:name, :website, tag_ids: [])&#10;end&#10;```&#10;&#10;If you want `tag_ids` to default to an empty array if it is not included in the parameters, you can achieve this by manipulating the params hash before it is processed by the `permit` method. Here's how you can modify the `brand_params` method to ensure `tag_ids` defaults to an empty array:&#10;&#10;```ruby&#10;def brand_params&#10;  params.require(:brand).tap do |brand_params|&#10;    brand_params[:tag_ids] ||= []&#10;  end.permit(:name, :website, tag_ids: [])&#10;end&#10;```&#10;&#10;In this modified version, the `tap` method is used to manipulate the `brand_params` hash. Inside the block, `brand_params[:tag_ids] ||= []` sets `tag_ids` to an empty array if it is `nil` or not present. This ensures that `tag_ids` will always default to an empty array if it's not included in the incoming parameters. After setting the default, the `permit` method is called as usual to filter the parameters." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-03T07:56:48.863456" />
+              </chat>
+              <chat>
+                <internalId value="c32928f5-90ee-4e6f-b518-82ee58126f19" />
+                <llm>
+                  <llm>
+                    <model value="openai/gpt-4-turbo" />
+                    <provider value="OpenAI" />
+                    <title value="GPT-4 Turbo" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="Explain what @app/models/product.rb:89-94 ( @app/models/product.rb ) does in simple terms. Assume the audience is a beginner programmer who has just learned the language features and basic syntax. Focus on explaining: 1) The purpose of the code 2) What input(s) it takes 3) What output(s) it produces 4) How it achieves its purpose through the logic and algorithm. 5) Any important logic flows or data transformations happening. Use simple language a beginner could understand. Include enough detail to give a full picture of what the code aims to accomplish without getting too technical. Format the explanation in coherent paragraphs, using proper punctuation and grammar. Write the explanation assuming no prior context about the code is known. Do not make assumptions about variables or functions not shown in the shared code. Start the answer with the name of the code that is being explained." />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="The code snippet from `app/models/product.rb` defines a method named `is_compatible_with?` in the `Product` class. This method is used to determine if two products are compatible with each other based on their associated adapters and tags.&#10;&#10;1) **Purpose of the Code**: The primary purpose of this method is to check if the current product (`self`) can be considered compatible with another product (`other_product`). Compatibility is determined through shared adapters or direct product associations.&#10;&#10;2) **Inputs**: The method takes one input, `other_product`, which is an instance of the `Product` class. This represents the product you want to check compatibility with.&#10;&#10;3) **Outputs**: The output is a boolean value (`true` or `false`). It returns `true` if the products are compatible, otherwise it returns `false`.&#10;&#10;4) **How It Achieves Its Purpose**:&#10;   - First, the method checks if the current product has any tags. If there are tags, it then checks if any of the adapters associated with the current product have tags that match any of the tags of the `other_product`. If such an adapter is found, the method immediately returns `true`, indicating compatibility.&#10;   - If no compatible adapter is found through tags, or if there are no tags, the method proceeds to check all adapters associated with the current product to see if any of these adapters directly include the `other_product`. If such an adapter is found, it returns `true`.&#10;   - If no conditions are met for compatibility, the method returns `false`.&#10;&#10;5) **Important Logic Flows or Data Transformations**:&#10;   - The method first utilizes a conditional check to see if the current product has any tags. This is important because if there are tags, it implies a potential for more specific compatibility checks.&#10;   - It uses a database query to find adapters that match based on tags. This involves filtering through the database records, which is a significant data transformation.&#10;   - Another database query checks for direct product associations through adapters, which is a straightforward lookup but crucial for determining compatibility without tag matching.&#10;&#10;In summary, `is_compatible_with?` is a method that checks for two types of product compatibility: one based on shared tags through adapters, and another based on direct product associations. It effectively filters and searches through related data to provide a boolean result indicating if two products can be considered compatible." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-03T08:28:54.402582" />
+              </chat>
+              <chat>
+                <internalId value="7b91402c-b86e-4066-b426-40f68fdee904" />
+                <llm>
+                  <llm>
+                    <model value="openai/gpt-4-turbo" />
+                    <provider value="OpenAI" />
+                    <title value="GPT-4 Turbo" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="Explain what @app/models/product.rb:89-94 ( @app/models/product.rb ) does in simple terms. Assume the audience is a beginner programmer who has just learned the language features and basic syntax. Focus on explaining: 1) The purpose of the code 2) What input(s) it takes 3) What output(s) it produces 4) How it achieves its purpose through the logic and algorithm. 5) Any important logic flows or data transformations happening. Use simple language a beginner could understand. Include enough detail to give a full picture of what the code aims to accomplish without getting too technical. Format the explanation in coherent paragraphs, using proper punctuation and grammar. Write the explanation assuming no prior context about the code is known. Do not make assumptions about variables or functions not shown in the shared code. Start the answer with the name of the code that is being explained." />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="The code snippet from `app/models/product.rb` defines a method named `is_compatible_with?` in the `Product` class. This method is designed to check if one product is compatible with another product. Here's a breakdown of how it works and what it does:&#10;&#10;1) **Purpose of the Code**: The primary purpose of this method is to determine if two products can work together or be used together based on certain criteria. This is useful in scenarios where products might need to be paired or grouped, such as in an e-commerce setting where customers need to know if one product (like a camera) can be used with another product (like a specific type of lens).&#10;&#10;2) **Inputs**: The method takes one input, `other_product`, which represents another instance of a `Product` that we want to check compatibility with the current instance (`self`).&#10;&#10;3) **Outputs**: The output of this method is a boolean value (`true` or `false`). It returns `true` if the products are compatible and `false` if they are not.&#10;&#10;4) **How It Achieves Its Purpose**: The method first checks if the current product (`self`) has any tags associated with it. If there are no tags, it skips the first check and moves directly to the second compatibility check. If there are tags, it looks through all the adapters associated with the current product and checks if any of these adapters have tags that match the tags of the `other_product`. If such an adapter is found, the method returns `true`, indicating compatibility based on shared tags.&#10;&#10;   If the first check (based on tags) does not find a match or if there are no tags, the method then checks all adapters associated with the current product to see if any of these adapters directly include the `other_product`. This is done by checking the IDs of the products associated with each adapter against the ID of the `other_product`.&#10;&#10;5) **Important Logic Flows/Data Transformations**: The method uses a combination of tag comparison and direct product ID matching to determine compatibility. Initially, it attempts to find a common link through shared tags (a more flexible and possibly extensive compatibility check). If that fails or is not applicable, it falls back on a direct check of product associations through adapters, which is a more straightforward but possibly stricter check. This dual approach allows for a broader range of compatibility scenarios to be covered.&#10;&#10;In summary, the `is_compatible_with?` method in the `Product` class helps determine if two products can be considered compatible either through shared tags or direct adapter associations, returning a simple `true` or `false` to indicate this compatibility." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-03T08:29:14.613789" />
+              </chat>
+              <chat>
+                <internalId value="21f4f865-d44f-437c-a034-e1e15d3d02f0" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-opus-20240229" />
+                    <provider value="Anthropic" />
                     <tags>
                       <list>
                         <option value="gateway" />
                         <option value="pro" />
-                        <option value="balanced" />
+                        <option value="power" />
                       </list>
                     </tags>
-                    <title value="GPT-4 Turbo" />
+                    <title value="Claude 3 Opus" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="explain&#10;&#10; def is_compatible_with?(other_product)&#10;    unless self.tags.empty&#10;      return true if adapters.exists? { |adapter| adapter.productable.tags.where(id: other_product.tags.ids).exists? }&#10;    end&#10;    adapters.exists? { |adapter| adapter.products.exists?(id: other_product.id) }&#10;  end" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="The `is_compatible_with?` method is an instance method defined within the `Product` model. It takes another product (`other_product`) as an argument and determines whether the current product is compatible with the other product.&#10;&#10;Here's how the method works:&#10;&#10;1. It first checks if the current product has any tags associated with it using `self.tags.empty?`. If the product has tags, it proceeds to the next step. Otherwise, it skips to step 3.&#10;&#10;2. If the product has tags, it checks if any of its associated adapters have a `productable` (which could be another model associated with the adapter) that has tags matching the tags of the `other_product`. It does this by iterating over each adapter using `adapters.exists?` and checking if the `productable` of the adapter has any tags that match the IDs of the tags of the `other_product` using `adapter.productable.tags.where(id: other_product.tags.ids).exists?`. If a matching adapter is found, the method immediately returns `true`, indicating that the products are compatible.&#10;&#10;3. If the product doesn't have tags or no matching adapter is found in step 2, the method proceeds to check if any of the current product's adapters have the `other_product` directly associated with them. It does this by iterating over each adapter using `adapters.exists?` and checking if the adapter's associated products include the `other_product` using `adapter.products.exists?(id: other_product.id)`. If a matching adapter is found, it means the products are compatible.&#10;&#10;4. If no matching adapter is found in either step 2 or step 3, the method implicitly returns `false`, indicating that the products are not compatible.&#10;&#10;In summary, the `is_compatible_with?` method checks for compatibility between two products based on two criteria:&#10;- If the current product has tags, it checks if any of its adapters have a `productable` with matching tags to the `other_product`.&#10;- If the above condition is not met or the current product doesn't have tags, it checks if any of its adapters have the `other_product` directly associated with them.&#10;&#10;The method returns `true` if either of these conditions is met, indicating compatibility between the products, and `false` otherwise." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-03T08:30:28.366706" />
+              </chat>
+              <chat>
+                <internalId value="736522e4-f4ac-47eb-9ab5-d7e9d41cff12" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-opus-20240229" />
+                    <provider value="Anthropic" />
+                    <tags>
+                      <list>
+                        <option value="gateway" />
+                        <option value="pro" />
+                        <option value="power" />
+                      </list>
+                    </tags>
+                    <title value="Claude 3 Opus" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="how do i find products with an associated tag with id 9" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To find products with an associated tag with id 9, you can use the following ActiveRecord query in your Rails application:&#10;&#10;```ruby&#10;Product.joins(:tags).where(tags: { id: 9 })&#10;```&#10;&#10;This query uses the `joins` method to perform an inner join between the `products` and `tags` tables based on their association. It then uses the `where` clause to filter the products that have a tag with the specified id (in this case, 9).&#10;&#10;Alternatively, if you have set up the `has_many :through` association between `Product` and `Tag` models using a join table (e.g., `product_tags`), you can use the following query:&#10;&#10;```ruby&#10;Product.joins(:product_tags).where(product_tags: { tag_id: 9 })&#10;```&#10;&#10;This query joins the `products` table with the `product_tags` join table and filters the products based on the `tag_id` in the `product_tags` table.&#10;&#10;Make sure you have the necessary associations set up in your `Product` and `Tag` models for these queries to work correctly." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-03T08:42:11.454254" />
+              </chat>
+              <chat>
+                <internalId value="3a866d08-4c0c-4ab7-82c6-9001b6dbad79" />
+              </chat>
+              <chat>
+                <internalId value="d91a06b1-9690-4766-8ada-3d52b240ed18" />
+              </chat>
+              <chat>
+                <internalId value="5eb2785f-aebe-4df6-8531-7e990817a07d" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="can i overwrite 'adapters' method?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-04T05:37:30.353795" />
+              </chat>
+              <chat>
+                <internalId value="354fdf42-895a-48f5-8cf9-7fdedf8371a6" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="can i overwrite 'adapters' method?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Based on the provided code snippet, `adapters` is not a method but an association defined using the `has_many` macro in Rails. The `has_many` association creates a method with the same name (`adapters`) that returns a collection of associated objects.&#10;&#10;In this case, `has_many :adapters, through: :product_adapters` defines a `has_many :through` association, which means that the `Product` model has many `Adapter` objects through the `product_adapters` join model/table.&#10;&#10;You cannot directly overwrite the `adapters` method generated by the `has_many` association. However, you can customize its behavior by using various options provided by Rails associations, such as:&#10;&#10;1. **Scopes**: You can define a scope on the `Adapter` model and use it in the association to filter the associated adapters.&#10;&#10;```ruby&#10;class Product &lt; ApplicationRecord&#10;  has_many :adapters, -&gt; { where(active: true) }, through: :product_adapters&#10;end&#10;```&#10;&#10;2. **Class Name**: If the name of the associated model is not following the Rails convention, you can specify the class name explicitly.&#10;&#10;```ruby&#10;class Product &lt; ApplicationRecord&#10;  has_many :adapters, through: :product_adapters, source: :custom_adapter_model&#10;end&#10;```&#10;&#10;3. **Custom Methods**: You can define custom methods on the `Product` model to interact with the associated adapters in a specific way.&#10;&#10;```ruby&#10;class Product &lt; ApplicationRecord&#10;  has_many :adapters, through: :product_adapters&#10;&#10;  def active_adapters&#10;    adapters.where(active: true)&#10;  end&#10;end&#10;```&#10;&#10;In summary, while you cannot directly overwrite the `adapters` method generated by the `has_many` association, you can customize its behavior using various options and techniques provided by Rails associations." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-04T05:39:49.571101" />
+              </chat>
+              <chat>
+                <internalId value="b6e3ddf2-6fb7-42b0-926f-ae880b5894ac" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="finish this. should be where the adapter product tags includes one of current product tags" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Based on the provided code snippet and the context that it should filter the adapters where the adapter product tags include one of the current product's tags, the completed code could be:&#10;&#10;```ruby&#10;adapters + Adapter.where(product_tags: { id: product_tags.pluck(:id) })&#10;```&#10;&#10;This code assumes that:&#10;&#10;1. `adapters` is an existing collection of `Adapter` objects.&#10;2. `product_tags` is a collection of `ProductTag` objects associated with the current `Product` instance.&#10;3. The `Adapter` model has a `product_tags` association, which can be used to filter adapters based on their associated product tags.&#10;&#10;The `where` clause filters the `Adapter` records where the `id` of the associated `product_tags` matches any of the `id`s of the `product_tags` collection of the current `Product` instance.&#10;&#10;The `pluck(:id)` method retrieves an array of `id` values from the `product_tags` collection, which is then used in the `where` clause to match the `id`s of the associated `product_tags` for the `Adapter` records.&#10;&#10;Finally, the filtered `Adapter` records are concatenated with the existing `adapters` collection using the `+` operator." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-04T05:42:58.021273" />
+              </chat>
+              <chat>
+                <internalId value="a40e983a-5846-4420-85b0-6bb71c7c438c" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="how should i set up adapters fixture @.../test/fixtures/adapters.yml &#10;&#10;they don't need any field data" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To set up the `adapters` fixture in `test/fixtures/adapters.yml`, you can simply define the records you want to create without any field data. Here's an example:&#10;&#10;```yml&#10;# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html&#10;&#10;one:&#10;  # No field data needed&#10;&#10;two:&#10;  # No field data needed&#10;```&#10;&#10;In this example, we define two records named `one` and `two` for the `adapters` fixture, but we don't specify any field data since you mentioned that they don't need any.&#10;&#10;If you want to create a single record for the `maxicosi infant adapter`, you can do it like this:&#10;&#10;```yml&#10;# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html&#10;&#10;maxicosi_infant_adapter:&#10;  # No field data needed&#10;```&#10;&#10;This will create a single record named `maxicosi_infant_adapter` in the `adapters` fixture without any field data.&#10;&#10;Remember that fixtures are typically used for testing purposes, and they provide a way to create sample data for your tests. If you don't need any specific data for your tests, you can leave the fixtures without any field data, as shown in the examples above." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="i get &#10;&#10;ActiveRecord::Fixture::FormatError: fixture key is not a hash: /Users/laura/lewis/stroller-compatibility/test/fixtures//adapters.yml, keys: [&amp;quot;maxicosi_infant_adapter&amp;quot;]" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Based on the error message and the provided codebase context, it seems that the fixture file `test/fixtures/adapters.yml` is not formatted correctly.&#10;&#10;The error `ActiveRecord::Fixture::FormatError: fixture key is not a hash` indicates that the fixture expects a hash for each record, but the provided data is not in the correct format.&#10;&#10;To fix this issue, you need to format the fixture file as a hash, where each record is a key, and its value is a hash containing the fields and their respective values.&#10;&#10;Here's how you can format the `adapters.yml` fixture file correctly:&#10;&#10;```yml&#10;# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html&#10;&#10;maxicosi_infant_adapter: {}&#10;```&#10;&#10;In this format, `maxicosi_infant_adapter` is the key representing the record, and `{}` is an empty hash since you mentioned that the adapters don't need any field data.&#10;&#10;If you want to add multiple records, you can separate them with a new line:&#10;&#10;```yml&#10;# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html&#10;&#10;one: {}&#10;&#10;two: {}&#10;&#10;maxicosi_infant_adapter: {}&#10;```&#10;&#10;With this format, the fixture should load correctly without any errors." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-04T08:54:16.531871" />
+              </chat>
+              <chat>
+                <internalId value="e99bb8ff-3bd2-44af-bf76-0790a534f8a6" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="does this use some special syntax for polymorphic types in fixtures?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Yes, the line `productable: global adapter (Adapter)` is using a special syntax for defining polymorphic associations in Rails fixtures.&#10;&#10;In Rails, fixtures are used to load sample data into the application's database for testing purposes. When dealing with polymorphic associations, where a model can belong to multiple other models, Rails fixtures use a specific syntax to define the associated model and its type.&#10;&#10;In this case, the line `productable: global adapter (Adapter)` is defining a polymorphic association for a `Product` model. The `productable` attribute is likely a polymorphic association, which means that the `Product` model can belong to different types of models (e.g., `Adapter`, `Service`, etc.).&#10;&#10;The syntax used here is:&#10;&#10;```&#10;polymorphic_attribute: associated_instance_name (AssociatedModelClass)&#10;```&#10;&#10;So, in this case:&#10;&#10;- `polymorphic_attribute` is `productable`&#10;- `associated_instance_name` is `global adapter`&#10;- `AssociatedModelClass` is `Adapter`&#10;&#10;This line is essentially saying that the `Product` instance being defined in this fixture is associated with the `Adapter` model instance named `global adapter`.&#10;&#10;This syntax allows Rails fixtures to handle polymorphic associations, which are common in many applications where a model can belong to different types of related models." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-04T08:56:20.19302" />
+              </chat>
+              <chat>
+                <internalId value="8e5152df-96cb-49fb-b75a-f2ebe28342f1" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="is this going to work? How can i use it?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="The provided code snippet is a scope defined in the `Adapter` model. It is used to filter the `Adapter` records based on the associated `Tag` records.&#10;&#10;Here's how it works:&#10;&#10;1. `left_joins(product: [:tags])`: This performs a left outer join with the `Product` model and then with the `Tag` model through the `has_many :through` association. This ensures that all `Adapter` records are included, even if they don't have any associated `Tag` records.&#10;&#10;2. `where('tags': { id: tags.ids })`: This is the condition used to filter the records. It checks if the `id` of the associated `Tag` records is present in the `tags.ids` array. The `tags.ids` is likely an instance method or a class method defined in the `Adapter` model that returns an array of tag IDs.&#10;&#10;To use this scope, you can call it like this:&#10;&#10;```ruby&#10;adapters = Adapter.by_tags&#10;```&#10;&#10;This will return all `Adapter` records that have at least one associated `Tag` record with an ID present in the `tags.ids` array.&#10;&#10;If you want to filter the adapters based on specific tag IDs, you can pass those IDs to the `tags.ids` method. For example:&#10;&#10;```ruby&#10;tag_ids = [1, 3, 5]&#10;adapters = Adapter.by_tags.where(tags: { id: tag_ids })&#10;```&#10;&#10;This will return all `Adapter` records that have at least one associated `Tag` record with an ID of 1, 3, or 5.&#10;&#10;However, without seeing the complete context of the `Adapter` model and its associations, it's difficult to say with certainty if this scope will work as intended. It's possible that there are additional conditions or validations in place that could affect the behavior of this scope." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="i thought i pass tags as argument to the scope query" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="You're correct. Based on the context provided in the codebase, the `by_tags` scope is intended to be used by passing an array of tag IDs as an argument.&#10;&#10;Here's how it should be used:&#10;&#10;```ruby&#10;adapter = Adapter.by_tags([1, 2, 3])&#10;```&#10;&#10;In this case, the `by_tags` scope will return all `Adapter` records that are associated with products that have at least one of the tags with IDs 1, 2, or 3.&#10;&#10;The implementation of the `by_tags` scope in `app/models/adapter.rb` is:&#10;&#10;```ruby&#10;class Adapter &lt; ApplicationRecord&#10;  belongs_to :product&#10;&#10;  scope :by_tags, -&gt;(tags) { left_joins(product: [:tags]).where('tags.id': tags) }&#10;end&#10;```&#10;&#10;The key points are:&#10;&#10;1. The `by_tags` scope takes an argument `tags`, which is expected to be an array of tag IDs.&#10;2. The `where` condition checks if the `id` of the associated `Tag` records is present in the `tags` array.&#10;&#10;So, to use this scope correctly, you should pass an array of tag IDs as an argument to the `by_tags` scope, like this:&#10;&#10;```ruby&#10;adapter = Adapter.by_tags([1, 2, 3])&#10;```&#10;&#10;This will return all `Adapter` records that are associated with products that have at least one of the tags with IDs 1, 2, or 3." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="how do you make a scope which accpets an arg?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To create a scope that accepts an argument in Ruby on Rails, you can use a lambda or a Proc object. Here's an example:&#10;&#10;```ruby&#10;class Adapter &lt; ApplicationRecord&#10;  belongs_to :product&#10;  has_many :tags, through: :product&#10;&#10;  scope :by_tags, -&gt;(tag_ids) { joins(:product =&gt; :tags).where(tags: { id: tag_ids }) }&#10;end&#10;```&#10;&#10;In this example, the `by_tags` scope is defined using a lambda (`-&gt;(tag_ids) { ... }`). The lambda takes an argument `tag_ids`, which is expected to be an array of tag IDs.&#10;&#10;Inside the lambda, the scope performs a join with the `Product` and `Tag` models using `joins(:product =&gt; :tags)`. This ensures that only `Adapter` records with associated `Product` and `Tag` records are included in the result set.&#10;&#10;The `where` condition filters the records based on the `tag_ids` argument passed to the scope. It checks if the `id` of the associated `Tag` records is present in the `tag_ids` array.&#10;&#10;To use this scope, you can pass an array of tag IDs as an argument:&#10;&#10;```ruby&#10;adapters = Adapter.by_tags([1, 2, 3])&#10;```&#10;&#10;This will return all `Adapter` records that are associated with products that have at least one of the tags with IDs 1, 2, or 3.&#10;&#10;You can also chain additional conditions or scopes after calling the `by_tags` scope:&#10;&#10;```ruby&#10;adapters = Adapter.by_tags([1, 2, 3]).where(active: true)&#10;```&#10;&#10;This will return all active `Adapter` records that are associated with products that have at least one of the tags with IDs 1, 2, or 3." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-04T09:32:42.893916" />
+              </chat>
+              <chat>
+                <internalId value="71dcf766-8c4b-47cd-a114-c73bdd45452e" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="can this be a subquery instead of a left join?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Yes, the `by_tags` scope can be rewritten to use a subquery instead of a left join. Here's how you could do it:&#10;&#10;```ruby&#10;scope :by_tags, -&gt;(tags) {&#10;  where(id: Tag.where(id: tags.ids).select(:product_id))&#10;}&#10;```&#10;&#10;This approach uses a subquery to fetch the `product_id` values from the `tags` table where the `id` matches the provided `tags.ids`. Then, the outer query selects products where the `id` is in the subquery result.&#10;&#10;Using a subquery can sometimes be more efficient than a join, especially when you only need a subset of data from the associated table (in this case, just the `product_id` values). However, the performance difference may be negligible for small datasets.&#10;&#10;It's worth noting that the subquery approach may be less readable than the join approach, especially for more complex queries. Additionally, some database engines may have better optimization for joins than subqueries, so the performance impact can vary depending on the database you're using.&#10;&#10;Ultimately, the choice between using a join or a subquery often comes down to personal preference, readability, and performance considerations for your specific use case." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="i get error that product_id is ambiguous" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Based on the error you're getting, it seems that the `product_id` column exists in both the `products` and `tags` tables, which is causing an ambiguity issue when using the subquery approach.&#10;&#10;To resolve this, you can specify the table name explicitly in the subquery. Here's how you can modify the `by_tags` scope:&#10;&#10;```ruby&#10;scope :by_tags, -&gt;(tags) {&#10;  where(id: Tag.where(id: tags.ids).select('tags.product_id'))&#10;}&#10;```&#10;&#10;By using `'tags.product_id'` in the `select` clause of the subquery, you're explicitly specifying that you want to select the `product_id` column from the `tags` table, resolving the ambiguity.&#10;&#10;Alternatively, you could use an alias for the `product_id` column in the subquery:&#10;&#10;```ruby&#10;scope :by_tags, -&gt;(tags) {&#10;  where(id: Tag.where(id: tags.ids).select('tags.product_id AS tag_product_id'))&#10;}&#10;```&#10;&#10;In this case, the subquery selects the `product_id` column from the `tags` table and aliases it as `tag_product_id`, which avoids the ambiguity with the `product_id` column in the `products` table.&#10;&#10;Either of these approaches should resolve the ambiguity error you're encountering." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-04T09:50:17.483784" />
+              </chat>
+              <chat>
+                <internalId value="46d8611d-019a-4534-9c56-9cca36e56d24" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="  scope :by_tags, -&amp;gt;(tags) { left_joins(:tags).where('tags': { id: tags.ids }) }&#10;  # scope :by_tags, -&amp;gt;(tags) {&#10;  #   where(id: Tag.where(id: tags.ids).pluck(:id))&#10;  # }&#10;&#10;is the commented code equivalent?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="The commented code is not entirely equivalent to the uncommented code. Let me explain the differences:&#10;&#10;The uncommented code:&#10;&#10;```ruby&#10;scope :by_tags, -&gt;(tags) { left_joins(:tags).where('tags': { id: tags.ids }) }&#10;```&#10;&#10;This code defines a scope called `by_tags` that takes an argument `tags` (which is expected to be a collection of `Tag` objects). It performs a `LEFT JOIN` with the `tags` table and then filters the `Product` records where the `id` of the associated `Tag` records matches the `ids` of the `tags` argument.&#10;&#10;The commented code:&#10;&#10;```ruby&#10;# scope :by_tags, -&gt;(tags) {&#10;#   where(id: Tag.where(id: tags.ids).pluck(:id))&#10;# }&#10;```&#10;&#10;This code also defines a scope called `by_tags` that takes an argument `tags`. However, it first finds all `Tag` records whose `id` is present in the `tags.ids` collection using `Tag.where(id: tags.ids)`. It then `pluck`s the `id` values from those `Tag` records, resulting in an array of `Tag` ids. Finally, it filters the `Product` records where the `id` of the `Product` is present in that array of `Tag` ids.&#10;&#10;The main difference is that the uncommented code performs a `LEFT JOIN` with the `tags` table, which means it will include all `Product` records, even those without any associated `Tag` records. The commented code, on the other hand, will only include `Product` records that have at least one associated `Tag` record whose `id` is present in the `tags.ids` collection.&#10;&#10;So, while both codes attempt to filter `Product` records based on the provided `tags`, the uncommented code is more inclusive and will return all `Product` records, while the commented code is more restrictive and will only return `Product` records that have at least one associated `Tag` record matching the provided `tags`." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="how can i change the commented code to be equally inclusive?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To make the commented code equally inclusive as the uncommented code, you can modify it to include a `LEFT JOIN` with the `tags` table, similar to the uncommented code. Here's how you can change it:&#10;&#10;```ruby&#10;scope :by_tags, -&gt;(tags) {&#10;  left_joins(:tags)&#10;    .where('tags.id IN (?)', tags.ids)&#10;    .distinct&#10;}&#10;```&#10;&#10;Let's break down the changes:&#10;&#10;1. `left_joins(:tags)`: This performs a `LEFT JOIN` with the `tags` table, ensuring that all `Product` records are included, even those without any associated `Tag` records.&#10;&#10;2. `where('tags.id IN (?)', tags.ids)`: This filters the records where the `id` of the associated `Tag` records is present in the `tags.ids` collection. The `IN` clause is used instead of the `=` operator because `tags.ids` is a collection, and we want to match any `Tag` record whose `id` is present in that collection.&#10;&#10;3. `.distinct`: This ensures that duplicate `Product` records are removed from the result set. Since we're performing a `LEFT JOIN`, it's possible for a `Product` record to be included multiple times if it has multiple associated `Tag` records matching the provided `tags`.&#10;&#10;With these changes, the scope will now return all `Product` records, including those without any associated `Tag` records, but it will filter the results to only include `Product` records that have at least one associated `Tag` record whose `id` is present in the `tags.ids` collection.&#10;&#10;This modified code should now be equivalent to the uncommented code in terms of inclusiveness, while still leveraging the `IN` clause for better performance when dealing with large collections of `tags`." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-04T10:01:48.990132" />
+              </chat>
+              <chat>
+                <internalId value="ee7c2a5e-9758-4bd2-bc4b-47d4dbb9c41f" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="help me out. given the schema @.../stroller-compatibility/db/schema.rb , how can i write a scope for product so that, given some tags, i can get all the products linked to a certain tag" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To get all the products linked to certain tags, you can create a scope in the `Product` model that joins with the `products_tags` table and filters based on the provided tags.&#10;&#10;Here's an example of how you can write the scope:&#10;&#10;```ruby&#10;# app/models/product.rb&#10;class Product &lt; ApplicationRecord&#10;  has_and_belongs_to_many :tags&#10;&#10;  scope :with_tags, -&gt;(tags) {&#10;    joins(:tags)&#10;    .where(tags: { label: tags })&#10;    .distinct&#10;  }&#10;end&#10;```&#10;&#10;Then, you can use this scope like this:&#10;&#10;```ruby&#10;tags = ['tag1', 'tag2']&#10;products = Product.with_tags(tags)&#10;```&#10;&#10;This will return all the products that are associated with either `'tag1'` or `'tag2'`.&#10;&#10;Here's how the `with_tags` scope works:&#10;&#10;1. `joins(:tags)` performs an inner join with the `tags` table through the `products_tags` join table.&#10;2. `where(tags: { label: tags })` filters the joined records to only include those where the `tags.label` is present in the provided `tags` array.&#10;3. `distinct` ensures that duplicate products are not returned (in case a product is associated with multiple matching tags).&#10;&#10;Note that this assumes you have set up the `has_and_belongs_to_many` association between `Product` and `Tag` models correctly. If you have a different association setup, you might need to adjust the scope accordingly." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="right, but i want to use a subquery instead of a join" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Sure, you can use a subquery instead of a join to achieve the same result. Here's how you can modify the scope to use a subquery:&#10;&#10;```ruby&#10;# app/models/product.rb&#10;class Product &lt; ApplicationRecord&#10;  has_and_belongs_to_many :tags&#10;&#10;  scope :with_tags, -&gt;(tags) {&#10;    where(id: Product.joins(:tags)&#10;                     .where(tags: { label: tags })&#10;                     .select(:id)&#10;                     .distinct)&#10;  }&#10;end&#10;```&#10;&#10;In this approach, we're using a subquery to fetch the `id`s of the products that have the specified tags, and then filtering the main query based on those `id`s.&#10;&#10;Here's a breakdown of the subquery:&#10;&#10;1. `Product.joins(:tags)` performs an inner join with the `tags` table through the `products_tags` join table.&#10;2. `.where(tags: { label: tags })` filters the joined records to only include those where the `tags.label` is present in the provided `tags` array.&#10;3. `.select(:id)` selects only the `id` column from the joined result.&#10;4. `.distinct` ensures that duplicate product IDs are not returned (in case a product is associated with multiple matching tags).&#10;&#10;The outer `where` clause then filters the main `Product` query to only include records whose `id` is present in the subquery result.&#10;&#10;You can use this scope in the same way as before:&#10;&#10;```ruby&#10;tags = ['tag1', 'tag2']&#10;products = Product.with_tags(tags)&#10;```&#10;&#10;This approach might be more efficient than the join approach, especially if you have a large number of products and tags, as it avoids joining the entire `products` and `tags` tables." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-04T10:10:22.345517" />
+              </chat>
+              <chat>
+                <internalId value="7cdeae82-1e7d-487c-b416-15b6cb49dbb1" />
+              </chat>
+              <chat>
+                <internalId value="ac3dbb73-2dda-4060-8b66-ced881782963" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="give me the model for products_tag @.../stroller-compatibility/db/schema.rb " />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Based on the provided schema file, the `products_tags` table is a join table that represents a many-to-many relationship between `products` and `tags`. It does not have a corresponding model class defined in the schema file. Instead, the relationship is likely defined using associations in the `Product` and `Tag` models.&#10;&#10;The `products_tags` table has the following structure:&#10;&#10;```ruby&#10;create_table &quot;products_tags&quot;, id: false, force: :cascade do |t|&#10;  t.bigint &quot;product_id&quot;, null: false&#10;  t.bigint &quot;tag_id&quot;, null: false&#10;  t.index [&quot;product_id&quot;, &quot;tag_id&quot;], name: &quot;index_products_tags_on_product_id_and_tag_id&quot;&#10;  t.index [&quot;tag_id&quot;, &quot;product_id&quot;], name: &quot;index_products_tags_on_tag_id_and_product_id&quot;&#10;end&#10;```&#10;&#10;This table has two columns: `product_id` and `tag_id`, which are foreign keys referencing the `products` and `tags` tables, respectively. The `id: false` option indicates that this table does not have its own primary key, as it is a join table.&#10;&#10;To access the associated tags for a product, or the associated products for a tag, you would typically use the `has_many :through` association in the respective models. For example, in the `Product` model, you might have:&#10;&#10;```ruby&#10;class Product &lt; ApplicationRecord&#10;  has_many :products_tags&#10;  has_many :tags, through: :products_tags&#10;end&#10;```&#10;&#10;And in the `Tag` model:&#10;&#10;```ruby&#10;class Tag &lt; ApplicationRecord&#10;  has_many :products_tags&#10;  has_many :products, through: :products_tags&#10;end&#10;```&#10;&#10;This way, you can access the associated tags for a product using `product.tags`, and the associated products for a tag using `tag.products`." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="yea, but i want to create a subquery which uses products_tags to see which products are linked to a tag" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To create a subquery that uses the `products_tags` table to find products linked to a specific tag, you can use a subquery with a JOIN on the `products_tags` table. Here's an example:&#10;&#10;```ruby&#10;tag_id = 1 # Replace with the desired tag ID&#10;&#10;products = Product.joins(:products_tags)&#10;                  .where(products_tags: { tag_id: tag_id })&#10;                  .select('products.*')&#10;```&#10;&#10;Let's break down this query:&#10;&#10;1. `Product.joins(:products_tags)`: This performs an inner join between the `products` and `products_tags` tables, allowing you to access the `products_tags` data in the query.&#10;&#10;2. `.where(products_tags: { tag_id: tag_id })`: This filters the joined rows to only include those where the `tag_id` in the `products_tags` table matches the provided `tag_id`.&#10;&#10;3. `.select('products.*')`: This selects all columns from the `products` table, effectively returning the `Product` objects that are linked to the specified `tag_id`.&#10;&#10;You can then use the `products` variable to access the resulting `Product` objects that are linked to the specified tag.&#10;&#10;If you want to eager load associated data, such as the `brand` or `images`, you can add additional `includes` or `preload` calls to the query:&#10;&#10;```ruby&#10;products = Product.joins(:products_tags)&#10;                  .where(products_tags: { tag_id: tag_id })&#10;                  .includes(:brand, :images)&#10;                  .select('products.*')&#10;```&#10;&#10;This way, the associated `brand` and `images` data will be eager loaded, potentially improving performance by reducing the number of database queries needed." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="i don't want to use joins" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="If you don't want to use joins, you can leverage the `has_many :through` association and use a subquery to find products linked to a specific tag. Here's how you can do it:&#10;&#10;```ruby&#10;tag = Tag.find(tag_id)&#10;product_ids = tag.products_tags.select(:product_id)&#10;products = Product.where(id: product_ids)&#10;```&#10;&#10;Let's break this down:&#10;&#10;1. `tag = Tag.find(tag_id)`: This finds the `Tag` instance with the given `tag_id`.&#10;&#10;2. `product_ids = tag.products_tags.select(:product_id)`: This retrieves an array of `product_id` values from the `products_tags` table associated with the given `tag`. It leverages the `has_many :through` association defined in the `Tag` model.&#10;&#10;3. `products = Product.where(id: product_ids)`: This finds all `Product` instances where the `id` is present in the `product_ids` array obtained from the previous step.&#10;&#10;The `products` variable will now contain all `Product` instances linked to the specified `tag_id`.&#10;&#10;If you want to eager load associated data, you can add `includes` or `preload` calls to the final query:&#10;&#10;```ruby&#10;tag = Tag.find(tag_id)&#10;product_ids = tag.products_tags.select(:product_id)&#10;products = Product.where(id: product_ids).includes(:brand, :images)&#10;```&#10;&#10;This will eager load the associated `brand` and `images` data for the retrieved `Product` instances.&#10;&#10;Using this approach, you can avoid explicit joins and leverage the associations defined in your models to retrieve the desired data." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="product_tags doesn't exist on tag model @.../app/models/tag.rb " />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="You're correct, my previous responses assumed the existence of a `products_tags` association on the `Tag` model, which is not present in the provided code context.&#10;&#10;Based on the code context from `app/models/tag.rb`:&#10;&#10;```ruby&#10;class Tag &lt; ApplicationRecord&#10;  belongs_to :brand&#10;  has_and_belongs_to_many :products&#10;&#10;  validates :label, presence: true&#10;end&#10;```&#10;&#10;The `Tag` model has a `has_and_belongs_to_many` association with the `Product` model, which means there is a join table named `products_tags` (Rails convention for naming join tables in a HABTM association).&#10;&#10;To find products linked to a specific tag without using explicit joins, you can leverage the `has_and_belongs_to_many` association like this:&#10;&#10;```ruby&#10;tag = Tag.find(tag_id)&#10;products = tag.products&#10;```&#10;&#10;This will retrieve all `Product` instances associated with the `Tag` instance with the given `tag_id`.&#10;&#10;If you want to eager load associated data, you can use the `includes` or `preload` methods:&#10;&#10;```ruby&#10;tag = Tag.find(tag_id)&#10;products = tag.products.includes(:brand, :images)&#10;```&#10;&#10;This will eager load the associated `brand` and `images` data for the retrieved `Product` instances.&#10;&#10;Using the `has_and_belongs_to_many` association directly is a more straightforward approach in this case, as it leverages the built-in functionality provided by Rails for managing many-to-many relationships." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="yea, taht makes sense. how can i do that for many tags?" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To find products associated with multiple tags, you can leverage the `has_and_belongs_to_many` association and use the `includes` method along with a subquery. Here's how you can do it:&#10;&#10;```ruby&#10;tag_ids = [1, 2, 3] # Replace with the desired tag IDs&#10;&#10;products = Product.includes(:tags)&#10;                  .where(tags: { id: tag_ids })&#10;                  .references(:tags)&#10;```&#10;&#10;Let's break this down:&#10;&#10;1. `tag_ids = [1, 2, 3]`: This is an array of tag IDs for which you want to find associated products.&#10;&#10;2. `Product.includes(:tags)`: This eager loads the associated `tags` for each `Product` instance, ensuring that the `tags` association is available for querying.&#10;&#10;3. `.where(tags: { id: tag_ids })`: This filters the `Product` instances to only include those where at least one of the associated `tags` has an `id` present in the `tag_ids` array.&#10;&#10;4. `.references(:tags)`: This tells Rails to join the `products` and `tags` tables, allowing the query to access the `tags` table data.&#10;&#10;The `products` variable will now contain all `Product` instances that are associated with at least one of the specified `tag_ids`.&#10;&#10;If you want to find products associated with all the specified tags, you can modify the query slightly:&#10;&#10;```ruby&#10;tag_ids = [1, 2, 3]&#10;&#10;products = Product.includes(:tags)&#10;                  .where(tags: { id: tag_ids })&#10;                  .references(:tags)&#10;                  .group(:id)&#10;                  .having(&quot;COUNT(DISTINCT tags.id) = ?&quot;, tag_ids.count)&#10;```&#10;&#10;The additional lines are:&#10;&#10;5. `.group(:id)`: This groups the `Product` instances by their `id`.&#10;6. `.having(&quot;COUNT(DISTINCT tags.id) = ?&quot;, tag_ids.count)`: This filters the grouped `Product` instances to only include those where the count of distinct associated `tag_ids` is equal to the count of `tag_ids` in the provided array. This ensures that only products associated with all the specified tags are included.&#10;&#10;With this query, the `products` variable will contain `Product` instances that are associated with all the specified `tag_ids`.&#10;&#10;You can further customize the query by adding additional `includes` or `preload` calls to eager load other associated data as needed." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-04T10:20:00.393423" />
+              </chat>
+              <chat>
+                <internalId value="3d913672-fdd6-4de0-8c0b-3401b7e17731" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="i want to generate the products_tags model" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Sure, here's an example of how you can generate the `products_tags` model in a Django project:&#10;&#10;```python&#10;# models.py&#10;&#10;from django.db import models&#10;&#10;class Product(models.Model):&#10;    name = models.CharField(max_length=200)&#10;    description = models.TextField()&#10;    price = models.DecimalField(max_digits=10, decimal_places=2)&#10;    # other fields...&#10;&#10;    def __str__(self):&#10;        return self.name&#10;&#10;class Tag(models.Model):&#10;    name = models.CharField(max_length=100, unique=True)&#10;&#10;    def __str__(self):&#10;        return self.name&#10;&#10;class ProductTag(models.Model):&#10;    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='tags')&#10;    tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name='products')&#10;&#10;    class Meta:&#10;        unique_together = ('product', 'tag')&#10;&#10;    def __str__(self):&#10;        return f&quot;{self.product.name} - {self.tag.name}&quot;&#10;```&#10;&#10;In this example, we have three models:&#10;&#10;1. `Product`: Represents a product with fields like `name`, `description`, and `price`.&#10;2. `Tag`: Represents a tag or category for products.&#10;3. `ProductTag`: This is the intermediary model that creates a many-to-many relationship between `Product` and `Tag`. It has two `ForeignKey` fields, one for `Product` and one for `Tag`.&#10;&#10;The `ProductTag` model has a `unique_together` constraint, which ensures that a product can't have the same tag assigned to it multiple times.&#10;&#10;With this setup, you can associate multiple tags with a product, and a tag can be associated with multiple products.&#10;&#10;Here's an example of how you can use these models:&#10;&#10;```python&#10;# Create some tags&#10;tag1 = Tag.objects.create(name='Electronics')&#10;tag2 = Tag.objects.create(name='Computers')&#10;tag3 = Tag.objects.create(name='Accessories')&#10;&#10;# Create a product&#10;product = Product.objects.create(name='Laptop', description='A powerful laptop', price=1499.99)&#10;&#10;# Associate tags with the product&#10;ProductTag.objects.create(product=product, tag=tag1)&#10;ProductTag.objects.create(product=product, tag=tag2)&#10;&#10;# Retrieve tags for the product&#10;product_tags = product&#10;```" />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="for my ror7 project" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Sure, here's how you can generate the `products_tags` model in a Ruby on Rails 7 project:&#10;&#10;First, you'll need to create the models using Rails generators. Run the following commands in your terminal:&#10;&#10;```bash&#10;rails generate model Product name:string description:text price:decimal&#10;rails generate model Tag name:string&#10;rails generate model ProductTag product:references tag:references&#10;```&#10;&#10;This will create the following files:&#10;&#10;- `app/models/product.rb`&#10;- `app/models/tag.rb`&#10;- `app/models/product_tag.rb`&#10;- Migration files for each model&#10;&#10;Next, open the migration files and add any additional constraints or validations you need. For example, in the `create_products` migration file, you might want to add a validation for the `price` field to ensure it's a positive value:&#10;&#10;```ruby&#10;# db/migrate/XXXXXXXXXXXXXXXX_create_products.rb&#10;class CreateProducts &lt; ActiveRecord::Migration[7.0]&#10;  def change&#10;    create_table :products do |t|&#10;      t.string :name&#10;      t.text :description&#10;      t.decimal :price, precision: 10, scale: 2&#10;&#10;      t.timestamps&#10;    end&#10;&#10;    add_index :products, :name, unique: true&#10;    change_column_null :products, :price, false&#10;    change_column_default :products, :price, 0.0&#10;    validate_numericality_of :price, greater_than_or_equal_to: 0&#10;  end&#10;end&#10;```&#10;&#10;In the `create_product_tags` migration file, you can add a unique constraint for the combination of `product_id` and `tag_id`:&#10;&#10;```ruby&#10;# db/migrate/XXXXXXXXXXXXXXXX_create_product_tags.rb&#10;class CreateProductTags &lt; ActiveRecord::Migration[7.0]&#10;  def change&#10;    create_table :product_tags do |t|&#10;      t.references :product, null: false, foreign_key: true&#10;      t.references :tag, null: false, foreign_key: true&#10;&#10;      t.timestamps&#10;    end&#10;&#10;    add_index :product_tags, [:product_id, :tag_id], unique: true&#10;  end&#10;end&#10;```&#10;&#10;After updating the migration files, run `rails db:migrate` to create the tables in your database.&#10;&#10;Finally, open the model files and define the associations:&#10;&#10;```ruby&#10;# app/models/product.rb&#10;class Product &lt; ApplicationRecord&#10;  has_many :product_tags&#10;  has_many :tags, through: :product_tags&#10;end&#10;&#10;# app/models/tag.rb&#10;class Tag &lt; ApplicationRecord&#10;  has_many :product_tags&#10;  has_many :products, through: :product_tags&#10;end&#10;&#10;# app/models/product_tag.rb&#10;class ProductTag &lt; ApplicationRecord&#10;  belongs_to :product&#10;  belongs_to :tag&#10;end&#10;```&#10;&#10;With these models and associations, you can now associate products with multiple tags and vice versa. For example:&#10;&#10;```ruby&#10;product = Product.create(name: 'Laptop', description: 'A powerful laptop', price: 1499.99)&#10;tag1 = Tag.create(name: 'Electronics')&#10;tag2 = Tag.create(name: 'Computers')&#10;&#10;product.tags &lt;&lt; tag1 &lt;&lt; tag2&#10;```&#10;&#10;This will create the necessary `ProductTag` records to associate the `product` with `tag1` and `tag2`." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-06T08:56:48.794629" />
+              </chat>
+              <chat>
+                <internalId value="1fd3bc95-9330-4b24-9fdc-ac0b3e62d7a2" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="fill in this model" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Sure, I'd be happy to help you fill in a model. However, I'll need some more context or details about the type of model you're referring to. Models can take various forms, such as statistical models, machine learning models, conceptual models, or even physical models. If you could provide me with some additional information about the specific model you need assistance with, I can better understand the requirements and provide more relevant assistance." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="@.../app/models/products_tag.rb @.../app/models/product.rb @.../app/models/tag.rb &#10;@.../stroller-compatibility/db/schema.rb &#10;&#10;fill in the products_tag model" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Based on the provided codebase context, it appears that `ProductsTag` is a join table model used to represent the many-to-many association between `Product` and `Tag` models. Here's how we can fill in the `ProductsTag` model:&#10;&#10;```ruby&#10;class ProductsTag &lt; ApplicationRecord&#10;  belongs_to :product&#10;  belongs_to :tag&#10;end&#10;```&#10;&#10;In this model, we define two associations:&#10;&#10;1. `belongs_to :product`: This association establishes a one-to-many relationship between `ProductsTag` and `Product`. Each record in the `products_tags` table belongs to a single `Product` instance.&#10;&#10;2. `belongs_to :tag`: This association establishes a one-to-many relationship between `ProductsTag` and `Tag`. Each record in the `products_tags` table belongs to a single `Tag` instance.&#10;&#10;These associations allow us to access the associated `Product` and `Tag` instances from a `ProductsTag` instance, and vice versa.&#10;&#10;Additionally, we can add some validations to ensure data integrity:&#10;&#10;```ruby&#10;class ProductsTag &lt; ApplicationRecord&#10;  belongs_to :product&#10;  belongs_to :tag&#10;&#10;  validates :product_id, presence: true&#10;  validates :tag_id, presence: true&#10;  validates :product_id, uniqueness: { scope: :tag_id }&#10;end&#10;```&#10;&#10;The `validates :product_id, presence: true` and `validates :tag_id, presence: true` validations ensure that both `product_id` and `tag_id` are present for each record in the `products_tags` table.&#10;&#10;The `validates :product_id, uniqueness: { scope: :tag_id }` validation ensures that a combination of `product_id` and `tag_id` is unique within the `products_tags` table, preventing duplicate associations between a `Product` and a `Tag`.&#10;&#10;With these additions, the `ProductsTag` model should be able to handle the many-to-many association between `Product` and `Tag` models correctly." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="ok, i also want a way to get all Products for a set of tag ids, like &#10;&amp;quot;SELECT * from products where id in (SELECT product_id as id from products_tags where tag_id in (8,9))&amp;quot;" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Based on the provided codebase context, you can achieve this by adding a scope to the `Product` model. Here's how you can modify the `Product` model:&#10;&#10;```ruby&#10;class Product &lt; ApplicationRecord&#10;  # ... (existing code) ...&#10;&#10;  scope :by_tag_ids, -&gt;(tag_ids) {&#10;    joins(:products_tags)&#10;    .where(products_tags: { tag_id: tag_ids })&#10;    .distinct&#10;  }&#10;&#10;  # ... (existing code) ...&#10;end&#10;```&#10;&#10;The `by_tag_ids` scope uses the `joins` method to perform an inner join with the `products_tags` table, and then filters the results based on the provided `tag_ids`. The `distinct` method ensures that we get unique `Product` records, even if a `Product` is associated with multiple `Tag` instances from the provided `tag_ids`.&#10;&#10;You can then use this scope like this:&#10;&#10;```ruby&#10;tag_ids = [8, 9]&#10;products = Product.by_tag_ids(tag_ids)&#10;```&#10;&#10;This will return all `Product` instances that are associated with at least one of the `Tag` instances with IDs 8 and 9.&#10;&#10;Alternatively, you can use the existing `by_tags` scope in the `Product` model, which achieves a similar result:&#10;&#10;```ruby&#10;tags = Tag.where(id: [8, 9])&#10;products = Product.by_tags(tags)&#10;```&#10;&#10;This approach first fetches the `Tag` instances with IDs 8 and 9, and then uses the `by_tags` scope to retrieve all `Product` instances associated with those `Tag` instances.&#10;&#10;Both approaches should give you the desired result of fetching all `Product` instances associated with the specified set of `Tag` IDs." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="i don't want joins, use inner selects" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Sure, we can modify the scope to use an inner select instead of joins. Here's how you can update the `Product` model:&#10;&#10;```ruby&#10;class Product &lt; ApplicationRecord&#10;  # ... (existing code) ...&#10;&#10;  scope :by_tag_ids, -&gt;(tag_ids) {&#10;    where(id: ProductsTag.where(tag_id: tag_ids).select(:product_id))&#10;  }&#10;&#10;  # ... (existing code) ...&#10;end&#10;```&#10;&#10;In this updated `by_tag_ids` scope, we're using the `where` clause with a subquery to fetch the `product_id` values from the `products_tags` table where the `tag_id` matches the provided `tag_ids`. The `select(:product_id)` part of the subquery ensures that we only retrieve the `product_id` values, which are then used to filter the `Product` records.&#10;&#10;You can use this scope in the same way as before:&#10;&#10;```ruby&#10;tag_ids = [8, 9]&#10;products = Product.by_tag_ids(tag_ids)&#10;```&#10;&#10;This will return all `Product` instances that are associated with at least one of the `Tag` instances with IDs 8 and 9, without using any joins.&#10;&#10;Note that using subqueries can sometimes be less efficient than joins, especially for larger datasets or more complex queries. However, in this specific case, the performance difference should be negligible, and the subquery approach might be more readable and easier to understand." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-09-06T09:00:08.244446" />
+              </chat>
+              <chat>
+                <internalId value="60e1f6ab-9f5c-4a7a-9745-e27ec9c49248" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-opus-20240229" />
+                    <provider value="Anthropic" />
+                    <tags>
+                      <list>
+                        <option value="gateway" />
+                        <option value="pro" />
+                        <option value="power" />
+                      </list>
+                    </tags>
+                    <title value="Claude 3 Opus" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <internalId value="aeaa27c2-3905-4f81-8047-1fbb284908db" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-opus-20240229" />
+                    <provider value="Anthropic" />
+                    <tags>
+                      <list>
+                        <option value="gateway" />
+                        <option value="pro" />
+                        <option value="power" />
+                      </list>
+                    </tags>
+                    <title value="Claude 3 Opus" />
                     <usage>
                       <list>
                         <option value="chat" />
@@ -8789,16 +8060,17 @@
           </chats>
           <defaultLlm>
             <llm>
-              <model value="openai/gpt-4-turbo" />
-              <provider value="OpenAI" />
+              <model value="anthropic/claude-3-5-sonnet-20240620" />
+              <provider value="Anthropic" />
               <tags>
                 <list>
                   <option value="gateway" />
-                  <option value="pro" />
-                  <option value="balanced" />
+                  <option value="power" />
+                  <option value="recommended" />
+                  <option value="free" />
                 </list>
               </tags>
-              <title value="GPT-4 Turbo" />
+              <title value="Claude 3.5 Sonnet" />
               <usage>
                 <list>
                   <option value="chat" />

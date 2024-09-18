@@ -9,3 +9,6 @@
 
 # do not commit cody_history
 cody_history.xml
+./cody_history.xml
+./dataSources.local.xml
+./dataSources.xml
