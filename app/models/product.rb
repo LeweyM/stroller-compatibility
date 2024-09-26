@@ -17,6 +17,26 @@ class Product < ApplicationRecord
 
   validates :name, presence: true
 
+  scope :by_tag_ids, ->(tag_ids) {
+    where(id: ProductsTag.where(tag_id: tag_ids).select(:product_id))
+  }
+
+  scope :by_adapter, ->(adapter) {
+    adapter.products
+  }
+
+  scope :compatible_with_adapter, ->(adapter) {
+    adapter_products = Product.by_adapter(adapter)
+    tag_products = Product.by_tag_ids(adapter.product.tags.ids)
+
+    Product.where(id: adapter_products.select(:id)).or(Product.where(id: tag_products.select(:id)))
+           .where.not(productable_type: 'Adapter')
+  }
+
+  def combined_adapters
+    Adapter.where(id: adapters.ids + Adapter.by_tags(tags).ids)
+  end
+
   def image_or_default
     if has_image?
       image
@@ -42,14 +62,24 @@ class Product < ApplicationRecord
     image_or_default.attribution_required?
   end
 
+  def compatible_products
+    compatible_products_by_adapter.values.flatten.uniq
+  end
+
   # get all adapters linked to this product, grouped by the adapter
   def compatible_products_by_adapter
-    adapters.includes(:products).each_with_object({}) do |adapter, h|
-      h[adapter.product] = adapter.products
-                                  .includes(:image, :brand)
-                                  .where.not(productable_type: self.productable_type)
-                                  .select('products.*, images.url as image_url, brands.name as brand_name').references(:images, :brands)
-                                  .to_a.filter { |p| p.id != self.id }
+    combined_adapters.includes(:products).each_with_object({}) do |adapter, h|
+      compatible_products = Product.compatible_with_adapter(adapter)
+                                   .includes(:image, :brand)
+                                   .where.not(productable_type: self.productable_type)
+                                   .where.not(id: self.id)
+                                   .select('products.*, images.url as image_url, brands.name as brand_name')
+                                   .references(:images, :brands)
+
+      h[adapter.product] = compatible_products.map do |product|
+        from_link = !adapter.products.include?(product)
+        CompatibleProduct.new(product, from_link)
+      end
     end
   end
 
@@ -84,10 +114,6 @@ class Product < ApplicationRecord
 
     adapter = other_product.productable
     adapter.products.delete(self)
-  end
-
-  def is_compatible_with?(other_product)
-    adapters.exists? { |adapter| adapter.products.exists?(id: other_product.id) }
   end
 
   def add_tag(tag)

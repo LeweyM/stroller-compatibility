@@ -9,13 +9,18 @@
             <span class="font-bold text-2xl text-gray-300">by <%= adapter.brand.name %></span>
           </h1>
         <% end %>
+        <div>
+          <% adapter.tags.each do |tag| %>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%= tag.label %></span>
+          <% end %>
+        </div>
         <div class="w-32">
           <%= render 'products/image', product: adapter %>
         </div>
         <% links.each do |type, products| %>
           <h2 class="font-semibold text-xl"><%= type.pluralize %></h2>
           <%= render SearchProductMulti::ShowComponent.new(searchUrl: products_search_url,
-                                                           initialProducts: products,
+                                                           initialProducts: products.map { |p| p.serializable_hash.merge({ from_link: p.from_link }) },
                                                            addLinkUrl: link_admin_compatibility_index_url,
                                                            unlinkUrl: unlink_admin_compatibility_index_url,
                                                            adapter: adapter,

@@ -20,5 +20,13 @@ global adapter:
   brand: yoyo
   name: global adapter
   url: http://www.globaladapter.com/
-  productable: global adapter (Adapter)
+  productable: global_adapter (Adapter)
   slug: global-adapter
+
+maxicosi infant adapter:
+  brand: maxicosi
+  name: infant adapter
+  url: http://www.infantadapter.com/
+  productable: maxicosi_infant_adapter (Adapter)
+  slug: maxicosi-infant-adapter
+  tags: [ infant ]

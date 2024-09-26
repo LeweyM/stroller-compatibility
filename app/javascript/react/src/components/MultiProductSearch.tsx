@@ -4,9 +4,10 @@ import {useProductSearchClient} from "../hooks/useProductSearchClient";
 import _ from "lodash";
 import AsyncSelect from "react-select/async";
 import {usePrevious} from "../hooks/usePrevious";
+import {StylesConfig} from "react-select";
 
 type Props = {
-    initialProducts: Product[],
+    initialProducts: (Product & { from_link: boolean })[],
     searchUrl: string,
     addLinkUrl: string,
     unlinkUrl: string,
@@ -19,8 +20,15 @@ type Filter = Partial<ProductFilters> & { not?: Partial<ProductFilters> }
 type Item = {
     value: string,
     label: string,
-    loaded: boolean | undefined
+    loaded: boolean | undefined,
+    isFixed: boolean,
 }
+
+const orderOptions = (values: readonly Item[]) => {
+    return values
+        .filter((v) => v.isFixed)
+        .concat(values.filter((v) => !v.isFixed));
+};
 
 export const MultiProductSearch = ({
                                        initialProducts,
@@ -31,12 +39,14 @@ export const MultiProductSearch = ({
                                        filter = {}
                                    }: Props) => {
     const {debouncedLoader} = useProductSearchClient(searchUrl);
-    const [value, setValue] = React.useState<Item[]>(initialProducts.map(p => ({
+    const [value, setValue] = React.useState<Item[]>(orderOptions(initialProducts.map(p => ({
         value: p.slug,
         label: p.name,
         loaded: true,
-    })))
+        isFixed: p.from_link
+    }))));
     const previousValue = usePrevious(value);
+
     function setItemLoaded(nextItemSlug: string, loaded: boolean | undefined = true) {
         setValue((v: Item[]) => {
             return v.map(item => {
@@ -49,12 +59,14 @@ export const MultiProductSearch = ({
     }
 
     useEffect(() => {
-        if (!(previousValue && !_.isEqual(previousValue, value))) return;
+        if (!previousValue || _.isEqual(previousValue, value)) return;
 
-        const previousSlugs = previousValue.map(p => p.value);
-        const newItems = value.filter(
-            item => !previousValue.find(previousItem => previousItem.value === item.value)
-        )
+        const previousSlugs = previousValue
+            .filter(p => !p.isFixed)
+            .map(p => p.value);
+        const newItems = value
+            .filter(p => !p.isFixed)
+            .filter(item => !previousValue.find(previousItem => previousItem.value === item.value))
         if (newItems.length === 1) {
             const newItemSlug = newItems[0].value;
 
@@ -89,6 +101,21 @@ export const MultiProductSearch = ({
         })
     };
 
+    const styles: StylesConfig<Item, true> = {
+        multiValue: (base, state) => {
+            return state.data.isFixed ? {...base, backgroundColor: 'gray'} : base;
+        },
+        multiValueLabel: (base, state) => {
+            return state.data.isFixed
+                ? {...base, fontWeight: 'bold', color: 'white', paddingRight: 6}
+                : base;
+        },
+        multiValueRemove: (base, state) => {
+            return state.data.isFixed ? {...base, display: 'none'} : base;
+        },
+    };
+
+
     return <Fragment>
         <AsyncSelect
             isMulti
@@ -107,6 +134,7 @@ export const MultiProductSearch = ({
                 setValue(selected);
             }}
             cacheOptions
+            styles={styles}
         />
     </Fragment>
 };

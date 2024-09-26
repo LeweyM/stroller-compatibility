@@ -3,21 +3,12 @@ require_relative './base_controller_test'
 
 class Admin::CompatibilityControllerTest < Admin::BaseControllerTest
   test "index action groups compatibility links by adapter" do
-    p1 = create_product! type: Stroller
-    p2 = create_product! type: Seat
-    adapter1 = create_product! type:Adapter
-    adapter2 = create_product! type:Adapter
-    p1.link!(adapter1)
-    p2.link!(adapter1)
-    p1.link!(adapter2)
-    p2.link!(adapter2)
-
     get admin_compatibility_index_path, headers: http_login
 
     assert_response :success
     assert_equal 2, assigns(:adapters_with_products_by_type).keys.count
-    assert_includes assigns(:adapters_with_products_by_type).keys, adapter1
-    assert_includes assigns(:adapters_with_products_by_type).keys, adapter2
+    assert_includes assigns(:adapters_with_products_by_type).keys, adapters(:maxicosi_infant_adapter).product
+    assert_includes assigns(:adapters_with_products_by_type).keys, adapters(:global_adapter).product
   end
 
   test "index action groups products by productable_type" do
@@ -49,13 +40,6 @@ class Admin::CompatibilityControllerTest < Admin::BaseControllerTest
     grouped_products = assigns(:adapters_with_products_by_type)[adapter]
     assert_equal 1, grouped_products["Stroller"].count
     assert_equal 1, grouped_products["Seat"].count
-  end
-
-  test "index action handles empty compatibility links" do
-    get admin_compatibility_index_path, headers: http_login
-
-    assert_response :success
-    assert_empty assigns(:adapters_with_products_by_type)
   end
 
   test "Seat and Stroller should be keys by default" do

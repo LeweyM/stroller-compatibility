@@ -89,7 +89,7 @@
         <td>
           <% product.compatible_products_by_adapter.each do |adapter, products| %>
             <p class="text-sm font-semibold text-gray-300">with: <%= adapter.name %></p>
-            <p class="text-md"><%= products.map { |p| p.name }.join(", ") %></p>
+            <p class="text-md"><%= products.map { |p| p.product.name }.join(", ") %></p>
           <% end %>
         </td>
         <td class="flex">

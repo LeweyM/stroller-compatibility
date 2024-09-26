@@ -1,7 +1,7 @@
 class Admin::ProductsController < Admin::BaseController
   def index
     @brands = Brand.all
-    @products = Product.includes(:product_adapters, :brand, :image, adapters: [:products, :product])
+    @products = Product.includes(:product_adapters, :brand, :image, :tags, adapters: [:products, :product])
 
     if params[:search].present?
       @products = @products.where("products.name ILIKE ?", "%#{params[:search]}%")

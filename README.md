@@ -122,7 +122,7 @@ fly secrets set DATABASE_URL=xxxx
 
 ## Todos:
 
-- [ ] Build The App
+- [x] Build The App
     - [x] view strollers for a brand
     - [x] view seats for a brand
     - [x] view compatibility of a seat and a stroller
@@ -134,22 +134,24 @@ fly secrets set DATABASE_URL=xxxx
     - [x] button to 'select another product' for product_a on fits page
     - [x] set brand on the product model, not submodels
     - [x] admin user for updating products and brands
-    - [ ] responsive flow for mobile
-    - [ ] logo header
+    - [x] responsive flow for mobile
+    - [x] logo header
     - [x] CI pipeline for deployment on push
     - [ ] image CDN
 - [ ] Populate The DB
     - [x] export data to CSV
     - [x] automated image search based on product name
-    - [ ] 100 products ready (41/100)
-    - [ ] automated product url based on product name
+    - [x] 100 products ready (41/100)
+    - [x] automated product url based on product name
     - [ ] automated url fixing for 301 links
-    - [ ] populate initial product database from https://www.babylist.com/hello-baby/car-seat-stroller-compatibility
+    - [x] populate initial product database from https://www.babylist.com/hello-baby/car-seat-stroller-compatibility
     - [x] populate initial product database maxicosi compatibility pdf
     - [x] import product data via csv in admin panel
     - [ ] pipeline to process amazon reviews for compatibility information
+    - [ ] product tagging
+      - [ ]
 - [ ] Market
-    - [ ] hosting on a domain
+    - [x] hosting on a domain
     - [ ] seo optimization for combinatorial urls
     - [ ] post to some blogs / forums
 - [ ] Profit

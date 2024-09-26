@@ -7,7 +7,7 @@
   <% else %>
     <div class="my-2 mx-8">
       <%= compatible_products = product.compatible_products_by_adapter
-                                       .values.flatten
+                                       .values.flatten.map(&:product)
                                        .map { |p| p.image = p.image_or_default; p }
           render ProductCarousel::ShowComponent.new(items: compatible_products)
       %>
