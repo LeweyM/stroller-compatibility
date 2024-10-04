@@ -4,9 +4,29 @@ class Adapter < ApplicationRecord
   has_many :product_adapters
   has_many :products, through: :product_adapters
 
-  scope :by_tags, ->(tags) {  left_joins(product: [:tags]).where('tags': { id: tags.ids }).select("*") }
+  scope :by_tags, ->(tags) { left_joins(product: [:tags]).where('tags': { id: tags.ids }).select("*") }
 
   def compatible_products
     Product.compatible_with_adapter(self)
+  end
+
+  def compatible_products_via_direct
+    adapter_products = Product.by_adapter(self)
+
+    p = Product
+          .where(id: adapter_products.select(:id))
+          .where.not(productable_type: 'Adapter')
+
+    p.map { |pp| CompatibleProduct.new(pp, false, product) }
+  end
+
+  def compatible_products_via_tag
+    tag_products = Product.by_tag_ids(self.product.tags.ids)
+
+    p = Product.where(id: tag_products.select(:id))
+               .where.not(productable_type: 'Adapter')
+               .where.not(productable_type: self.product.productable_type)
+
+    p.map { |pp| CompatibleProduct.new(pp, true, product) }
   end
 end

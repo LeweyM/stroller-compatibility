@@ -34,7 +34,15 @@ class Product < ApplicationRecord
   }
 
   def combined_adapters
-    Adapter.where(id: adapters.ids + Adapter.by_tags(tags).ids)
+    Adapter.where(id: direct_adapters_ids).or(Adapter.where(id: tagged_adapter_ids))
+  end
+
+  def direct_adapters_ids
+    adapters.ids
+  end
+
+  def tagged_adapter_ids
+    Adapter.by_tags(tags).ids
   end
 
   def image_or_default
@@ -68,19 +76,9 @@ class Product < ApplicationRecord
 
   # get all adapters linked to this product, grouped by the adapter
   def compatible_products_by_adapter
-    combined_adapters.includes(:products).each_with_object({}) do |adapter, h|
-      compatible_products = Product.compatible_with_adapter(adapter)
-                                   .includes(:image, :brand)
-                                   .where.not(productable_type: self.productable_type)
-                                   .where.not(id: self.id)
-                                   .select('products.*, images.url as image_url, brands.name as brand_name')
-                                   .references(:images, :brands)
-
-      h[adapter.product] = compatible_products.map do |product|
-        from_link = !adapter.products.include?(product)
-        CompatibleProduct.new(product, from_link)
-      end
-    end
+    CompatibleProduct.for_product(self)
+                     .group_by(&:adapter)
+                     .transform_keys(&:slug)
   end
 
   def should_generate_new_friendly_id?

@@ -5,118 +5,117 @@ class ProductTest < ActiveSupport::TestCase
 
   setup do
     @brand = Brand.create!(name: 'some-brand')
-    @product_a = create_product! type: Stroller, brand: @brand, url: url
-    @product_b = create_product! type: Stroller, brand: @brand
+    @stroller_a = create_product! type: Stroller, brand: @brand, url: url
+    @seat_b = create_product! type: Stroller, brand: @brand
   end
 
   test 'should be valid' do
-    assert @product_a.valid?
+    assert @stroller_a.valid?
   end
 
   test 'should require a name' do
-    @product_a.name = nil
-    assert_not @product_a.valid?
+    @stroller_a.name = nil
+    assert_not @stroller_a.valid?
   end
 
   test 'should belong to a brand' do
-    assert_equal @brand, @product_a.brand
+    assert_equal @brand, @stroller_a.brand
   end
 
   test 'should return the correct product URL' do
-    assert_equal url, @product_a.url
+    assert_equal url, @stroller_a.url
   end
 end
 
 class ProductCompatibleTest < ActiveSupport::TestCase
   setup do
-    @product_a = create_product! type: Stroller
-    @product_b = create_product! type: Stroller
-    @product_c = create_product! type: Stroller
+    @stroller_a = create_product! type: Stroller
+    @seat_b = create_product! type: Stroller
+    @stroller_c = create_product! type: Stroller
     @adapter = create_product! type: Adapter
-    @product_a.link!(@adapter)
-    @product_c.link!(@adapter)
+    @stroller_a.link!(@adapter)
+    @stroller_c.link!(@adapter)
   end
 end
 
 class ProductLinkTest < ActiveSupport::TestCase
   setup do
-    @product_a = create_product! type: Stroller
-    @product_b = create_product! type: Stroller
-    @product_c = create_product! type: Stroller
+    @stroller_a = create_product! type: Stroller
+    @seat_b = create_product! type: Stroller
+    @stroller_c = create_product! type: Stroller
     @adapter = create_product! type: Adapter
   end
 
   test 'link! creates a link between a product and an adapter' do
-    @product_a.link!(@adapter)
-    assert_equal @adapter, @product_a.adapters.first.product
+    @stroller_a.link!(@adapter)
+    assert_equal @adapter, @stroller_a.adapters.first.product
   end
 
   test 'link! raises an error when trying to link a product directly to another product' do
     assert_raises(RuntimeError, "Cannot link a product to another product") do
-      @product_a.link!(@product_b)
+      @stroller_a.link!(@seat_b)
     end
   end
 
   test 'link! raises an error when trying to link a product to itself' do
     assert_raises(RuntimeError, "Cannot link a product to itself") do
-      @product_a.link!(@product_a)
+      @stroller_a.link!(@stroller_a)
     end
   end
 
   test 'unlink! removes a link between a product and an adapter' do
-    @product_a.link!(@adapter)
-    @product_a.unlink!(@adapter)
-    assert_equal 0, @product_a.adapters.size
+    @stroller_a.link!(@adapter)
+    @stroller_a.unlink!(@adapter)
+    assert_equal 0, @stroller_a.adapters.size
   end
 
   test 'unlink! raises an error when trying to unlink a product directly to another product' do
     assert_raises(RuntimeError, "Cannot unlink a product to another product") do
-      @product_a.unlink!(@product_b)
+      @stroller_a.unlink!(@seat_b)
     end
   end
 
   test 'unlink! raises an error when trying to unlink a product to itself' do
     assert_raises(RuntimeError, "Cannot unlink a product to itself") do
-      @product_a.unlink!(@product_a)
+      @stroller_a.unlink!(@stroller_a)
     end
   end
 end
 
 class ProductCompatibleProductsByAdapterTest < ActiveSupport::TestCase
   setup do
-    # a -> adapter_1 -> b
-    # a -> adapter_2 -> c
-    @product_a = create_product! type: Stroller
-    @product_b = create_product! type: Seat
-    @product_c = create_product! type: Stroller
-    @product_d = create_product! type: Seat
+    # stroller_a -> adapter_1 -> seat_b
+    # stroller_a -> adapter_2 -> stroller_c
+    @stroller_a = create_product! type: Stroller
+    @stroller_c = create_product! type: Stroller
+    @seat_b = create_product! type: Seat
+    @seat_d = create_product! type: Seat
     @adapter_1 = create_product! type: Adapter
     @adapter_2 = create_product! type: Adapter
-    @product_a.link!(@adapter_1)
-    @product_b.link!(@adapter_1)
-    @product_a.link!(@adapter_2)
-    @product_c.link!(@adapter_2)
+    @stroller_a.link!(@adapter_1)
+    @seat_b.link!(@adapter_1)
+    @stroller_a.link!(@adapter_2)
+    @stroller_c.link!(@adapter_2)
   end
 
   test 'compatible_products_by_adapter returns correct grouping' do
-    result = @product_a.compatible_products_by_adapter
-    assert_equal 2, result.keys.size
-    assert_includes result.keys, @adapter_1
-    assert_includes result.keys, @adapter_2
+    result = @stroller_a.compatible_products_by_adapter
+    assert_equal result.keys, [@adapter_1.slug]
   end
 
   test 'compatible_products_by_adapter groups products correctly' do
-    result = @product_a.compatible_products_by_adapter
-    assert_equal [@product_b], result[@adapter_1].map(&:product)
-    assert_equal [], result[@adapter_2]
+    result = @stroller_a.compatible_products_by_adapter
+    assert_equal result.keys, [@adapter_1.slug]
+    assert_equal [@seat_b], result[@adapter_1.slug].map(&:product)
   end
 
   test 'compatible_products_by_adapter handles bidirectional compatibility' do
-    @product_c.link!(@adapter_1)
-    result = @product_b.compatible_products_by_adapter
+    @stroller_c.link!(@adapter_1)
+
+    result = @seat_b.compatible_products_by_adapter
     adapter_count = result.keys.size
     assert_equal 1, adapter_count
-    assert_equal [@product_a, @product_c].sort, result[@adapter_1].map(&:product).sort
+    assert_equal [@stroller_a, @stroller_c].sort, result[@adapter_1.slug].map(&:product).sort
   end
 
   test 'compatible_products_by_adapter returns empty hash for product with no compatibility' do
@@ -126,9 +125,9 @@ class ProductCompatibleProductsByAdapterTest < ActiveSupport::TestCase
   end
 
   test 'compatible_products_by_adapter handles multiple products with same adapter' do
-    @product_d.link!(@adapter_1)
-    result = @product_d.compatible_products_by_adapter
-    assert_equal [@product_a].sort, result[@adapter_1].map(&:product).sort
+    @seat_d.link!(@adapter_1)
+    result = @seat_d.compatible_products_by_adapter
+    assert_equal [@stroller_a].sort, result[@adapter_1.slug].map(&:product).sort
   end
 
   test 'only gets products of a different type' do
@@ -142,7 +141,7 @@ class ProductCompatibleProductsByAdapterTest < ActiveSupport::TestCase
 
     result = stroller.compatible_products_by_adapter
 
-    assert_not_includes result[adapter].map(&:product), another_stroller
-    assert_includes result[adapter].map(&:product), seat
+    assert_not_includes result[adapter.slug].map(&:product), another_stroller
+    assert_includes result[adapter.slug].map(&:product), seat
   end
 end
