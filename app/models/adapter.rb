@@ -13,20 +13,18 @@ class Adapter < ApplicationRecord
   def compatible_products_via_direct
     adapter_products = Product.by_adapter(self)
 
-    p = Product
-          .where(id: adapter_products.select(:id))
-          .where.not(productable_type: 'Adapter')
-
-    p.map { |pp| CompatibleProduct.new(pp, false, product) }
+    Product
+      .includes(:image)
+      .where(id: adapter_products.select(:id))
+      .where.not(productable_type: 'Adapter')
   end
 
   def compatible_products_via_tag
     tag_products = Product.by_tag_ids(self.product.tags.ids)
 
-    p = Product.where(id: tag_products.select(:id))
-               .where.not(productable_type: 'Adapter')
-               .where.not(productable_type: self.product.productable_type)
-
-    p.map { |pp| CompatibleProduct.new(pp, true, product) }
+    Product
+      .includes(:image)
+      .where(id: tag_products.select(:id))
+      .where.not(productable_type: 'Adapter')
   end
 end

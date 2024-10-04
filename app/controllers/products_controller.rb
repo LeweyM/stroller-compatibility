@@ -33,9 +33,9 @@ class ProductsController < ApplicationController
   end
 
   def compatible
-    @product_a = Product.friendly.find(params[:slug])
-    @product_b = Product.friendly.find(params[:b_id])
-    @adapter = @product_a.adapters.joins(:products).where(products: @product_b).first&.product
+    @product_a = Product.joins(:image, :brand).includes(:image, :brand).friendly.find(params[:slug])
+    @product_b = Product.joins(:image, :brand).includes(:image, :brand).friendly.find(params[:b_id])
+    @adapter = @product_a.adapters.joins(products: [:image, :brand]).where(products: @product_b).first&.product
   end
 
   private
