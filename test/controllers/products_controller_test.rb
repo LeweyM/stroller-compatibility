@@ -26,13 +26,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "compatibility page with compatible products" do
-    # skip "flaky, not sure why, so skipping"
-
     product_a = create_product! type:Stroller
     product_b = create_product! type:Seat
-    create_product! type: Adapter
+    create_product! type: Adapter # to check for interference
     adapter = create_product! type: Adapter
-    create_product! type: Adapter
+    create_product! type: Adapter # to check for interference
     product_a.link!(adapter)
     product_b.link!(adapter)
 
