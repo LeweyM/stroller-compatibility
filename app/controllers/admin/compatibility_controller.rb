@@ -1,13 +1,10 @@
 class Admin::CompatibilityController < Admin::BaseController
   def index
     @adapters_with_products_by_type = Adapter.all.each_with_object(Hash.new { |h, k| h[k] = [] }) do |adapter, hash|
-      product_ids_from_links = Product.by_tag_ids(adapter.product.tags.ids).map { |p| p.id }
-      hash[adapter.product] = adapter.compatible_products.to_a.group_by { |p| p.productable_type }
+      hash[adapter.product] = CompatibleProduct.for_adapter(adapter)
+                                               .group_by { |cpp| cpp.product.productable_type }
       hash[adapter.product]['Seat'] ||= []
       hash[adapter.product]['Stroller'] ||= []
-
-      hash[adapter.product]['Seat'] = hash[adapter.product]['Seat'].map { |product| add_from_link_tags(product, product_ids_from_links) }
-      hash[adapter.product]['Stroller'] = hash[adapter.product]['Stroller'].map { |product| add_from_link_tags(product, product_ids_from_links) }
     end
   end
 

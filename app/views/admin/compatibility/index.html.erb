@@ -20,7 +20,7 @@
         <% links.each do |type, products| %>
           <h2 class="font-semibold text-xl"><%= type.pluralize %></h2>
           <%= render SearchProductMulti::ShowComponent.new(searchUrl: products_search_url,
-                                                           initialProducts: products.map { |p| p.serializable_hash.merge({ from_link: p.from_link }) },
+                                                           initialProducts: products,
                                                            addLinkUrl: link_admin_compatibility_index_url,
                                                            unlinkUrl: unlink_admin_compatibility_index_url,
                                                            adapter: adapter,

@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect} from "react";
-import {Product, ProductFilters} from "../types/product";
+import {CompatibleProduct, Product, ProductFilters} from "../types/product";
 import {useProductSearchClient} from "../hooks/useProductSearchClient";
 import _ from "lodash";
 import AsyncSelect from "react-select/async";
@@ -7,7 +7,7 @@ import {usePrevious} from "../hooks/usePrevious";
 import {StylesConfig} from "react-select";
 
 type Props = {
-    initialProducts: (Product & { from_link: boolean })[],
+    initialProducts: CompatibleProduct[],
     searchUrl: string,
     addLinkUrl: string,
     unlinkUrl: string,
@@ -39,11 +39,11 @@ export const MultiProductSearch = ({
                                        filter = {}
                                    }: Props) => {
     const {debouncedLoader} = useProductSearchClient(searchUrl);
-    const [value, setValue] = React.useState<Item[]>(orderOptions(initialProducts.map(p => ({
-        value: p.slug,
-        label: p.name,
+    const [value, setValue] = React.useState<Item[]>(orderOptions(initialProducts.map(cp => ({
+        value: cp.product.slug,
+        label: cp.product.name,
         loaded: true,
-        isFixed: p.from_link
+        isFixed: cp.from_link
     }))));
     const previousValue = usePrevious(value);
 
@@ -114,7 +114,6 @@ export const MultiProductSearch = ({
             return state.data.isFixed ? {...base, display: 'none'} : base;
         },
     };
-
 
     return <Fragment>
         <AsyncSelect

@@ -8,6 +8,12 @@ export type Product = {
     url: string,
 }
 
+export type CompatibleProduct = {
+    from_link: boolean,
+    product: Product,
+    adapter?: Product,
+}
+
 export enum ProductType {
     Stroller = "Stroller",
     Seat = "Seat",
