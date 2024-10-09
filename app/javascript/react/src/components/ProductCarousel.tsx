@@ -63,7 +63,7 @@ function MultipleItems({items}: Props) {
                 {items.map((item, index) => (
                     <div key={index}>
                         <div className={"flex flex-col items-center justify-center p-2"}>
-                            <img className={"w-52 h-52 object-scale-down"} src={item.image_url} alt={item.name}/>
+                            <img className={"w-52 h-52 object-scale-down"} src={item.image.url} alt={item.image.alt_text}/>
                             <a href={item.url}>
                                 <p>{item.name}</p>
                             </a>

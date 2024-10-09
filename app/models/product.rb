@@ -66,6 +66,10 @@ class Product < ApplicationRecord
     end
   end
 
+  def serialize
+    as_json.merge(:image => image_or_default.as_json)
+  end
+
   def image_attribution_required?
     image_or_default.attribution_required?
   end

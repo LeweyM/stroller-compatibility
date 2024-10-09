@@ -3,9 +3,16 @@ export type Product = {
     name: string,
     slug: string,
     type: ProductType,
-    image_url: string,
+    image: Image,
     brand_name: string,
     url: string,
+}
+
+export type Image = {
+    url: string,
+    alt_text: string,
+    attribution_text: string,
+    attribution_url: string,
 }
 
 export type CompatibleProduct = {
