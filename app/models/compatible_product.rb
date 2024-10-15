@@ -1,5 +1,5 @@
 class CompatibleProduct
-  attr_reader :product, :from_link, :adapter
+  attr_reader :product, :tags, :adapter
 
   def self.for_product(product)
     res = product.combined_adapters
@@ -10,23 +10,37 @@ class CompatibleProduct
     res.sort_by { |cp| cp.product.slug }
   end
 
+  def from_tags?
+    @tags.is_a?(Array) && !@tags.empty?
+  end
+
   def self.for_adapter(adapter, not_type = 'Adapter')
     direct_compatible_product = adapter.compatible_products_via_direct
                                        .where.not(productable_type: not_type)
-                                       .map { |pp| new(pp, false, adapter.product) }
+                                       .map { |pp| new(product: pp, adapter: adapter.product) }
     tag_compatible_products = adapter.compatible_products_via_tag
                                      .where.not(productable_type: not_type)
-                                     .map { |pp| new(pp, true, adapter.product) }
+                                     .map { |pp| new(product: pp,
+                                                     tags_from_link: get_tags_joining_product_and_adapter(pp, adapter),
+                                                     adapter: adapter.product
+                                     ) }
+
     direct_compatible_product + tag_compatible_products
   end
 
-  def initialize(product, from_link, adapter)
+  def initialize(product:, tags_from_link: [], adapter:)
     @product = product
-    @from_link = from_link
+    @tags = tags_from_link
     @adapter = adapter
   end
 
   def ==(other)
-    product == other.product && from_link == other.from_link && adapter == other.adapter
+    product == other.product && tags == other.tags && adapter == other.adapter
+  end
+
+  private
+
+  def self.get_tags_joining_product_and_adapter(product, adapter)
+    adapter.product.tags & product.tags
   end
 end

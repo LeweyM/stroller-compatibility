@@ -20,7 +20,8 @@ class CompatibleProductTest < ActiveSupport::TestCase
     assert_equal 1, result.size
     assert_equal [@seat_b], result.map(&:product)
     assert_equal [@adapter_1], result.map(&:adapter)
-    assert_equal [false], result.map(&:from_link)
+    assert_equal [[]], result.map(&:tags)
+    assert_equal [false], result.map(&:from_tags?)
   end
 
   test 'for_product returns correct products for products linked to adapters via tags' do
@@ -32,9 +33,28 @@ class CompatibleProductTest < ActiveSupport::TestCase
     @adapter_1.add_tag(tag)
 
     result = CompatibleProduct.for_product(@stroller_a)
-      assert_equal [
-        CompatibleProduct.new(@seat_b, false, @adapter_1),
-        CompatibleProduct.new(seat_d, true, @adapter_1)
-      ], result
-    end
+    assert_equal [
+                   CompatibleProduct.new(product: @seat_b, adapter: @adapter_1),
+                   CompatibleProduct.new(product: seat_d, tags_from_link: [tag], adapter: @adapter_1)
+                 ], result
+  end
+  test 'for_product returns all tags used to link the products' do
+    # link product_d to adapter_1 via a tag
+    linked_seat = create_product! type: Seat, name: 'linked_seat'
+    linked_stroller = create_product! type: Stroller, name: 'linked_stroller'
+    adapter = create_product! type: Adapter
+    tag_1 = Tag.create!(label: "tag_1", brand: brands(:maxicosi))
+    tag_2 = Tag.create!(label: "tag_2", brand: brands(:maxicosi))
+
+    linked_seat.add_tag(tag_1)
+    linked_seat.add_tag(tag_2)
+    linked_stroller.add_tag(tag_1)
+    linked_stroller.add_tag(tag_2)
+    adapter.add_tag(tag_1)
+    adapter.add_tag(tag_2)
+
+    result = CompatibleProduct.for_product(linked_seat)
+    assert_equal 1, result.size
+    assert_equal result.first.tags, [tag_1, tag_2]
+  end
 end

@@ -15,8 +15,12 @@ export type Image = {
     attribution_url: string,
 }
 
+export type Tag = {
+    label: string,
+}
+
 export type CompatibleProduct = {
-    from_link: boolean,
+    tags: Tag[],
     product: Product,
     adapter?: Product,
 }

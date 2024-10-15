@@ -82,7 +82,7 @@
           <h1><%= productable_type %></h1>
           <%= compatible_products_for_type = @product.compatible_products.filter { |p| p.product.productable_type == productable_type }
               render SearchProductMulti::ShowComponent.new(searchUrl: products_search_url,
-                                                           initialProducts: compatible_products_for_type.map { |p| p.product.serializable_hash.merge(from_link: p.from_link) },
+                                                           initialProducts: compatible_products_for_type,
                                                            addLinkUrl: link_admin_compatibility_index_url,
                                                            unlinkUrl: unlink_admin_compatibility_index_url,
                                                            adapter: @product,

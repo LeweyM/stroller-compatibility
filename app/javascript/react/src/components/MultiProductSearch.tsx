@@ -22,6 +22,7 @@ type Item = {
     label: string,
     loaded: boolean | undefined,
     isFixed: boolean,
+    title?: string,
 }
 
 const orderOptions = (values: readonly Item[]) => {
@@ -39,12 +40,16 @@ export const MultiProductSearch = ({
                                        filter = {}
                                    }: Props) => {
     const {debouncedLoader} = useProductSearchClient(searchUrl);
-    const [value, setValue] = React.useState<Item[]>(orderOptions(initialProducts.map(cp => ({
-        value: cp.product.slug,
-        label: cp.product.name,
-        loaded: true,
-        isFixed: cp.from_link
-    }))));
+    const [value, setValue] = React.useState<Item[]>(orderOptions(initialProducts.map(cp => {
+        const hasTags = cp.tags.length > 0;
+        return ({
+            value: cp.product.slug,
+            label: cp.product.name,
+            loaded: true,
+            isFixed: hasTags,
+            title: hasTags ? "linked via tags: " + cp.tags.map(t => t.label).join(', ') : undefined,
+        });
+    })));
     const previousValue = usePrevious(value);
 
     function setItemLoaded(nextItemSlug: string, loaded: boolean | undefined = true) {
@@ -119,10 +124,10 @@ export const MultiProductSearch = ({
         <AsyncSelect
             isMulti
             defaultOptions
-            formatOptionLabel={({label, loaded}, meta) => {
+            formatOptionLabel={({label, loaded, title}, meta) => {
                 if (meta.context === 'menu') return label;
                 return loaded
-                    ? <span>{label}</span>
+                    ? <span title={title}>{label}</span>
                     : <span><i className="fa-solid fa-spinner fa-spin px-2"></i>{label}</span>
             }}
             value={value}

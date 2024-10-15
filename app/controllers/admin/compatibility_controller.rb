@@ -21,13 +21,4 @@ class Admin::CompatibilityController < Admin::BaseController
 
     product_a.unlink!(adapter)
   end
-
-  private
-
-  # todo: make this into a model, i.e. product_set model which has products and where they come from (like a link or tag)
-  def add_from_link_tags(product, product_ids_from_links)
-    product.instance_variable_set(:@from_link, product_ids_from_links.include?(product.id))
-    product.define_singleton_method(:from_link) { @from_link }
-    product
-  end
 end
