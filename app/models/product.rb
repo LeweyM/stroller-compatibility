@@ -139,6 +139,30 @@ class Product < ApplicationRecord
     raise "Can only link a product to an adapter" if other_product.productable_type != 'Adapter'
   end
 
+  def self.export_all
+    headers = "type,brand,name,url,image_url"
+    rows = all.map do |product|
+      "#{product.productable_type.capitalize},#{product.brand.name},#{product.name},#{product.url},#{product.image&.url}"
+    end
+    rows = rows.sort_by { |row| [row.split(",")[1], row.split(",")[0]] }
+    headers + "\n" + rows.join("\n")
+  end
+
+  def self.export_compatible
+    sets = Adapter.all.map do |adapter|
+      products = adapter.products.all
+      strollers = products.filter { |product| product.productable_type == "Stroller" }.map(&:name)
+      seats = products.filter { |product| product.productable_type == "Seat" }.map(&:name)
+
+      [
+        strollers.uniq.join(","),
+        seats.uniq.join(","),
+        adapter.product.name
+      ]
+    end
+    sets.join("\n")
+  end
+
   def self.import_compatibility(file)
     # expects a csv file with 3 rows, no headers
     # row 0: list of strollers
@@ -248,3 +272,4 @@ class Product < ApplicationRecord
     image.present?
   end
 end
+

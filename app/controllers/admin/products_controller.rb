@@ -99,31 +99,13 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def export
-    headers = "type,brand,name,url,image_url"
-    rows = Product.all.map do |product|
-      "#{product.productable_type.capitalize},#{product.brand.name},#{product.name},#{product.url},#{product.image&.url}"
-    end
-    rows = rows.sort_by { |row| [row.split(",")[1], row.split(",")[0]] }
-    data = headers + "\n" + rows.join("\n")
+    data = Product.export_all
     send_data(data, filename: "product_export_#{Date.today}.csv", type: "text/csv")
   end
 
   def export_compatible
-    # for each adapter, 3 rows. 1st row, a list of strollers, 2nd row a list of seats, 3rd row a single cell with adapter name
-    adapters = Adapter.all
-    sets = []
-    adapters.each do |adapter|
-      products = adapter.products.all
-      strollers = products.filter { |product| product.productable_type == "Stroller" }.map(&:name)
-      seats = products.filter { |product| product.productable_type == "Seat" }.map(&:name)
-
-      row1 = strollers.uniq.join(",")
-      row2 = seats.uniq.join(",")
-      row3 = adapter.product.name
-      sets << [row1, row2, row3]
-    end
-
-    send_data(sets.join("\n"), filename: "compatible_export_#{Date.today}.csv", type: "text/csv")
+    data = Product.export_compatible
+    send_data(data, filename: "compatible_export_#{Date.today}.csv", type: "text/csv")
   end
 
   def update
