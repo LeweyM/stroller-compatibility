@@ -28,4 +28,16 @@ class ProductExportTest < ActiveSupport::TestCase
     assert_equal 'Seat1', lines[7]
     assert_equal 'Adapter1', lines[8]
   end
+
+  test "export_tags generates a CSV string with tag data" do
+    tag = tags(:newborn)
+    oxford = products(:oxford)
+    oxford.add_tag tag
+    lines = Product.export_tags.split("\n")
+
+    assert_equal 'infant,newborn', lines[0]
+    assert_equal 'cabriofix,oxford', lines[1]
+    assert_equal 'oxford,', lines[2]
+    assert_equal 'infant adapter,', lines[3]
+  end
 end

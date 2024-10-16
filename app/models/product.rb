@@ -163,6 +163,16 @@ class Product < ApplicationRecord
     sets.join("\n")
   end
 
+  def self.export_tags
+    headers = Tag.pluck(:label).join(',')
+    tag_product_rows = Tag.all
+                          .map { |tag| tag.products.map(&:name) }
+                          .reduce(&:zip)
+                          .map { |row| row.join(",") }
+
+    [headers, *tag_product_rows].join("\n")
+  end
+
   def self.import_compatibility(file)
     # expects a csv file with 3 rows, no headers
     # row 0: list of strollers
