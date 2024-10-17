@@ -168,7 +168,7 @@ class Product < ApplicationRecord
     tag_product_rows = Tag.all
                           .map { |tag| tag.products.map(&:name) }
                           .reduce(&:zip)
-                          .map { |row| row.join(",") }
+                          .map { |row| row.is_a?(String) ? row : row.join(",") }
 
     [headers, *tag_product_rows].join("\n")
   end

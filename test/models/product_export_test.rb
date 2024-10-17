@@ -30,9 +30,19 @@ class ProductExportTest < ActiveSupport::TestCase
   end
 
   test "export_tags generates a CSV string with tag data" do
-    tag = tags(:newborn)
+    lines = Product.export_tags.split("\n")
+
+    assert_equal 'infant', lines[0]
+    assert_equal 'cabriofix', lines[1]
+    assert_equal 'oxford', lines[2]
+    assert_equal 'infant adapter', lines[3]
+  end
+
+  test "export_tags generates a CSV string with tag data when more than 1 tags exist" do
+    tag = Tag.create!(label: 'newborn', brand: brands(:maxicosi))
     oxford = products(:oxford)
     oxford.add_tag tag
+
     lines = Product.export_tags.split("\n")
 
     assert_equal 'infant,newborn', lines[0]
