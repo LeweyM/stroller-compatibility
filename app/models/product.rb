@@ -168,7 +168,7 @@ class Product < ApplicationRecord
     tag_names = tags.pluck(:label).join(',')
     brands = tags.map(&:brand).map(&:name).join(',')
     tag_product_rows = Tag.all
-                          .map { |tag| tag.products.map(&:name) }
+                          .map { |tag| tag.products.map(&:slug) }
                           .reduce(&:zip)
                           .map { |row| row.is_a?(String) ? row : row.join(",") }
 
