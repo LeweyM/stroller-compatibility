@@ -98,6 +98,7 @@ class Product < ApplicationRecord
     when "strollers", "seats", "adapters" then import_products(file)
     when "matrix" then import_matrix(file)
     when "compatibility" then import_compatibility(file)
+    when "tags" then import_tags(file)
     else
       allowed_import_file_endings = %w[strollers seats adapters matrix compatibility tags]
       raise "Unknown filename '#{filename}'. Filename must begin with one of #{allowed_import_file_endings.join(', ')}"
