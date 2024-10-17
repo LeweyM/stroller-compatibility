@@ -99,13 +99,15 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def export
-    data = Product.export_all
-    send_data(data, filename: "product_export_#{Date.today}.csv", type: "text/csv")
+    send_data(Product.export_all, filename: "product_export_#{Date.today}.csv", type: "text/csv")
   end
 
   def export_compatible
-    data = Product.export_compatible
-    send_data(data, filename: "compatible_export_#{Date.today}.csv", type: "text/csv")
+    send_data(Product.export_compatible, filename: "compatible_export_#{Date.today}.csv", type: "text/csv")
+  end
+
+  def export_tags
+    send_data(Product.export_tags, filename: "tags_export_#{Date.today}.csv", type: "text/csv")
   end
 
   def update
