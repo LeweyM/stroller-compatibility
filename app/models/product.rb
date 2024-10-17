@@ -164,13 +164,15 @@ class Product < ApplicationRecord
   end
 
   def self.export_tags
-    headers = Tag.pluck(:label).join(',')
+    tags = Tag.all
+    tag_names = tags.pluck(:label).join(',')
+    brands = tags.map(&:brand).map(&:name).join(',')
     tag_product_rows = Tag.all
                           .map { |tag| tag.products.map(&:name) }
                           .reduce(&:zip)
                           .map { |row| row.is_a?(String) ? row : row.join(",") }
 
-    [headers, *tag_product_rows].join("\n")
+    [brands, tag_names, *tag_product_rows].join("\n")
   end
 
   def self.import_compatibility(file)
