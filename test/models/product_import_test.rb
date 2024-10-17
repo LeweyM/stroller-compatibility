@@ -38,14 +38,14 @@ class ProductImportTest < ActiveSupport::TestCase
       generate_csv_row(brand: "maxicosi", type: "seat"),
       generate_csv_row(brand: "maxicosi", type: "seat")
     ].join
-    file = prepare_test_file(@csv_headers + csv, "test-seats")
+    file = prepare_test_file(@csv_headers + csv, "seats_test")
     assert_difference 'Product.count', 3 do
       Product.import(file)
     end
   end
 
   test "should raise an error for unknown product types" do
-    file = prepare_test_file(@csv_headers + generate_csv_row(type: "bad_type"), "test-seats")
+    file = prepare_test_file(@csv_headers + generate_csv_row(type: "bad_type"), "seats_test")
 
     assert_raises RuntimeError do
       Product.import(file)
@@ -55,7 +55,7 @@ class ProductImportTest < ActiveSupport::TestCase
   test "should create new brands if they do not exist" do
     row1 = generate_csv_row(brand: "maxicosi", type: "seat")
     row2 = generate_csv_row(brand: "somenewbrand", type: "seat")
-    file = prepare_test_file(@csv_headers + row1 + row2, "test-seats")
+    file = prepare_test_file(@csv_headers + row1 + row2, "seats_test")
 
     assert_difference 'Brand.count', 1 do
       Product.import(file)
@@ -65,14 +65,14 @@ class ProductImportTest < ActiveSupport::TestCase
   test "should associate products with the correct brand" do
     brand = Brand.create!(name: "BrandA")
     row = generate_csv_row(brand: "BrandA", type: "seat")
-    file = prepare_test_file(@csv_headers + row, "test-seats")
+    file = prepare_test_file(@csv_headers + row, "seats_test")
     Product.import(file)
     assert_equal brand, Product.last.brand
   end
 
   test "should handle image creation correctly" do
     row = generate_csv_row(brand: "BrandA", type: "seat")
-    file = prepare_test_file(@csv_headers + row, "test-seats")
+    file = prepare_test_file(@csv_headers + row, "seats_test")
 
     Product.import(file)
     assert_not_nil Product.last.image
@@ -80,7 +80,7 @@ class ProductImportTest < ActiveSupport::TestCase
 
   test "should handle product creation without image" do
     row = generate_csv_row(type: "seat", image_url: nil)
-    file = prepare_test_file(@csv_headers + row, "test-seats")
+    file = prepare_test_file(@csv_headers + row, "seats_test")
 
     Product.import(file)
     assert_nil Product.last.image
@@ -90,7 +90,7 @@ class ProductImportTest < ActiveSupport::TestCase
 
   test "should import tags correctly" do
     csv = %w[maxicosi,maxicosi tag1,tag2 oxford,cabriofix cabriofix].join("\n")
-    file = prepare_test_file(csv, "test-tags")
+    file = prepare_test_file(csv, "tags_test")
 
     Product.import_tags(file)
 
@@ -102,7 +102,7 @@ class ProductImportTest < ActiveSupport::TestCase
 
   test "should not make any changes if one brand does not exist" do
     csv = %w[maxicosi,some-brand-that-doesnt-exist tag1,tag2 oxford,cabriofix cabriofix].join("\n")
-    file = prepare_test_file(csv, "test-tags")
+    file = prepare_test_file(csv, "tags_test")
 
     assert_raises { Product.import_tags(file) }
     assert_nil Tag.find_by(label: "tag1")
@@ -111,7 +111,7 @@ class ProductImportTest < ActiveSupport::TestCase
 
   test "should not make any changes if one product does not exist" do
     csv = %w[maxicosi,maxicosi tag1,tag2 oxford,cabriofix cabriofix,some-product-that-doesnt-exist].join("\n")
-    file = prepare_test_file(csv, "test-tags")
+    file = prepare_test_file(csv, "tags_test")
 
     assert_raises { Product.import_tags(file) }
     assert_nil Tag.find_by(label: "tag1")
