@@ -23,7 +23,7 @@ class ProductExportImportTest < ActiveSupport::TestCase
 
     # 4. Run imports on the exported files
     Product.import(prepare_test_file(products_csv, "seats_export"))
-    Product.import(prepare_test_file(compatibilities_csv, "compatibility_export"))
+    Product.import(prepare_test_file(compatibilities_csv, "compatible_export"))
     Product.import(prepare_test_file(tags_csv, "tags_export"))
 
     # 5. Check that nothing has changed
