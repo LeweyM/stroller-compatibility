@@ -44,6 +44,31 @@ class ProductImportTest < ActiveSupport::TestCase
     end
   end
 
+  test "should not raise errors when importing duplicate compatibility" do
+    # Create initial products and adapter
+    stroller = create_product!(type: Stroller, name: "TestStroller", fix_name: true)
+    seat = create_product!(type: Seat, name: "TestSeat", fix_name: true)
+    adapter = create_product!(type: Adapter, name: "TestAdapter", fix_name: true)
+
+    # Create initial CSV content
+    csv_content = "TestStroller\nTestSeat\nTestAdapter"
+    file = prepare_test_file(csv_content, "compatible_test")
+
+    # Import compatibility for the first time
+    assert_nothing_raised do
+      Product.import(file)
+    end
+
+    # Try to import the same compatibility again
+    assert_nothing_raised do
+      Product.import(file)
+    end
+
+    # Verify that the links still exist and weren't duplicated
+    assert_equal 1, stroller.product_adapters.where(adapter: adapter.productable).count
+    assert_equal 1, seat.product_adapters.where(adapter: adapter.productable).count
+  end
+
   test "should raise an error for unknown product types" do
     file = prepare_test_file(@csv_headers + generate_csv_row(type: "bad_type"), "seats_test")
 

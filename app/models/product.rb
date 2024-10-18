@@ -91,6 +91,11 @@ class Product < ApplicationRecord
     name_changed?
   end
 
+  def is_linked_to?(adapter_product)
+    raise "Can only check if linked to an adapter" if adapter_product.productable_type != 'Adapter'
+    product_adapters.exists?(adapter: adapter_product.productable)
+  end
+
   def self.import(file)
     filename = file.original_filename
     raise "Invalid file type. Must be CSV." unless File.extname(filename).downcase == '.csv'
@@ -207,10 +212,10 @@ class Product < ApplicationRecord
       adapter = Product.find_by!(name: adapter_name, productable_type: "Adapter")
 
       strollers.each do |product|
-        product.link!(adapter)
+        product.link!(adapter) unless product.is_linked_to? adapter
       end
       seats.each do |product|
-        product.link!(adapter)
+        product.link!(adapter) unless product.is_linked_to? adapter
       end
     end
   end
