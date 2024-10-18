@@ -36,7 +36,7 @@ class ProductExportTest < ActiveSupport::TestCase
     assert_equal 'infant', lines[1]
     assert_equal 'cabriofix', lines[2]
     assert_equal 'oxford', lines[3]
-    assert_equal 'maxicosi-infant-adapter', lines[4]
+    assert_equal 'infant-adapter', lines[4]
   end
 
   test "export_tags generates a CSV string with tag data when more than 1 tags exist" do
@@ -50,6 +50,6 @@ class ProductExportTest < ActiveSupport::TestCase
     assert_equal 'infant,newborn', lines[1]
     assert_equal 'cabriofix,oxford', lines[2]
     assert_equal 'oxford,', lines[3]
-    assert_equal 'maxicosi-infant-adapter,', lines[4]
+    assert_equal 'infant-adapter,', lines[4]
   end
 end

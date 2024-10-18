@@ -67,7 +67,9 @@ class Product < ApplicationRecord
   end
 
   def serialize
-    as_json.merge(:image => image_or_default.as_json)
+    as_json
+      .merge('image' => image_or_default.as_json)
+      .merge('tags' => tags.map(&:serializable_hash))
   end
 
   def image_attribution_required?
