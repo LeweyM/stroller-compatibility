@@ -142,13 +142,21 @@ class Product < ApplicationRecord
     raise "Can only link a product to an adapter" if other_product.productable_type != 'Adapter'
   end
 
+  def self.sort_rows(rows, headers, sort_headers)
+    header_indexes = sort_headers.map { |header| headers.index(header) }
+    rows.sort_by do |row|
+      fields = row.split(",")
+      header_indexes.map { |index| fields[index] }
+    end
+  end
+
   def self.export_all
-    headers = "type,brand,name,url,image_url"
+    headers = ["type", "brand", "name", "url", "image_url"]
     rows = all.map do |product|
       "#{product.productable_type.capitalize},#{product.brand.name},#{product.name},#{product.url},#{product.image&.url}"
     end
-    rows = rows.sort_by { |row| [row.split(",")[1], row.split(",")[0]] }
-    headers + "\n" + rows.join("\n")
+    rows = sort_rows(rows, headers, ["brand", "type", "name"])
+    headers.join(",") + "\n" + rows.join("\n")
   end
 
   def self.export_compatible

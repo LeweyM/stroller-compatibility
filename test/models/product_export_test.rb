@@ -20,6 +20,25 @@ class ProductExportTest < ActiveSupport::TestCase
     assert_includes lines, 'Stroller,TestBrand,Stroller1,http://example.com/stroller1,'
   end
 
+  test "export_all sorts products by brand, type, and name" do
+    brand1 = Brand.create!(name: 'BrandA')
+    brand2 = Brand.create!(name: 'BrandB')
+
+    create_product!(type: Stroller, name: 'StrollerB', brand: brand2, fix_name: true)
+    create_product!(type: Seat, name: 'SeatA', brand: brand1, fix_name: true)
+    create_product!(type: Stroller, name: 'StrollerA', brand: brand1, fix_name: true)
+    create_product!(type: Seat, name: 'SeatB', brand: brand2, fix_name: true)
+
+    exported_data = Product.export_all
+    lines = exported_data.split("\n")
+
+    assert_equal 'type,brand,name,url,image_url', lines[0]
+    assert_equal 'Seat,BrandA,SeatA,,', lines[1]
+    assert_equal 'Stroller,BrandA,StrollerA,,', lines[2]
+    assert_equal 'Seat,BrandB,SeatB,,', lines[3]
+    assert_equal 'Stroller,BrandB,StrollerB,,', lines[4]
+  end
+
   test "export_compatible generates a CSV string with compatibility information" do
     lines = Product.export_compatible.split("\n")
 
