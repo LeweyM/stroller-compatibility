@@ -38,7 +38,7 @@ class ProductImportTest < ActiveSupport::TestCase
       generate_csv_row(brand: "maxicosi", type: "seat"),
       generate_csv_row(brand: "maxicosi", type: "seat")
     ].join
-    file = prepare_test_file(@csv_headers + csv, "seats_test")
+    file = prepare_test_file(@csv_headers + csv, "product_test")
     assert_difference 'Product.count', 3 do
       Product.import(file)
     end
@@ -70,7 +70,7 @@ class ProductImportTest < ActiveSupport::TestCase
   end
 
   test "should raise an error for unknown product types" do
-    file = prepare_test_file(@csv_headers + generate_csv_row(type: "bad_type"), "seats_test")
+    file = prepare_test_file(@csv_headers + generate_csv_row(type: "bad_type"), "product_test")
 
     assert_raises RuntimeError do
       Product.import(file)
@@ -80,7 +80,7 @@ class ProductImportTest < ActiveSupport::TestCase
   test "should create new brands if they do not exist" do
     row1 = generate_csv_row(brand: "maxicosi", type: "seat")
     row2 = generate_csv_row(brand: "somenewbrand", type: "seat")
-    file = prepare_test_file(@csv_headers + row1 + row2, "seats_test")
+    file = prepare_test_file(@csv_headers + row1 + row2, "product_test")
 
     assert_difference 'Brand.count', 1 do
       Product.import(file)
@@ -90,14 +90,14 @@ class ProductImportTest < ActiveSupport::TestCase
   test "should associate products with the correct brand" do
     brand = Brand.create!(name: "BrandA")
     row = generate_csv_row(brand: "BrandA", type: "seat")
-    file = prepare_test_file(@csv_headers + row, "seats_test")
+    file = prepare_test_file(@csv_headers + row, "product_test")
     Product.import(file)
     assert_equal brand, Product.last.brand
   end
 
   test "should handle image creation correctly" do
     row = generate_csv_row(brand: "BrandA", type: "seat")
-    file = prepare_test_file(@csv_headers + row, "seats_test")
+    file = prepare_test_file(@csv_headers + row, "product_test")
 
     Product.import(file)
     assert_not_nil Product.last.image
@@ -105,7 +105,7 @@ class ProductImportTest < ActiveSupport::TestCase
 
   test "should handle product creation without image" do
     row = generate_csv_row(type: "seat", image_url: nil)
-    file = prepare_test_file(@csv_headers + row, "seats_test")
+    file = prepare_test_file(@csv_headers + row, "product_test")
 
     Product.import(file)
     assert_nil Product.last.image
@@ -119,7 +119,7 @@ class ProductImportTest < ActiveSupport::TestCase
       link: "http://example.com",
       image_url: "http://example.com/image.jpg"
     )
-    file = prepare_test_file(csv_content, "strollers_with_commas")
+    file = prepare_test_file(csv_content, "product")
 
     assert_difference 'Product.count', 1 do
       Product.import(file)
