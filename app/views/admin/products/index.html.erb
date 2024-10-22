@@ -3,18 +3,30 @@
     <h1 class="font-bold text-4xl">Import Products</h1>
     <div class="flex flex-row">
       <%= render partial: 'admin/shared/file_upload_form', locals: { url: import_admin_products_path, id: 'import-products' } %>
-      <%= link_to "Export Products To CSV", export_admin_products_path,
-                  class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mx-1"
-      %>
-      <%= link_to "Export Compatibility To CSV", export_compatible_admin_products_path,
-                  class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mx-1"
-      %>
-      <%= link_to "Export Tags To CSV", export_tags_admin_products_path,
-                  class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mx-1"
-      %>
+      <div data-controller="toggle-visibility" class="flex flex-col md:flex-row">
+        <%= link_to "Export All Data", export_all_admin_products_path,
+                    class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mx-1"
+        %>
+        <div class="m-2 text-gray-500">
+          <button data-action="click->toggle-visibility#toggle" type="button">
+            <i class="fa-solid fa-caret-down"></i>
+            <span class="inline">more export options</span>
+          </button>
+        </div>
+        <div data-toggle-visibility-target="element" class="hidden flex flex-col md:flex-row">
+          <%= link_to "Export Products To CSV", export_admin_products_path,
+                      class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mx-1"
+          %>
+          <%= link_to "Export Compatibility To CSV", export_compatible_admin_products_path,
+                      class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mx-1"
+          %>
+          <%= link_to "Export Tags To CSV", export_tags_admin_products_path,
+                      class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mx-1"
+          %>
+        </div>
+      </div>
     </div>
   </div>
-
   <form action="<%= admin_products_path %>" method="get" class="mb-4">
     <div data-controller="toggle-visibility" class="flex flex-col md:flex-row">
       <div class="m-2 text-gray-500">

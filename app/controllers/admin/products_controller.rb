@@ -1,3 +1,5 @@
+require 'zip'
+
 class Admin::ProductsController < Admin::BaseController
   def index
     @brands = Brand.all
@@ -110,6 +112,27 @@ class Admin::ProductsController < Admin::BaseController
 
   def export_tags
     send_data(Product.export_tags, filename: "tags_export_#{Date.today}.csv", type: "text/csv")
+  end
+
+  def export_all
+    products_csv = Product.export_all
+    compatibility_csv = Product.export_compatible
+    tags_csv = Product.export_tags
+    brands_csv = Brand.export_to_csv
+
+    compressed_filestream = Zip::OutputStream.write_buffer do |zos|
+      zos.put_next_entry("product_export_#{Date.today}.csv")
+      zos.write products_csv
+      zos.put_next_entry("compatibility_export_#{Date.today}.csv")
+      zos.write compatibility_csv
+      zos.put_next_entry("tags_export_#{Date.today}.csv")
+      zos.write tags_csv
+      zos.put_next_entry("brands_export_#{Date.today}.csv")
+      zos.write brands_csv
+    end
+
+    compressed_filestream.rewind
+    send_data compressed_filestream.read, filename: "all_exports_#{Date.today}.zip"
   end
 
   def update

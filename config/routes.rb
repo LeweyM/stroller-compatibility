@@ -36,6 +36,7 @@ Rails.application.routes.draw do
         get :export
         get :export_compatible
         get :export_tags
+        get :export_all
       end
     end
   end
