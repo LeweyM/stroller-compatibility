@@ -92,3 +92,5 @@ gem "jsbundling-rails", "~> 1.3"
 gem "view_component", "~> 3.13"
 
 gem "tailwindcss-rails", "~> 2.6"
+
+gem 'rubyzip'
