@@ -1,8 +1,8 @@
 <%= form_with url: import_admin_products_path, local: true, id: "form_#{id}", data: { id: id }, multipart: true do |form| %>
   <div class="flex flex-row">
     <div>
-      <%= form.label :file, "CSV file" %>
-      <%= form.file_field :file, id: "file_#{id}" %>
+      <%= form.label :files, "CSV file" %>
+      <%= form.file_field :files, id: "file_#{id}", multiple: true %>
     </div>
     <div>
       <%= form.submit "Import",

@@ -86,10 +86,12 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def import
-    file = params[:file]
+    files = params[:files].reject(&:blank?)
 
     begin
-      Product.import(file)
+      files.each { |file|
+        Product.import(file)
+      }
       redirect_to admin_products_path, notice: "Products imported successfully."
     rescue StandardError => e
       flash[:error] = "Error importing products: #{e.message}"
