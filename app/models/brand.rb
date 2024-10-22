@@ -19,4 +19,15 @@ class Brand < ApplicationRecord
   def seats
     products.where(productable_type: "Seat")
   end
+
+  # @return [String]
+  def self.export_to_csv
+    CSV.generate(headers: true, force_quotes: true) do |csv|
+      csv << ['name', 'website']
+      all.each do |brand|
+        csv << [brand.name, brand.website]
+      end
+    end
+  end
+
 end

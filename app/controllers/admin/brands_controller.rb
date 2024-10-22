@@ -38,11 +38,8 @@ class Admin::BrandsController < Admin::BaseController
   end
 
   def export
-    headers = "name,website"
-    rows = Brand.all.map do |brand|
-      "#{brand.name},#{brand.website}"
-    end
-    send_data headers + "\n" + rows.join("\n"), filename: "brands_#{Date.today}.csv", type: "text/csv"
+    csv_data = Brand.export_to_csv
+    send_data csv_data, filename: "brands_#{Date.today}.csv", type: "text/csv"
   end
 
   private
