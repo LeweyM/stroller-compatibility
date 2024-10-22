@@ -7,6 +7,14 @@ class ProductExportImportTest < ActiveSupport::TestCase
     # todo: add into fixtures
     products(:oxford).link! products(:"maxicosi infant adapter")
 
+    # create product with commas in name
+    Product.create!(
+      name: "test, product",
+      productable: Seat.new(),
+      brand: brands(:maxicosi),
+      url: "http://example.com/test-product",
+    )
+
     # 1. Save initial database state
     initial_products = Product.all.map(&:serialize)
     initial_compatibilities = ProductAdapter.all.map(&:serialize)

@@ -22,7 +22,7 @@ class ProductImportTest < ActiveSupport::TestCase
     defaults[:name] = "#{defaults[:name]}_#{unique_suffix}" unless defaults.key?(:name)
 
     # Create a CSV row string
-    "#{defaults[:type]},#{defaults[:brand]},#{defaults[:name]},#{defaults[:link]},#{defaults[:image_url]}\n"
+    CSV.generate_line([defaults[:type], defaults[:brand], defaults[:name], defaults[:link], defaults[:image_url]], force_quotes: true)
   end
 
   def prepare_test_file(content, filename)
@@ -109,6 +109,26 @@ class ProductImportTest < ActiveSupport::TestCase
 
     Product.import(file)
     assert_nil Product.last.image
+  end
+
+  test "should import products with commas in names" do
+    csv_content = @csv_headers + generate_csv_row(
+      type: "Stroller",
+      brand: "BrandX",
+      name: "Deluxe, Comfy Stroller",
+      link: "http://example.com",
+      image_url: "http://example.com/image.jpg"
+    )
+    file = prepare_test_file(csv_content, "strollers_with_commas")
+
+    assert_difference 'Product.count', 1 do
+      Product.import(file)
+    end
+
+    product = Product.last
+    assert_equal "Deluxe, Comfy Stroller", product.name
+    assert_equal "BrandX", product.brand.name
+    assert_equal "Stroller", product.productable_type
   end
 
   #  import_tags

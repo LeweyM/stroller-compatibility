@@ -156,39 +156,44 @@ class Product < ApplicationRecord
   end
 
   def self.export_all
-    headers = ["type", "brand", "name", "url", "image_url"]
-    rows = all.map do |product|
-      "#{product.productable_type.capitalize},#{product.brand.name},#{product.name},#{product.url},#{product.image&.url}"
+    CSV.generate(force_quotes: true) do |csv|
+      csv << %w[type brand name url image_url]
+      all.includes(:brand).order('brands.name', :productable_type, :name).each do |product|
+        csv << [
+          product.productable_type.capitalize,
+          product.brand.name,
+          product.name,
+          product.url,
+          product.image&.url
+        ]
+      end
     end
-    rows = sort_rows(rows, headers, ["brand", "type", "name"])
-    headers.join(",") + "\n" + rows.join("\n")
   end
 
   def self.export_compatible
-    sets = Adapter.all.map do |adapter|
-      products = adapter.products.all
-      strollers = products.filter { |product| product.productable_type == "Stroller" }.map(&:name)
-      seats = products.filter { |product| product.productable_type == "Seat" }.map(&:name)
+    CSV.generate(force_quotes: true) do |csv|
+      Adapter.all.each do |adapter|
+        products = adapter.products.all
+        strollers = products.filter { |product| product.productable_type == "Stroller" }.map(&:name)
+        seats = products.filter { |product| product.productable_type == "Seat" }.map(&:name)
 
-      [
-        strollers.uniq.join(","),
-        seats.uniq.join(","),
-        adapter.product.name
-      ]
+        csv << strollers.uniq
+        csv << seats.uniq
+        csv << [adapter.product.name]
+      end
     end
-    sets.join("\n")
   end
 
   def self.export_tags
-    tags = Tag.all
-    tag_names = tags.pluck(:label).join(',')
-    brands = tags.map(&:brand).map(&:name).join(',')
-    tag_product_rows = Tag.all
-                          .map { |tag| tag.products.map(&:slug) }
-                          .reduce(&:zip)
-                          .map { |row| row.is_a?(String) ? row : row.join(",") }
-
-    [brands, tag_names, *tag_product_rows].join("\n")
+    CSV.generate(force_quotes: true) do |csv|
+      tags = Tag.all
+      csv << tags.map(&:brand).map(&:name)
+      csv << tags.pluck(:label)
+      Tag.all
+         .map { |tag| tag.products.map(&:slug) }
+         .reduce(&:zip)
+         .each { |row| csv << [row].flatten }
+    end
   end
 
   def self.import_compatibility(file)
