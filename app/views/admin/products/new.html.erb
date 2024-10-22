@@ -5,7 +5,7 @@
     <%= form_with model: [:admin, @product], local: true, class: "space-y-4" do |form| %>
       <div>
         <%= form.label :productable_type, "Type:", class: "block font-medium text-gray-700" %>
-        <%= form.select :productable_type, ['Stroller', 'Seat'], {}, { class: "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" } %>
+        <%= form.select :productable_type, ['Stroller', 'Seat', 'Adapter'], {}, { class: "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" } %>
       </div>
       <div>
         <%= form.label :name, "Product Name:", class: "block font-medium text-gray-700" %>

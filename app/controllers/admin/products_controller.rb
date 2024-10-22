@@ -33,6 +33,7 @@ class Admin::ProductsController < Admin::BaseController
     productable = case product_params[:productable_type]
                   when "Stroller" then Stroller.new
                   when "Seat" then Seat.new
+                  when "Adapter" then Adapter.new
                   else raise "Invalid product type"
                   end
     @product.productable = productable
