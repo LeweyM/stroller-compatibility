@@ -68,6 +68,7 @@ class Product < ApplicationRecord
 
   def serialize
     as_json
+      .merge('brand' => brand.as_json)
       .merge('image' => image_or_default.as_json)
       .merge('tags' => tags.map(&:serializable_hash))
   end

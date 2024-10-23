@@ -14,7 +14,7 @@ class Adapter < ApplicationRecord
     adapter_products = Product.by_adapter(self)
 
     Product
-      .includes(:image)
+      .includes(:image, :brand)
       .where(id: adapter_products.select(:id))
       .where.not(productable_type: 'Adapter')
   end
@@ -23,7 +23,7 @@ class Adapter < ApplicationRecord
     tag_products = Product.by_tag_ids(self.product.tags.ids)
 
     Product
-      .includes(:image)
+      .includes(:image, :brand)
       .where(id: tag_products.select(:id))
       .where.not(productable_type: 'Adapter')
   end

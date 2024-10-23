@@ -67,7 +67,7 @@ function MultipleItems({items}: Props) {
                             <a href={item.url}>
                                 <p>{item.name}</p>
                             </a>
-                            <p className={"text-gray-400"}>By {item.brand_name}</p>
+                            <p className={"text-gray-400"}>By {item.brand.name}</p>
                         </div>
                     </div>
                 ))}

@@ -4,8 +4,14 @@ export type Product = {
     slug: string,
     type: ProductType,
     image: Image,
-    brand_name: string,
+    brand: Brand,
     url: string,
+}
+
+export type Brand = {
+    id: number,
+    name: string,
+    website: string,
 }
 
 export type Image = {
