@@ -80,7 +80,7 @@ class Product < ApplicationRecord
     compatible_products_by_adapter.values.flatten.uniq
   end
 
-  # get all adapters linked to this product, grouped by the adapter
+  # get all products linked to this product, grouped by the adapter
   def compatible_products_by_adapter
     CompatibleProduct.for_product(self)
                      .group_by(&:adapter)
