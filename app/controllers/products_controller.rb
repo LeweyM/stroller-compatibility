@@ -35,7 +35,9 @@ class ProductsController < ApplicationController
   def compatible
     @product_a = Product.left_joins(:image, :brand).includes(:image, :brand).friendly.find(params[:slug])
     @product_b = Product.left_joins(:image, :brand).includes(:image, :brand).friendly.find(params[:b_id])
-    @adapter = @product_a.adapters.left_joins(products: [:image, :brand]).where(products: @product_b).first&.product
+    result = CompatibleProduct.for_product(@product_a).filter { |cp| cp.product.id == @product_b.id }
+    @is_compatible = result.any?
+    @adapter = result.first&.adapter
   end
 
   private
