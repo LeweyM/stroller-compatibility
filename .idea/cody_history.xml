@@ -7742,7 +7742,7 @@
           </chats>
           <defaultLlm>
             <llm>
-              <model value="anthropic::2023-06-01::claude-3.5-sonnet" />
+              <model value="anthropic::2024-10-22::claude-3-5-sonnet-latest" />
               <provider value="anthropic" />
               <tags>
                 <list>
@@ -7751,7 +7751,7 @@
                   <option value="power" />
                 </list>
               </tags>
-              <title value="Claude 3.5 Sonnet" />
+              <title value="Claude 3.5 Sonnet (Latest)" />
               <usage>
                 <list>
                   <option value="edit" />
