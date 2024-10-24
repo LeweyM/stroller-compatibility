@@ -57,4 +57,38 @@ class CompatibleProductTest < ActiveSupport::TestCase
     assert_equal 1, result.size
     assert_equal result.first.tags, [tag_1, tag_2]
   end
+
+  test 'for_product should not allow adapters to use other adapters for compatible product links' do
+    adapter_a = create_product! type: Adapter, name: 'adapter_a'
+    adapter_b = create_product! type: Adapter, name: 'adapter_b'
+    tag_a = Tag.create!(label: "tag_a", brand: brands(:maxicosi))
+    stroller = create_product! type: Stroller, name: 'stroller'
+    seat = create_product! type: Seat, name: 'seat'
+
+    # given:
+    # adapter_a -> tag_a
+    # adapter_b -> tag_a
+    # stroller -> adapter_a
+    # seat -> tag_a
+    adapter_a.add_tag(tag_a)
+    adapter_b.add_tag(tag_a)
+    seat.add_tag(tag_a)
+    stroller.link!(adapter_a)
+
+    # then:
+    # seat should be compatible with stroller
+    assert_equal [CompatibleProduct.new(product: stroller, adapter: adapter_a)], CompatibleProduct.for_product(seat)
+
+    # then:
+    # adapter_b should not be compatible with stroller, but should be compatible with seat
+    assert_equal [CompatibleProduct.new(product: seat, adapter: adapter_b, tags_from_link: [tag_a])], CompatibleProduct.for_product(adapter_b)
+
+    # then:
+    # adapter_a should be compatible with stroller and seat
+    assert_equal [
+                   CompatibleProduct.new(product: seat, adapter: adapter_a, tags_from_link: [tag_a]),
+                   CompatibleProduct.new(product: stroller, adapter: adapter_a),
+                 ],
+                 CompatibleProduct.for_product(adapter_a)
+  end
 end

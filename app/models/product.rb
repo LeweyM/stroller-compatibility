@@ -34,6 +34,9 @@ class Product < ApplicationRecord
   }
 
   def combined_adapters
+    if productable_type == 'Adapter'
+      return [self.productable]
+    end
     Adapter.where(id: direct_adapters_ids).or(Adapter.where(id: tagged_adapter_ids))
   end
 
