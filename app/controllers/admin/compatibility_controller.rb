@@ -19,6 +19,10 @@ class Admin::CompatibilityController < Admin::BaseController
     adapter = Product.friendly.find(params[:adapter])
     product_a = Product.friendly.find(params[:product_a])
 
-    product_a.unlink!(adapter)
+    begin
+      product_a.unlink!(adapter)
+    rescue => e
+      render json: { error: e.message }, status: :unprocessable_entity
+    end
   end
 end

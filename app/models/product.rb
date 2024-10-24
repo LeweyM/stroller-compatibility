@@ -116,17 +116,17 @@ class Product < ApplicationRecord
     end
   end
 
-  def link!(other_product)
-    validate_linkable(other_product)
+  def link!(adapter_product)
+    validate_linkable(adapter_product)
 
-    adapter = other_product.productable
+    adapter = adapter_product.productable
     adapter.products << self
   end
 
-  def unlink!(other_product)
-    validate_linkable(other_product)
-
-    adapter = other_product.productable
+  def unlink!(adapter_product)
+    validate_linkable(adapter_product)
+    raise "Product is not linked to #{adapter_product.name}" unless is_linked_to?(adapter_product)
+    adapter = adapter_product.productable
     adapter.products.delete(self)
   end
 

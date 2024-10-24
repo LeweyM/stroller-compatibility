@@ -52,4 +52,18 @@ class Admin::CompatibilityControllerTest < Admin::BaseControllerTest
     assert_equal assigns(:adapters_with_products_by_type)[adapter]["Stroller"], []
     assert_equal assigns(:adapters_with_products_by_type)[adapter]["Seat"], []
   end
+
+  # /unlink
+
+  test "unlink should error if unable to link" do
+    adapter = create_product!(type: Adapter)
+    p1 = create_product!(type: Stroller)
+
+    delete unlink_admin_compatibility_index_path, headers: http_login, params: {
+      adapter: adapter.id,
+      product_a: p1.id
+    }
+
+    assert_response :unprocessable_entity
+  end
 end
