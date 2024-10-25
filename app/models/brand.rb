@@ -30,4 +30,15 @@ class Brand < ApplicationRecord
     end
   end
 
+  # @param [File] file
+  def self.import(file)
+    csv_raw = File.read(file.path)
+    csv = CSV.parse(csv_raw, headers: true)
+    csv.each do |row|
+      brand = Brand.find_or_initialize_by(name: row['name'])
+      brand.website = row['website']
+      brand.save!
+    end
+
+  end
 end
