@@ -93,12 +93,25 @@ class Admin::ProductsController < Admin::BaseController
 
     begin
       files.each { |file|
-        Product.import(file)
+        filename = file.original_filename
+        raise "Invalid file type. Must be CSV." unless File.extname(filename).downcase == '.csv'
+        #   delegate to private methods based on filename ending  case file
+        start_of_filename = filename.split('_').first.downcase.chomp('.csv')
+        case start_of_filename
+        when "product" then Product.import(file)
+        when "matrix" then Product.import(file)
+        when "compatible" then Product.import(file)
+        when "tags" then Product.import(file)
+        when "brands" then Brand.import(file)
+        else
+          allowed_import_file_endings = %w[product matrix compatible tags brands]
+          raise "Unknown filename '#{filename}'. Filename must begin with one of #{allowed_import_file_endings.join(', ')}"
+        end
       }
       redirect_to admin_products_path, notice: "Products imported successfully."
     rescue StandardError => e
       flash[:error] = "Error importing products: #{e.message}"
-      redirect_to admin_products_path
+      redirect_to admin_products_path, status: :unprocessable_entity
 
     end
   end
