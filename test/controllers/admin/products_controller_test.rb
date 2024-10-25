@@ -227,3 +227,73 @@ class Admin::ProductsControllerSearchTest < ActionDispatch::IntegrationTest
     assert results.first["name"].starts_with? "Product with % and _"
   end
 end
+
+class Admin::ProductsImportControllerTest < Admin::BaseControllerTest
+  def create_test_file(content: "test", content_type: "text/csv", original_filename: "product.csv")
+    Rack::Test::UploadedFile.new(StringIO.new(content),
+                                 content_type,
+                                 original_filename: original_filename)
+  end
+
+  def file_matching(file)
+    ->(actual_file) {
+      actual_file.original_filename == file.original_filename &&
+        actual_file.content_type == file.content_type &&
+        actual_file.read == file.read
+    }
+  end
+
+  test "should call Brand.import for files starting with 'brands'" do
+    file = create_test_file(original_filename: "brands.csv")
+    Brand.expects(:import).with(&file_matching(file))
+
+    post import_admin_products_url, params: { files: [file] }, headers: http_login
+
+    assert_response :found
+  end
+
+  test "should call Product.import for files starting with 'product'" do
+    file = create_test_file(original_filename: "product.csv")
+    Product.expects(:import).with(&file_matching(file))
+
+    post import_admin_products_url, params: { files: [file] }, headers: http_login
+
+    assert_response :found
+  end
+
+  test "should call Product.import for files starting with 'matrix'" do
+    file = create_test_file(original_filename: "matrix.csv")
+    Product.expects(:import).with(&file_matching(file))
+
+    post import_admin_products_url, params: { files: [file] }, headers: http_login
+
+    assert_response :found
+  end
+
+  test "should call Product.import for files starting with 'compatible'" do
+    file = create_test_file original_filename: "compatible.csv"
+    Product.expects(:import).with(&file_matching(file))
+
+    post import_admin_products_url, params: { files: [file] }, headers: http_login
+
+    assert_response :found
+  end
+
+  test "should call Product.import for files starting with 'tags'" do
+    file = create_test_file original_filename: "tags.csv"
+    Product.expects(:import).with(&file_matching(file))
+
+    post import_admin_products_url, params: { files: [file] }, headers: http_login
+
+    assert_response :found
+  end
+
+  test "should reject files with invalid names" do
+    file = create_test_file original_filename: "some_invalid_filename.csv"
+
+    post import_admin_products_url, params: { files: [file] }, headers: http_login
+
+    assert_response :unprocessable_entity
+    assert_equal "Error importing products: Unknown filename 'some_invalid_filename.csv'. Filename must begin with one of product, matrix, compatible, tags, brands", flash[:error]
+  end
+end
