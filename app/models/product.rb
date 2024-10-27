@@ -268,39 +268,50 @@ class Product < ApplicationRecord
   # this expects csv file where each row is a product
   # with the following columns:
   # type,brand,name,link,image_url
+  # @param [File] file CSV file with product import data
+  # @return [Integer] Count of newly created product records
   def self.import_products(file)
     csv_text = File.read(file)
     csv = CSV.parse(csv_text, headers: true)
-    csv.each do |row|
-      type = row[0]
-      brand_name = row[1]
-      name = row[2]
-      link = row[3]
-      image_url = row[4]
+    count = 0
 
-      brand = Brand.find_or_create_by!(name: brand_name)
-      product = Product.find_by(name: name)
-      if product.nil?
-        productable = case type.downcase
-                      when 'seat'
-                        Seat.create!
-                      when 'stroller'
-                        Stroller.create!
-                      when 'adapter'
-                        Adapter.create!
-                      else
-                        raise "Unknown product type: #{type}"
-                      end
+    Product.transaction do
+      csv.each do |row|
+        type = row[0]
+        brand_name = row[1]
+        name = row[2]
+        link = row[3]
+        image_url = row[4]
 
-        Product.create!(
-          name: name,
-          url: link,
-          brand: brand,
-          productable: productable,
-          image: image_url ? Image.create_or_find_by(:url => image_url) : nil
-        )
+        brand = Brand.find_by(name: brand_name)
+        if brand.nil?
+          raise "brand '#{brand_name}' not recognized"
+        end
+        product = Product.find_by(name: name)
+        if product.nil?
+          productable = case type.downcase
+                        when 'seat'
+                          Seat.create!
+                        when 'stroller'
+                          Stroller.create!
+                        when 'adapter'
+                          Adapter.create!
+                        else
+                          raise "Unknown product type: #{type}"
+                        end
+
+          Product.create!(
+            name: name,
+            url: link,
+            brand: brand,
+            productable: productable,
+            image: image_url ? Image.create_or_find_by(:url => image_url) : nil
+          )
+          count += 1
+        end
       end
     end
+    count
   end
 
   def self.import_tags(file)

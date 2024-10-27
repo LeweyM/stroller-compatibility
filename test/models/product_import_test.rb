@@ -12,7 +12,7 @@ class ProductImportTest < ActiveSupport::TestCase
     # Define default values for each column, ensuring 'name' is always unique
     defaults = {
       type: "seat",
-      brand: "defaultBrand",
+      brand: "maxicosi",
       name: "defaultName_#{unique_suffix}",
       link: "http://example.com/default",
       image_url: "http://example.com/default.jpg"
@@ -77,13 +77,15 @@ class ProductImportTest < ActiveSupport::TestCase
     end
   end
 
-  test "should create new brands if they do not exist" do
+  test "should raise an error for unknown brands and no new products should be added" do
     row1 = generate_csv_row(brand: "maxicosi", type: "seat")
     row2 = generate_csv_row(brand: "somenewbrand", type: "seat")
     file = prepare_test_file(@csv_headers + row1 + row2, "product_test")
 
-    assert_difference 'Brand.count', 1 do
-      Product.import(file)
+    assert_difference ['Brand.count', 'Product.count'], 0 do
+      assert_raises RuntimeError do
+        Product.import(file)
+      end
     end
   end
 
@@ -96,7 +98,7 @@ class ProductImportTest < ActiveSupport::TestCase
   end
 
   test "should handle image creation correctly" do
-    row = generate_csv_row(brand: "BrandA", type: "seat")
+    row = generate_csv_row(type: "seat")
     file = prepare_test_file(@csv_headers + row, "product_test")
 
     Product.import(file)
@@ -114,7 +116,6 @@ class ProductImportTest < ActiveSupport::TestCase
   test "should import products with commas in names" do
     csv_content = @csv_headers + generate_csv_row(
       type: "Stroller",
-      brand: "BrandX",
       name: "Deluxe, Comfy Stroller",
       link: "http://example.com",
       image_url: "http://example.com/image.jpg"
@@ -127,10 +128,22 @@ class ProductImportTest < ActiveSupport::TestCase
 
     product = Product.last
     assert_equal "Deluxe, Comfy Stroller", product.name
-    assert_equal "BrandX", product.brand.name
     assert_equal "Stroller", product.productable_type
   end
 
+  test "should return with the count of new products added" do
+    Brand.create!(name: "BrandA")
+    Brand.create!(name: "BrandB")
+    create_product! name: "ignored_product_because_already_exists", fix_name: true
+
+    row1 = generate_csv_row(brand: "BrandA", type: "seat")
+    row2 = generate_csv_row(brand: "BrandB", type: "stroller")
+    row3 = generate_csv_row(brand: "maxicosi", type: "stroller", name: "ignored_product_because_already_exists")
+    file = prepare_test_file(@csv_headers + row1 + row2 + row3, "product_test")
+
+    result = Product.import(file)
+    assert_equal 2, result
+  end
   #  import_tags
 
   test "should import tags correctly" do
