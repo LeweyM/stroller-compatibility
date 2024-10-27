@@ -31,14 +31,17 @@ class Brand < ApplicationRecord
   end
 
   # @param [File] file
+  # @return [Integer]
   def self.import(file)
+    new_records = 0
     csv_raw = File.read(file.path)
     csv = CSV.parse(csv_raw, headers: true)
     csv.each do |row|
       brand = Brand.find_or_initialize_by(name: row['name'])
+      new_records += 1 if brand.new_record?
       brand.website = row['website']
       brand.save!
     end
-
+    new_records
   end
 end

@@ -243,6 +243,30 @@ class Admin::ProductsImportControllerTest < Admin::BaseControllerTest
     }
   end
 
+  class IntegrationTests < Admin::ProductsImportControllerTest
+
+    test "should import the new products, brands, tags and compatability data" do
+      files = [
+        file_fixture_upload("product.csv", "text/csv"),
+        file_fixture_upload("tags.csv", "text/csv"),
+        # order is important here as brands should always be processed first
+        file_fixture_upload("brands.csv", "text/csv"),
+      ]
+
+      assert_difference -> { Product.count } => 2,
+                        -> { Brand.count } => 1,
+                        -> { ProductsTag.count } => 1,
+                        -> { Tag.count } => 1 do
+      post import_admin_products_url, params: { files: files }, headers: http_login
+    end
+
+    assert_equal "1 Brand, 2 Products, 1 Tag imported successfully", flash[:notice]
+  end
+
+end
+
+class UnitTests < Admin::ProductsImportControllerTest
+
   test "should call Brand.import for files starting with 'brands'" do
     file = create_test_file(original_filename: "brands.csv")
     Brand.expects(:import).with(&file_matching(file))
@@ -296,4 +320,6 @@ class Admin::ProductsImportControllerTest < Admin::BaseControllerTest
     assert_response :unprocessable_entity
     assert_equal "Error importing products: Unknown filename 'some_invalid_filename.csv'. Filename must begin with one of product, matrix, compatible, tags, brands", flash[:error]
   end
+
+end
 end

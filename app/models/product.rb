@@ -100,22 +100,22 @@ class Product < ApplicationRecord
     product_adapters.exists?(adapter: adapter_product.productable)
   end
 
+  # @param [File] file
   def self.import(file)
     filename = file.original_filename
     raise "Invalid file type. Must be CSV." unless File.extname(filename).downcase == '.csv'
     #   delegate to private methods based on filename ending  case file
     start_of_filename = filename.split('_').first.downcase.chomp('.csv')
     case start_of_filename
-    when "product" then import_products(file)
-    when "matrix" then import_matrix(file)
-    when "compatible" then import_compatibility(file)
-    when "tags" then import_tags(file)
+    when "product" then import_products(file) || 0
+    when "matrix" then import_matrix(file) || 0
+    when "compatible" then import_compatibility(file) || 0
+    when "tags" then import_tags(file) || 0
     else
       allowed_import_file_endings = %w[product matrix compatible tags]
       raise "Unknown filename '#{filename}'. Filename must begin with one of #{allowed_import_file_endings.join(', ')}"
     end
   end
-
   def link!(adapter_product)
     validate_linkable(adapter_product)
 
@@ -314,10 +314,12 @@ class Product < ApplicationRecord
     count
   end
 
+  # @param [File] file  # @return [Integer] - Number of new tag records created
   def self.import_tags(file)
     csv_text = File.read(file)
     csv = CSV.parse(csv_text, headers: false)
     cols = csv.reduce(&:zip).map(&:flatten)
+    count = 0
     ActiveRecord::Base.transaction do
       cols.each do |col|
         brand_name = col[0]
@@ -331,6 +333,7 @@ class Product < ApplicationRecord
         tag = Tag.find_by(label: col)
         if tag.nil?
           tag = Tag.create!(label: tag_label, brand: brand)
+          count += 1
         end
         products.filter { |p| !p.nil? }.each do |product_name|
           product = Product.friendly.find_by(slug: product_name)
@@ -341,8 +344,8 @@ class Product < ApplicationRecord
         end
       end
     end
+    count
   end
-
   private_class_method :import_products
 
   def has_image?

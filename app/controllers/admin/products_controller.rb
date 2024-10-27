@@ -90,6 +90,16 @@ class Admin::ProductsController < Admin::BaseController
 
   def import
     files = params[:files].reject(&:blank?)
+    counts = {}
+
+    # sort files so brands is first
+    files = files.sort_by { |file|
+      case file.original_filename.split('_').first.downcase.chomp('.csv')
+      when 'brands' then 1
+      when 'products' then 2
+      else 3
+      end
+    }
 
     begin
       files.each { |file|
@@ -98,17 +108,17 @@ class Admin::ProductsController < Admin::BaseController
         #   delegate to private methods based on filename ending  case file
         start_of_filename = filename.split('_').first.downcase.chomp('.csv')
         case start_of_filename
-        when "product" then Product.import(file)
+        when "product" then counts[:products_added_count] = Product.import(file)
         when "matrix" then Product.import(file)
         when "compatible" then Product.import(file)
-        when "tags" then Product.import(file)
-        when "brands" then Brand.import(file)
+        when "tags" then counts[:tags_added_count] = Product.import(file)
+        when "brands" then counts[:brands_added_count] = Brand.import(file)
         else
           allowed_import_file_endings = %w[product matrix compatible tags brands]
           raise "Unknown filename '#{filename}'. Filename must begin with one of #{allowed_import_file_endings.join(', ')}"
         end
       }
-      redirect_to admin_products_path, notice: "Products imported successfully."
+      redirect_to admin_products_path, notice: import_success_message(counts)
     rescue StandardError => e
       flash[:error] = "Error importing products: #{e.message}"
       redirect_to admin_products_path, status: :unprocessable_entity
@@ -170,6 +180,29 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   private
+
+  # @param [Integer] count The count to format
+  # @param [String] singular_label The singular form of the label to use
+  # @return [String, nil] Returns a formatted string with count and label, or nil if count is nil
+  def format_count(count, singular_label)
+    singular_label = singular_label.singularize
+    if count.present? && count > 0
+      "#{count} #{count > 1 ? singular_label.pluralize : singular_label}"
+    else
+      nil
+    end
+  end
+
+  # @return [String]
+  # @param [Object] counts
+  def import_success_message(counts)
+    [
+      format_count(counts[:brands_added_count], "Brand"),
+      format_count(counts[:products_added_count], "Product"),
+      format_count(counts[:links_added_count], "Product Link"),
+      format_count(counts[:tags_added_count], "Tag"),
+    ].compact.join(", ") + " imported successfully"
+  end
 
   def product_params
     params.require(:product).permit(:name, :brand_id, :productable_type, :url, tag_ids: [])
