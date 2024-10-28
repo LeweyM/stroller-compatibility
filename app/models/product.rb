@@ -324,7 +324,7 @@ class Product < ApplicationRecord
       cols.each do |col|
         brand_name = col[0]
         tag_label = col[1]
-        products = col[2..]
+        products = col[2..].reject(&:blank?)
         brand = Brand.find_by(name: brand_name)
         if brand.nil?
           raise "Error: brand #{brand_name} not found"

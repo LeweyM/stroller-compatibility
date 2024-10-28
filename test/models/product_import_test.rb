@@ -147,7 +147,7 @@ class ProductImportTest < ActiveSupport::TestCase
   #  import_tags
 
   test "should import tags correctly" do
-    csv = %w[maxicosi,maxicosi tag1,tag2 oxford,cabriofix cabriofix].join("\n")
+    csv = %w["maxicosi","maxicosi" "tag1","tag2" "oxford","cabriofix" "cabriofix",""].join("\n")
     file = prepare_test_file(csv, "tags_test")
 
     Product.import_tags(file)
