@@ -100,22 +100,6 @@ class Product < ApplicationRecord
     product_adapters.exists?(adapter: adapter_product.productable)
   end
 
-  # @param [File] file
-  def self.import(file)
-    filename = file.original_filename
-    raise "Invalid file type. Must be CSV." unless File.extname(filename).downcase == '.csv'
-    #   delegate to private methods based on filename ending  case file
-    start_of_filename = filename.split('_').first.downcase.chomp('.csv')
-    case start_of_filename
-    when "product" then import_products(file) || 0
-    when "matrix" then import_matrix(file) || 0
-    when "compatible" then import_compatibility(file) || 0
-    when "tags" then Tag.import(file) || 0
-    else
-      allowed_import_file_endings = %w[product matrix compatible tags]
-      raise "Unknown filename '#{filename}'. Filename must begin with one of #{allowed_import_file_endings.join(', ')}"
-    end
-  end
   def link!(adapter_product)
     validate_linkable(adapter_product)
 
@@ -233,8 +217,6 @@ class Product < ApplicationRecord
     end
   end
 
-  private_class_method :import_compatibility
-
   # import a cvs data
   # format: first column is a list of strollers, except first cell
   # first row is a list of car seats, except first cell
@@ -266,8 +248,6 @@ class Product < ApplicationRecord
       end
     end
   end
-
-  private_class_method :import_matrix
 
   # this expects csv file where each row is a product
   # with the following columns:
@@ -317,7 +297,6 @@ class Product < ApplicationRecord
     end
     count
   end
-  private_class_method :import_products
 
 end
 

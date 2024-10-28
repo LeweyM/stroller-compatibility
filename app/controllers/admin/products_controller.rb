@@ -116,10 +116,10 @@ class Admin::ProductsController < Admin::BaseController
         #   delegate to private methods based on filename ending  case file
         start_of_filename = filename.split('_').first.downcase.chomp('.csv')
         case start_of_filename
-        when "product" then counts[:products_added_count] = Product.import(file)
-        when "matrix" then Product.import(file)
-        when "compatible" then Product.import(file)
-        when "tags" then counts[:tags_added_count] = Product.import(file)
+        when "product" then counts[:products_added_count] = Product.import_products(file)
+        when "matrix" then Product.import_matrix(file)
+        when "compatible" then Product.import_compatibility(file)
+        when "tags" then counts[:tags_added_count] = Tag.import(file)
         when "brands" then counts[:brands_added_count] = Brand.import(file)
         else
           allowed_import_file_endings = %w[product matrix compatible tags brands]
