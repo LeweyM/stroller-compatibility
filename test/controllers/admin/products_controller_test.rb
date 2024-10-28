@@ -358,7 +358,7 @@ class Admin::ProductsImportControllerTest < Admin::BaseControllerTest
       post import_admin_products_url, params: { files: [file] }, headers: http_login
 
       assert_response :unprocessable_entity
-      assert_equal "Error importing products: Unknown filename 'some_invalid_filename.csv'. Filename must begin with one of product, matrix, compatible, tags, brands", flash[:error]
+      assert_equal "Import Error: Unknown filename 'some_invalid_filename.csv'. Filename must begin with one of product, matrix, compatible, tags, brands", flash[:error]
     end
 
   end

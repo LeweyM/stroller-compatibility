@@ -129,7 +129,7 @@ class Admin::ProductsController < Admin::BaseController
       redirect_to admin_products_path, notice: import_success_message(counts)
     rescue StandardError => e
       flash[:error] = "Import Error: #{e.message}"
-      redirect_to admin_products_path, error: :unprocessable_entity
+      redirect_to admin_products_path, error: "Import Error: #{e.message}", status: :unprocessable_entity
     end
   end
 
