@@ -1,4 +1,5 @@
 require "test_helper"
+require_relative "./base_import_test"
 
 class BrandTest < ActiveSupport::TestCase
   # ordered_by_product_count_with_totals
@@ -22,39 +23,23 @@ class BrandTest < ActiveSupport::TestCase
   end
 
   # import
-
-  class BrandImportTest < ActiveSupport::TestCase
-
-    def setup_csv_file(csv_data)
-      file = Tempfile.new(['test', '.csv'])
-      file.write(csv_data)
-      file.rewind
-      file
-    end
-
-    def cleanup_file(file)
-      file.close
-      file.unlink
-    end
-
+  class BrandImportTest < Admin::BaseImportTest
     test "import should create new brands" do
-      csv_data = "name,website\nnewbrand,http://www.newbrand.com\nanotherbrand,http://www.anotherbrand.com"
-      file = setup_csv_file(csv_data)
+      csv_content = "name,website\nnewbrand,http://www.newbrand.com\nanotherbrand,http://www.anotherbrand.com"
+      file = prepare_test_file(csv_content, "brand_import")
 
       assert_difference 'Brand.count', 2 do
         Brand.import(file)
       end
-      cleanup_file(file)
     end
 
     test "import should ignore existing brands" do
-      csv_data = "name,website\nmaxicosi,http://www.maxicosi.com\nanotherbrand,http://www.anotherbrand.com"
-      file = setup_csv_file(csv_data)
+      csv_content = "name,website\nmaxicosi,http://www.maxicosi.com\nanotherbrand,http://www.anotherbrand.com"
+      file = prepare_test_file(csv_content, "brand_import")
 
       assert_difference 'Brand.count', 1 do
         Brand.import(file)
       end
-      cleanup_file(file)
     end
   end
 end

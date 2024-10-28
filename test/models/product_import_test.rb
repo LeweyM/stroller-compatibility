@@ -1,9 +1,36 @@
 require "test_helper"
+require_relative './base_import_test'
 
-class ProductImportTest < ActiveSupport::TestCase
-  setup do
-    @csv_headers = "type,brand,name,link,image_url\n"
+class ProductCompatabilityImportTest < Admin::BaseImportTest
+
+  test "should not raise errors when importing duplicate compatibility" do
+    # Create initial products and adapter
+    stroller = create_product!(type: Stroller, name: "TestStroller", fix_name: true)
+    seat = create_product!(type: Seat, name: "TestSeat", fix_name: true)
+    adapter = create_product!(type: Adapter, name: "TestAdapter", fix_name: true)
+
+    # Create initial CSV content
+    csv_content = "TestStroller\nTestSeat\nTestAdapter"
+    file = prepare_test_file(csv_content, "compatible_test")
+
+    # Import compatibility for the first time
+    assert_nothing_raised do
+      Product.import_compatibility(file)
+    end
+
+    # Try to import the same compatibility again
+    assert_nothing_raised do
+      Product.import_compatibility(file)
+    end
+
+    # Verify that the links still exist and weren't duplicated
+    assert_equal 1, stroller.product_adapters.where(adapter: adapter.productable).count
+    assert_equal 1, seat.product_adapters.where(adapter: adapter.productable).count
   end
+
+end
+
+class ProductImportTest < Admin::BaseImportTest
 
   def generate_csv_row(defaults = {})
     # Generate a unique name using a timestamp or a sequence number
@@ -25,11 +52,8 @@ class ProductImportTest < ActiveSupport::TestCase
     CSV.generate_line([defaults[:type], defaults[:brand], defaults[:name], defaults[:link], defaults[:image_url]], force_quotes: true)
   end
 
-  def prepare_test_file(content, filename)
-    temp_file = Tempfile.new([filename, '.csv'])
-    temp_file.write(content)
-    temp_file.rewind
-    Rack::Test::UploadedFile.new(temp_file, "text/csv", original_filename: filename + ".csv")
+  setup do
+    @csv_headers = "type,brand,name,link,image_url\n"
   end
 
   test "should import products from a CSV file with valid data" do
@@ -40,7 +64,7 @@ class ProductImportTest < ActiveSupport::TestCase
     ].join
     file = prepare_test_file(@csv_headers + csv, "product_test")
     assert_difference 'Product.count', 3 do
-      Product.import(file)
+      Product.import_products(file)
     end
   end
 
@@ -56,12 +80,12 @@ class ProductImportTest < ActiveSupport::TestCase
 
     # Import compatibility for the first time
     assert_nothing_raised do
-      Product.import(file)
+      Product.import_compatibility(file)
     end
 
     # Try to import the same compatibility again
     assert_nothing_raised do
-      Product.import(file)
+      Product.import_compatibility(file)
     end
 
     # Verify that the links still exist and weren't duplicated
@@ -73,7 +97,7 @@ class ProductImportTest < ActiveSupport::TestCase
     file = prepare_test_file(@csv_headers + generate_csv_row(type: "bad_type"), "product_test")
 
     assert_raises RuntimeError do
-      Product.import(file)
+      Product.import_products(file)
     end
   end
 
@@ -84,7 +108,7 @@ class ProductImportTest < ActiveSupport::TestCase
 
     assert_difference ['Brand.count', 'Product.count'], 0 do
       assert_raises RuntimeError do
-        Product.import(file)
+        Product.import_products(file)
       end
     end
   end
@@ -93,7 +117,7 @@ class ProductImportTest < ActiveSupport::TestCase
     brand = Brand.create!(name: "BrandA")
     row = generate_csv_row(brand: "BrandA", type: "seat")
     file = prepare_test_file(@csv_headers + row, "product_test")
-    Product.import(file)
+    Product.import_products(file)
     assert_equal brand, Product.last.brand
   end
 
@@ -101,7 +125,7 @@ class ProductImportTest < ActiveSupport::TestCase
     row = generate_csv_row(type: "seat")
     file = prepare_test_file(@csv_headers + row, "product_test")
 
-    Product.import(file)
+    Product.import_products(file)
     assert_not_nil Product.last.image
   end
 
@@ -109,7 +133,7 @@ class ProductImportTest < ActiveSupport::TestCase
     row = generate_csv_row(type: "seat", image_url: nil)
     file = prepare_test_file(@csv_headers + row, "product_test")
 
-    Product.import(file)
+    Product.import_products(file)
     assert_nil Product.last.image
   end
 
@@ -123,7 +147,7 @@ class ProductImportTest < ActiveSupport::TestCase
     file = prepare_test_file(csv_content, "product")
 
     assert_difference 'Product.count', 1 do
-      Product.import(file)
+      Product.import_products(file)
     end
 
     product = Product.last
@@ -141,7 +165,7 @@ class ProductImportTest < ActiveSupport::TestCase
     row3 = generate_csv_row(brand: "maxicosi", type: "stroller", name: "ignored_product_because_already_exists")
     file = prepare_test_file(@csv_headers + row1 + row2 + row3, "product_test")
 
-    result = Product.import(file)
+    result = Product.import_products(file)
     assert_equal 2, result
   end
 end

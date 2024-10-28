@@ -318,7 +318,7 @@ class Admin::ProductsImportControllerTest < Admin::BaseControllerTest
 
     test "should call Product.import for files starting with 'product'" do
       file = create_test_file(original_filename: "product.csv")
-      Product.expects(:import).with(&file_matching(file))
+      Product.expects(:import_products).with(&file_matching(file))
 
       post import_admin_products_url, params: { files: [file] }, headers: http_login
 
@@ -327,7 +327,7 @@ class Admin::ProductsImportControllerTest < Admin::BaseControllerTest
 
     test "should call Product.import for files starting with 'matrix'" do
       file = create_test_file(original_filename: "matrix.csv")
-      Product.expects(:import).with(&file_matching(file))
+      Product.expects(:import_matrix).with(&file_matching(file))
 
       post import_admin_products_url, params: { files: [file] }, headers: http_login
 
@@ -336,7 +336,7 @@ class Admin::ProductsImportControllerTest < Admin::BaseControllerTest
 
     test "should call Product.import for files starting with 'compatible'" do
       file = create_test_file original_filename: "compatible.csv"
-      Product.expects(:import).with(&file_matching(file))
+      Product.expects(:import_compatibility).with(&file_matching(file))
 
       post import_admin_products_url, params: { files: [file] }, headers: http_login
 
@@ -345,7 +345,7 @@ class Admin::ProductsImportControllerTest < Admin::BaseControllerTest
 
     test "should call Product.import for files starting with 'tags'" do
       file = create_test_file original_filename: "tags.csv"
-      Product.expects(:import).with(&file_matching(file))
+      Tag.expects(:import).with(&file_matching(file))
 
       post import_admin_products_url, params: { files: [file] }, headers: http_login
 

@@ -2,7 +2,6 @@ require "test_helper"
 
 class ProductExportImportTest < ActiveSupport::TestCase
 
-
   test "export and import should result in identical database state" do
     # todo: add into fixtures
     products(:oxford).link! products(:"maxicosi infant adapter")
@@ -30,9 +29,9 @@ class ProductExportImportTest < ActiveSupport::TestCase
     Tag.destroy_all
 
     # 4. Run imports on the exported files
-    Product.import(prepare_test_file(products_csv, "product_export"))
-    Product.import(prepare_test_file(compatibilities_csv, "compatible_export"))
-    Product.import(prepare_test_file(tags_csv, "tags_export"))
+    Product.import_products(prepare_test_file(products_csv, "product_export"))
+    Product.import_compatibility(prepare_test_file(compatibilities_csv, "compatible_export"))
+    Tag.import(prepare_test_file(tags_csv, "tags_export"))
 
     # 5. Check that nothing has changed
     assert_products_are_unchanged(initial_products)

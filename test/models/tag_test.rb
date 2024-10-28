@@ -1,4 +1,5 @@
 require "test_helper"
+require_relative './base_import_test'
 
 class TagTest < ActiveSupport::TestCase
   test "should get all products for a tag" do
@@ -7,34 +8,7 @@ class TagTest < ActiveSupport::TestCase
     assert_equal [products(:oxford), products(:cabriofix), products(:'maxicosi infant adapter')].sort, infant_tag.products.sort
   end
 
-  class TagImportTest < TagTest
-
-    def generate_csv_row(defaults = {})
-      # Generate a unique name using a timestamp or a sequence number
-      unique_suffix = Time.now.to_i.to_s + rand(1000).to_s
-
-      # Define default values for each column, ensuring 'name' is always unique
-      defaults = {
-        type: "seat",
-        brand: "maxicosi",
-        name: "defaultName_#{unique_suffix}",
-        link: "http://example.com/default",
-        image_url: "http://example.com/default.jpg"
-      }.merge(defaults)
-
-      # Override the name specifically if provided
-      defaults[:name] = "#{defaults[:name]}_#{unique_suffix}" unless defaults.key?(:name)
-
-      # Create a CSV row string
-      CSV.generate_line([defaults[:type], defaults[:brand], defaults[:name], defaults[:link], defaults[:image_url]], force_quotes: true)
-    end
-
-    def prepare_test_file(content, filename)
-      temp_file = Tempfile.new([filename, '.csv'])
-      temp_file.write(content)
-      temp_file.rewind
-      Rack::Test::UploadedFile.new(temp_file, "text/csv", original_filename: filename + ".csv")
-    end
+  class TagImportTest < Admin::BaseImportTest
 
     test "should import tags correctly" do
       csv = %w["maxicosi","maxicosi" "tag1","tag2" "oxford","cabriofix" "cabriofix",""].join("\n")
