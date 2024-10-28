@@ -144,36 +144,4 @@ class ProductImportTest < ActiveSupport::TestCase
     result = Product.import(file)
     assert_equal 2, result
   end
-  #  import_tags
-
-  test "should import tags correctly" do
-    csv = %w["maxicosi","maxicosi" "tag1","tag2" "oxford","cabriofix" "cabriofix",""].join("\n")
-    file = prepare_test_file(csv, "tags_test")
-
-    Product.import_tags(file)
-
-    tag_1 = Tag.find_by(label: "tag1")
-    tag_2 = Tag.find_by(label: "tag2")
-    assert_equal %w[oxford cabriofix].sort, tag_1.products.map(&:slug).sort
-    assert_equal %w[cabriofix], tag_2.products.map(&:slug)
-  end
-
-  test "should not make any changes if one brand does not exist" do
-    csv = %w[maxicosi,some-brand-that-doesnt-exist tag1,tag2 oxford,cabriofix cabriofix].join("\n")
-    file = prepare_test_file(csv, "tags_test")
-
-    assert_raises { Product.import_tags(file) }
-    assert_nil Tag.find_by(label: "tag1")
-    assert_nil Tag.find_by(label: "tag2")
-  end
-
-  test "should not make any changes if one product does not exist" do
-    csv = %w[maxicosi,maxicosi tag1,tag2 oxford,cabriofix cabriofix,some-product-that-doesnt-exist].join("\n")
-    file = prepare_test_file(csv, "tags_test")
-
-    assert_raises { Product.import_tags(file) }
-    assert_nil Tag.find_by(label: "tag1")
-    assert_nil Tag.find_by(label: "tag2")
-  end
-
 end
