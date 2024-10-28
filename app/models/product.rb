@@ -144,6 +144,10 @@ class Product < ApplicationRecord
     end
   end
 
+  def has_image?
+    image.present?
+  end
+
   private
 
   def validate_linkable(other_product)
@@ -348,8 +352,5 @@ class Product < ApplicationRecord
   end
   private_class_method :import_products
 
-  def has_image?
-    image.present?
-  end
 end
 

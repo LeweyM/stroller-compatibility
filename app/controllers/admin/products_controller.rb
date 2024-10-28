@@ -38,6 +38,14 @@ class Admin::ProductsController < Admin::BaseController
                   end
     @product.productable = productable
     @product.brand = Brand.find(params[:product][:brand])
+
+    # Create image if image_url is present
+    if params[:image_url].present?
+      @product.build_image(
+        url: params[:image_url]
+      )
+    end
+
     if @product.save
       redirect_to edit_admin_product_path(@product), notice: "Product was successfully created."
       return
@@ -120,9 +128,8 @@ class Admin::ProductsController < Admin::BaseController
       }
       redirect_to admin_products_path, notice: import_success_message(counts)
     rescue StandardError => e
-      flash[:error] = "Error importing products: #{e.message}"
-      redirect_to admin_products_path, status: :unprocessable_entity
-
+      flash[:error] = "Import Error: #{e.message}"
+      redirect_to admin_products_path, error: :unprocessable_entity
     end
   end
 
@@ -147,7 +154,7 @@ class Admin::ProductsController < Admin::BaseController
     compressed_filestream = Zip::OutputStream.write_buffer do |zos|
       zos.put_next_entry("product_export_#{Date.today}.csv")
       zos.write products_csv
-      zos.put_next_entry("compatibility_export_#{Date.today}.csv")
+      zos.put_next_entry("compatible_export_#{Date.today}.csv")
       zos.write compatibility_csv
       zos.put_next_entry("tags_export_#{Date.today}.csv")
       zos.write tags_csv

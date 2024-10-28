@@ -11,6 +11,46 @@ class Admin::ProductsControllerTest < Admin::BaseControllerTest
     get edit_admin_product_url(:oxford), headers: http_login
     assert_response :success
   end
+
+  test "should create a new product without image" do
+    assert_difference('Product.count') do
+      brand = brands(:maxicosi)
+      post admin_products_url, params: {
+        product: {
+          name: 'Test Seat',
+          brand: brand.id,
+          productable_type: 'Seat',
+          url: "www.somewebsite.com",
+        }
+      },
+           headers: http_login
+    end
+
+    last_product = Product.last
+    assert_redirected_to edit_admin_product_path(last_product)
+    assert_not last_product.has_image?
+    assert_equal 'Product was successfully created.', flash[:notice]
+  end
+
+  test "should create a new product with image" do
+    brand = brands(:maxicosi)
+    assert_difference('Product.count') do
+      post admin_products_url, params: {
+        product: {
+          name: 'Test Seat',
+          brand: brand.id,
+          productable_type: 'Seat',
+          url: "www.somewebsite.com",
+        }, image_url: "www.somewebsite.com/image"
+      },
+           headers: http_login
+    end
+
+    last_product = Product.last
+    assert_redirected_to edit_admin_product_path(last_product)
+    assert last_product.has_image?
+    assert_equal 'Product was successfully created.', flash[:notice]
+  end
 end
 
 class Admin::ProductsControllerIndexTest < Admin::BaseControllerTest
@@ -257,69 +297,69 @@ class Admin::ProductsImportControllerTest < Admin::BaseControllerTest
                         -> { Brand.count } => 1,
                         -> { ProductsTag.count } => 1,
                         -> { Tag.count } => 1 do
-      post import_admin_products_url, params: { files: files }, headers: http_login
+        post import_admin_products_url, params: { files: files }, headers: http_login
+      end
+
+      assert_equal "1 Brand, 2 Products, 1 Tag imported successfully", flash[:notice]
     end
 
-    assert_equal "1 Brand, 2 Products, 1 Tag imported successfully", flash[:notice]
   end
 
-end
+  class UnitTests < Admin::ProductsImportControllerTest
 
-class UnitTests < Admin::ProductsImportControllerTest
+    test "should call Brand.import for files starting with 'brands'" do
+      file = create_test_file(original_filename: "brands.csv")
+      Brand.expects(:import).with(&file_matching(file))
 
-  test "should call Brand.import for files starting with 'brands'" do
-    file = create_test_file(original_filename: "brands.csv")
-    Brand.expects(:import).with(&file_matching(file))
+      post import_admin_products_url, params: { files: [file] }, headers: http_login
 
-    post import_admin_products_url, params: { files: [file] }, headers: http_login
+      assert_response :found
+    end
 
-    assert_response :found
+    test "should call Product.import for files starting with 'product'" do
+      file = create_test_file(original_filename: "product.csv")
+      Product.expects(:import).with(&file_matching(file))
+
+      post import_admin_products_url, params: { files: [file] }, headers: http_login
+
+      assert_response :found
+    end
+
+    test "should call Product.import for files starting with 'matrix'" do
+      file = create_test_file(original_filename: "matrix.csv")
+      Product.expects(:import).with(&file_matching(file))
+
+      post import_admin_products_url, params: { files: [file] }, headers: http_login
+
+      assert_response :found
+    end
+
+    test "should call Product.import for files starting with 'compatible'" do
+      file = create_test_file original_filename: "compatible.csv"
+      Product.expects(:import).with(&file_matching(file))
+
+      post import_admin_products_url, params: { files: [file] }, headers: http_login
+
+      assert_response :found
+    end
+
+    test "should call Product.import for files starting with 'tags'" do
+      file = create_test_file original_filename: "tags.csv"
+      Product.expects(:import).with(&file_matching(file))
+
+      post import_admin_products_url, params: { files: [file] }, headers: http_login
+
+      assert_response :found
+    end
+
+    test "should reject files with invalid names" do
+      file = create_test_file original_filename: "some_invalid_filename.csv"
+
+      post import_admin_products_url, params: { files: [file] }, headers: http_login
+
+      assert_response :unprocessable_entity
+      assert_equal "Error importing products: Unknown filename 'some_invalid_filename.csv'. Filename must begin with one of product, matrix, compatible, tags, brands", flash[:error]
+    end
+
   end
-
-  test "should call Product.import for files starting with 'product'" do
-    file = create_test_file(original_filename: "product.csv")
-    Product.expects(:import).with(&file_matching(file))
-
-    post import_admin_products_url, params: { files: [file] }, headers: http_login
-
-    assert_response :found
-  end
-
-  test "should call Product.import for files starting with 'matrix'" do
-    file = create_test_file(original_filename: "matrix.csv")
-    Product.expects(:import).with(&file_matching(file))
-
-    post import_admin_products_url, params: { files: [file] }, headers: http_login
-
-    assert_response :found
-  end
-
-  test "should call Product.import for files starting with 'compatible'" do
-    file = create_test_file original_filename: "compatible.csv"
-    Product.expects(:import).with(&file_matching(file))
-
-    post import_admin_products_url, params: { files: [file] }, headers: http_login
-
-    assert_response :found
-  end
-
-  test "should call Product.import for files starting with 'tags'" do
-    file = create_test_file original_filename: "tags.csv"
-    Product.expects(:import).with(&file_matching(file))
-
-    post import_admin_products_url, params: { files: [file] }, headers: http_login
-
-    assert_response :found
-  end
-
-  test "should reject files with invalid names" do
-    file = create_test_file original_filename: "some_invalid_filename.csv"
-
-    post import_admin_products_url, params: { files: [file] }, headers: http_login
-
-    assert_response :unprocessable_entity
-    assert_equal "Error importing products: Unknown filename 'some_invalid_filename.csv'. Filename must begin with one of product, matrix, compatible, tags, brands", flash[:error]
-  end
-
-end
 end
