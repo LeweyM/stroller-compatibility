@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
                   .offset(offset)
                   .limit(page_size)
                   .select('products.slug, products.name, brands.name AS brand_name')
-                  .order('products.slug ASC')
+                  .order('brands.name ASC, products.slug ASC')
                   .map { |product| { slug: product.slug, name: product.name, brand: product.brand_name } }
     render json: result
   end
