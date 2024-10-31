@@ -17,7 +17,7 @@ stop-local-db:
 reset-local-db: teardown-local-db setup-local-db
 
 # Run development environment targeting local database
-local:
+local: start-local-db
 	@echo "Starting development environment targeting local database..."
 	@bin/dev
 
