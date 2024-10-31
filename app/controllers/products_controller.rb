@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def search
+    page_size = 15
     query = Product.where("products.name ILIKE (?) OR brands.name ILIKE (?)", "%#{params[:search_term]}%", "%#{params[:search_term]}%")
     # optional type query param, can be a string or an array
     if params[:type].present?
@@ -17,8 +18,11 @@ class ProductsController < ApplicationController
     if params[:exclude_names].present?
       query = query.where.not(name: params[:exclude_names])
     end
+    offset = params[:page].present? ? params[:page].to_i * page_size : 0
+
     result = query.joins(:brand)
-                  .limit(15)
+                  .offset(offset)
+                  .limit(page_size)
                   .select('products.slug, products.name, brands.name AS brand_name')
                   .order('products.slug ASC')
                   .map { |product| { slug: product.slug, name: product.name, brand: product.brand_name } }
